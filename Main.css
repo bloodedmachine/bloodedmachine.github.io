@@ -5,10 +5,16 @@
 }
 
 table {
+	padding: 0px;
+	border-style: solid;
+	border-width: 0px;
 	margin: 0px;
-	background-color:white
+	background-color: white;
+	table-layout: auto;
 }
-
 body {
-	background-color:white
+	padding: 0px;
+	margin: 0px;
+	background-color: black;
+	border-spacing: 0px;
 }
