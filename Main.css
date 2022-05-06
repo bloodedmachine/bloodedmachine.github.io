@@ -18,3 +18,7 @@ body {
 	background-color: white;
 	border-spacing: 0px;
 }
+
+img {
+	object-fit: contain;
+}
