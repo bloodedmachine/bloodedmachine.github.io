@@ -93,6 +93,13 @@ h1{
 	font-size: 26px;
 }
 
+h2{
+	color: white;
+	font-family: 'IBM Plex Mono', monospace;
+	font-size: 20px;
+	margin:20px
+}
+
 
 </style>
 
@@ -100,6 +107,18 @@ h1{
 
 
 <body onload="move()">
+
+	<h2><p><span id="datetime"></span></p></h2>
+
+	<script>
+	  setInterval(function(){ 
+		var dt = new Date();
+	  document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
+	   
+	}, 1);
+	
+	</script>
+	
 
 <div class="center">
  <div class="wrapper">
