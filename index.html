@@ -100,6 +100,46 @@ h2{
 	margin:20px
 }
 
+form {
+        background-color: #FFFFFF;
+        width: 100%;
+        height: 30px;
+        display:flex;
+        flex-direction:row;
+        align-items:left;
+        color: white;
+        text-align:left
+      }
+
+      input {
+        all: unset;
+        font: 20px system-ui;
+        color: #000000;
+        height: 100%;
+        width: 100%;
+        padding: 6px 10px;
+        text-align:left
+      }
+
+      ::placeholder {
+        color: #000000;
+        opacity: 0.7; 
+      }
+
+      svg {
+        color: #000000;
+        fill: currentColor;
+        width: 24px;
+        height: 24px;
+        padding: 10px;
+      }
+
+      button2 {
+        all: unset;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+      }
 
 </style>
 
@@ -128,6 +168,12 @@ h2{
  </div><br><br>
   <div id="myProgress">
    <div id="myBar">
+	<form  id="form">
+		<input  placeholder="Search..." >
+		<button2>
+		  <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
+		</button2>
+	  </form>  
    </div>
   </div>
  <div class="wrapper"><a href="bloodedmachine.github.io"><button class="btn success">Observe</button></a><a href="https://www.instagram.com/bloodedmachine/"><h2><button class="btn success">Instagram</button></h2></a>
