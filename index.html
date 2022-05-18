@@ -54,9 +54,9 @@ justify-content: center;
 }
 
 .center {
-	margin:0;
+	margin:0px;
 	width: 100%;
-	text-align:center;
+	text-align:justify;
 	top: 50%;
 	position: absolute;
 	-ms-transform: translateY(-50%);
@@ -142,15 +142,26 @@ form {
         width: 44px;
         height: 44px;
       }
+      
+.header {
+  background-color: #000000;
+  padding: 20px 10px;
+}
+
+.header a.logo {
+    height: 100%;
+}
+
+  .header-right {
+    color:white;
+}
 
 </style>
 
 <title>Mechanical Incision</title>
 
-
+	
 <body onload="move()">
-
-	<h2><p><span id="datetime"></span></p></h2>
 
 	<script>
 	  setInterval(function(){ 
@@ -160,7 +171,16 @@ form {
 	}, 1);
 	
 	</script>
-	
+
+
+<div class="header">
+  <a href="#default" class="logo"></a>
+    <img alt="logo" height="100%" src="machinelogo.png" width="30%"><div class="header-right">
+    
+    <a><h2><p><span id="datetime"></span></p></h2>
+</a>
+  </div>
+</div>
 
 <div class="center">
  <div class="wrapper">
