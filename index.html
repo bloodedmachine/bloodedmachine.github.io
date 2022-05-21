@@ -3,6 +3,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap" rel="stylesheet">
+
 <style>
 #myProgress {
   width: 85%;
@@ -28,21 +29,28 @@ justify-content: center;
 
 }
 
+.wrapperheader {
+display: flex;
+align-items: left;
+justify-content: left;
+margin: 20px;
+}
+
+
 .typewriter h1 {
-  width: 100%;
+  width: 100%; 
   color: #FFFFFF;
   font-family: 'IBM Plex Mono', monospace;
   overflow: hidden; 
   border-right: .15em solid black; 
-  white-space: nowrap; 
-  margin: 0 auto; 
-  letter-spacing: 0em; 
-  animation: typing 2.4s steps(40, end), blink-caret 1s step-end infinite;       
-}
-
+  white-space:nowrap; 
+  font-size: 20px;
+  margin: 0; 
+  animation: typing 2.4s steps(40, end), blink-caret 1s step-end infinite;
+ }
 
 @keyframes typing {
-  from { width: 0 }
+  from { width: 0px}
   to { width: 100% }
 }
 
@@ -175,20 +183,18 @@ form {
 
 <div class="header">
   <a href="#default" class="logo"></a>
-    <img alt="logo" style="margin:20px" height="100%" src="machinelogo.png" width="30%"><div class="header-right">
-    
+    <img alt="logo" style="margin:23px 23px 0px 23px" height="100%" src="machinelogo.png" width="30%"><div class="header-right">
+    <div class="wrapperheader"><div class="typewriter">
+  <h1>We are not who we always will be...</h1>
+  </div></div>
+
     <a><h2><p><span id="datetime"></span></p></h2>
 </a>
   </div>
 </div>
 
 <div class="center">
- <div class="wrapper">
-  <div class="typewriter">
-  <h1>We are not who we always will be...</h1>
-  </div>
- </div><br><br>
-  <div id="myProgress">
+  <!--<div id="myProgress">
    <div id="myBar">
 	<form  id="form">
 		<input  placeholder="Coming soon..." >
@@ -198,7 +204,7 @@ form {
 	  </form>  
    </div>
   </div>
- <div class="wrapper"><a href="bloodedmachine.github.io"><button class="btn success">Observe</button></a><a href="https://www.instagram.com/bloodedmachine/"><h2><button class="btn success">Instagram</button></h2></a>
+--> <div class="wrapper"><a href="bloodedmachine.github.io"><button class="btn success">Observe</button></a><a href="https://www.instagram.com/bloodedmachine/"><h2><button class="btn success">Instagram</button></h2></a>
  </div>
 </div>
 
