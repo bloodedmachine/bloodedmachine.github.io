@@ -32,3 +32,16 @@ body {
 
 }
 
+.anc {
+
+	padding:10px;
+	text-align:center;
+	border-bottom-color:#121212;
+	border-bottom-width:0.5px;
+	border-bottom-style:solid;
+	font-weight:500;
+	font-size:14px;
+	
+	}
+
+
