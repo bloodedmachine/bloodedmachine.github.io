@@ -76,7 +76,7 @@ p, a {font-weight: 400;}
 
 
 #index_banner .carousel-item {
-  min-height: 50vh;
+  min-height: 30vh;
   color:white;
 }
 #index_banner .carousel-control-prev i,
@@ -86,9 +86,9 @@ p, a {font-weight: 400;}
   font-size: 4em;
 }
 #index_banner .carousel-inner {
-  height: 50vh;
+  height: 30vh;
   text-align: center;
-  margin-top:50px;
+  margin-top:350px;
   
 }
 #index_banner .carousel-indicators li,
