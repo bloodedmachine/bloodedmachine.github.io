@@ -64,7 +64,7 @@ p, a {font-weight: 400;}
  @media (max-width: 700px) {
 
       #index_banner {
-            min-height: 10vh;
+            min-height: 40vh;
             background-image: url('./../img/banner-bg-01.jpg');
   background-position: center center; background-size: cover;
   height: 60%;
