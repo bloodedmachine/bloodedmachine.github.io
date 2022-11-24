@@ -57,6 +57,8 @@ p, a {font-weight: 400;}
   min-height: 70vh;
   color:white;
   width: 100%;
+  text-align:center;
+
 }
 
  @media (max-width: 700px) {
