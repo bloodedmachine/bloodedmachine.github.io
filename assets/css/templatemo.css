@@ -88,7 +88,7 @@ p, a {font-weight: 400;}
 #index_banner .carousel-inner {
   height: 30vh;
   text-align: center;
-  margin-top:35px;
+  margin-top:0px;
   
 }
 #index_banner .carousel-indicators li,
