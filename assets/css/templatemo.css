@@ -86,14 +86,14 @@ p, a {font-weight: 400;}
   font-size: 4em;
 }
 #index_banner .carousel-inner {
-  height: 40vh;
+  height: 30vh;
   text-align: center;
   margin-top:30px;
 	
 	 @media (max-width: 700px) {
 
       #index_banner .carousel-inner {
-  height: 40vh;
+  height: 30vh;
   text-align: center;
   margin-top:0px;
 
