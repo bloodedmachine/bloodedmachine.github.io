@@ -64,7 +64,7 @@ p, a {font-weight: 400;}
  @media (max-width: 700px) {
 
       #index_banner {
-            min-height: 50vh;
+            min-height: 60vh;
             background-image: url('./../img/banner-bg-01.jpg');
   background-position: center center; background-size: cover;
   height: 60%;
@@ -76,7 +76,7 @@ p, a {font-weight: 400;}
 
 
 #index_banner .carousel-item {
-  min-height: 40vh;
+  min-height: 60vh;
   color:white;
 }
 #index_banner .carousel-control-prev i,
@@ -86,14 +86,14 @@ p, a {font-weight: 400;}
   font-size: 4em;
 }
 #index_banner .carousel-inner {
-  height: 30vh;
+  height: 60vh;
   text-align: center;
   margin-top:30px;
 	
 	 @media (max-width: 700px) {
 
       #index_banner .carousel-inner {
-  height: 30vh;
+  height: 60vh;
   text-align: center;
   margin-top:-90px;
 
