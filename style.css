@@ -14,14 +14,14 @@ body {background-color:#000;}
 
 p {
 
-color: cornsilk;
+color: white;
 font-family: 'Font';
 text-align: center
 
 }
 
 h1 {
-    color: cornsilk;
+    color: white;
     font-size: 50;
 
     text-align: center;
@@ -34,7 +34,7 @@ h1 {
 
 .button {
     font-family: 'Font';
-    background-color:  cornsilk;
+    background-color:  white;
     border: none;
     color: black;
     padding: 15px 32px;
