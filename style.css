@@ -58,20 +58,13 @@ h1 {
 
     @font-face {
         font-family: Font;
-        src: url(Utah Condensed Bold.ttf);
+        src: url(UtahCondensedBold.ttf);
       }
 
 
 
-@font-face {
-    font-family: 'MyWebFont';
-    src: src('webfont.eot');
-    }
 
-    @font-face {
-        font-family: 'testfont';
-        src: url('U:\jv script\Lostar.ttf');
-    }
+
 
 
 
