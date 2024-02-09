@@ -1,122 +1,137 @@
-body {background-color:#000;}
+<html>
 
-select {
-    box-decoration-break: unset;
-    box-shadow: none !important;
-    align-self: center;
-    font-family: 'Font';
-    background-color:  rgba(255,255,255,0);
-    border: none;
-    color: white;
-    padding: 15px 150px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-  select:focus {
-    outline: none;
-}
+<body id="body" onclick="Click() ; AllNames() ">
 
-option {
-    font-family: 'Font';
-    background-color:  white;
-    border: none;
-    color: black;
-    padding: 15px 150px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+    <div class="center">
 
+        <div class="center1">
 
-.center {
-    text-align: center
-    border: 0px solid;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0px;
-  }
+            <select id="ChooseClass" class="">
+                <option disabled selected>Choose a class</option>
+                <option >Year 13</option>
+                <option>Year 12</option>
+            </select>
 
-  .center1 {
-    text-align: center
-    border: 0px solid;
-    position: absolute;
-    top: -5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0px;
-  } 
+        </div>
 
-p {
+        <h1 id="Student Name" style="color: white;">CLICK TO START</h1>
+        <br><br>
+        <p id="text">Click anywhere</p>
 
-color: white;
-font-family: 'Font';
-text-align: center
+    </div>
 
-}
+    <script>
 
-h1 {
-    color: white;
-    font-size: 50;
+       var ChooseClassValue = "Choose a class";
+        
 
-    text-align: center;
-    font-family: 'Font';
+     students = ["", "", "", ""];
 
 
-}
+        let dropdownList = document.getElementById('ChooseClass');
+        dropdownList.onchange = (ev) => {
+            ChooseClassValue = dropdownList.value;
+        }
+
+        function ChooseClassFunction() {
+
+            if (ChooseClassValue == "Year 13") {
+
+                students = ["Michael", "Gui", "Sofia", "CheckDigit"];
+
+               
+
+            } else {
+
+                if (ChooseClassValue == "Choose a class") {
+
+                    students = ["Choose a class","Choose a class","Choose a class"];
+                    
+                } else {
+
+                    students = ["Tom", "Diana", "Sofia", "CheckDigit"];
+                    
+                }
+
+                
+
+                
+
+            }
+
+        }
+
+        
+        studentsdisplayed = [false, false, false, false]
+        var Student = "Student"
+        document.getElementById("Student Name").innerHTML = STUDENT;
+
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function Random() {
+            const rndInt = randomIntFromInterval(0, 2)
+            document.getElementById("text").innerHTML = "Click anywhere";
+
+            if (studentsdisplayed[rndInt] == false) {
+                Student = students[rndInt];
+                studentsdisplayed[rndInt] = true;
+                document.getElementById("Student Name").innerHTML = Student;
+            } else {
+                Random()
+            }
+        }
+
+        function Click() {
+
+            ChooseClassFunction()
 
 
+            if (studentsdisplayed.toString() == "true,true,true,true") {
 
-.button {
-    font-family: 'Font';
-    background-color:  white;
-    border: none;
-    color: black;
-    padding: 15px 150px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+                document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
 
+                document.getElementById("text").innerHTML = "All names have been used";
 
+                studentsdisplayed = [false, false, false, false]
 
-.container{  
-    text-align: center;  
-    border: 7px solid red;  
-    width: 300px;  
-    height: 200px;  
-    padding-top: 100px;  
-    }  
+                if (document.getElementById("Student Name").style.color == "white") {
+                    document.getElementById("Student Name").style.color = "black";
+                    document.getElementById("text").style.color = "black";
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("ChooseClass").style.color = "white";
+                    document.getElementById("ChooseClass").style.backgroundColor = "black";
+                } else {
+                    document.getElementById("Student Name").style.color = "white";
+                    document.getElementById("text").style.color = "white";
+                    document.body.style.backgroundColor = "black";
+                    document.getElementById("ChooseClass").style.color = "black";
+                    document.getElementById("ChooseClass").style.backgroundColor = "white";
+                }
 
+            } else {
+                Random()
+            }
 
+        }
 
-    @font-face {
-        font-family: Font;
-        src: url(UtahCondensedBold.ttf);
-      }
+        function AllNames() {
 
-
-
-
+            if (studentsdisplayed.toString() == "true,true,true,false") {
 
 
+                studentsdisplayed[3] = true;
 
 
+            }
+        }
 
+    </script>
+</body>
 
-
-
-div#content
-{
-width:85%;
-height:500px;
-color: #FFF
-background-color: #000;
-margin:auto;
-}
+</html>
