@@ -1,10 +1,9 @@
 <html>
-
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="body" onclick="Random() ; AllNames()">
+<body id="body" onclick="Click() ; AllNames()">
 
     <div class="center">
         <h1 id="Student Name" style="color: white;">STUDENT</h1>
@@ -13,84 +12,67 @@
 
     <script>
 
-        const students = ["GUI", "SOFIA", "MICHAEL", "CLICK TO RESTART"];
-        var studentsdisplayed = [false, false, false, false];
+    const students = ["GUI", "SOFIA", "MICHAEL", "CLICK TO RESTART"];
+    var studentsdisplayed = [false, false, false, false];
 
-        var Student = "Student"
-        document.getElementById("Student Name").innerHTML = STUDENT;
+    var Student = "Student"
+    document.getElementById("Student Name").innerHTML = STUDENT;
 
-        function randomIntFromInterval(min, max) { // min and max included 
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
 
-
-
-        function Random() {
-
-
-
+    function Random() {
             const rndInt = randomIntFromInterval(0, 2)
-
             document.getElementById("text").innerHTML = "Click anywhere";
 
-
-
-
             if (studentsdisplayed[rndInt] == false) {
-
-
-
-                //alert(students[rndInt] + " this name hasnt been used")
                 Student = students[rndInt];
                 studentsdisplayed[rndInt] = true;
                 document.getElementById("Student Name").innerHTML = Student;
-
             } else {
-
                 Random()
-
             }
         }
 
-        function AllNames() {
+    function Click() {
 
+        if (studentsdisplayed.toString() == "true,true,true,true") {
 
+            document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
 
-            if (studentsdisplayed.toString() == "true,true,true,false") {
-
-                document.getElementById("text").innerHTML = "All names have been used";
+            document.getElementById("text").innerHTML = "All names have been used";
 
                 studentsdisplayed = [false, false, false, false]
 
-
                 if (document.getElementById("Student Name").style.color == "white") {
                     document.getElementById("Student Name").style.color = "black";
-                document.getElementById("text").style.color = "black";
-                document.body.style.backgroundColor = "white";
+                    document.getElementById("text").style.color = "black";
+                    document.body.style.backgroundColor = "white";
                 } else {
-
                     document.getElementById("Student Name").style.color = "white";
-                document.getElementById("text").style.color = "white";
-                document.body.style.backgroundColor = "black";
-                    
+                    document.getElementById("text").style.color = "white";
+                    document.body.style.backgroundColor = "black";
                 }
+        
+    } else {
+        Random()        
+    }
+        
+    }
 
+        function AllNames() {
 
+            if (studentsdisplayed.toString() == "true,true,true,false") {
 
-
-
-
-
+           
+                studentsdisplayed[3] = true;
+                  
 
             }
-
         }
 
-
-
-
     </script>
-
 </body>
 
 </html>
