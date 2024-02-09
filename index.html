@@ -10,7 +10,7 @@
 
         <div class="center1">
 
-            <select id="ChooseClass">
+            <select id="ChooseClass" class="">
                 <option disabled selected>Choose a class</option>
                 <option >Year 13</option>
                 <option>Year 12</option>
@@ -19,6 +19,7 @@
         </div>
 
         <h1 id="Student Name" style="color: white;">CLICK TO START</h1>
+        <br><br>
         <p id="text">Click anywhere</p>
 
     </div>
@@ -103,10 +104,14 @@
                     document.getElementById("Student Name").style.color = "black";
                     document.getElementById("text").style.color = "black";
                     document.body.style.backgroundColor = "white";
+                    document.getElementById("ChooseClass").style.color = "white";
+                    document.getElementById("ChooseClass").style.backgroundColor = "black";
                 } else {
                     document.getElementById("Student Name").style.color = "white";
                     document.getElementById("text").style.color = "white";
                     document.body.style.backgroundColor = "black";
+                    document.getElementById("ChooseClass").style.color = "black";
+                    document.getElementById("ChooseClass").style.backgroundColor = "white";
                 }
 
             } else {
