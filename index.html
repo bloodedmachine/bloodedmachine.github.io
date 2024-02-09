@@ -1,28 +1,79 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="body" onclick="Click() ; AllNames()">
+<body id="body" onclick="Click() ; AllNames() ">
 
     <div class="center">
+
+        <div class="center1">
+
+            <select id="ChooseClass">
+                <option disabled selected>Choose a class</option>
+                <option >Year 13</option>
+                <option>Year 12</option>
+            </select>
+
+        </div>
+
         <h1 id="Student Name" style="color: white;">CLICK TO START</h1>
         <p id="text">Click anywhere</p>
+
     </div>
 
     <script>
 
-    const students = ["GUI", "SOFIA", "MICHAEL", "CLICK TO RESTART"];
-    var studentsdisplayed = [false, false, false, false];
+       var ChooseClassValue = "Choose a class";
+        
 
-    var Student = "Student"
-    document.getElementById("Student Name").innerHTML = STUDENT;
+     students = ["", "", "", ""];
 
-    function randomIntFromInterval(min, max) { // min and max included 
-        return Math.floor(Math.random() * (max - min + 1) + min)
-    }
 
-    function Random() {
+        let dropdownList = document.getElementById('ChooseClass');
+        dropdownList.onchange = (ev) => {
+            ChooseClassValue = dropdownList.value;
+        }
+
+        function ChooseClassFunction() {
+
+            if (ChooseClassValue == "Year 13") {
+
+                students = ["Michael", "Gui", "Sofia", "CheckDigit"];
+
+               
+
+            } else {
+
+                if (ChooseClassValue == "Choose a class") {
+
+                    students = ["Choose a class","Choose a class","Choose a class"];
+                    
+                } else {
+
+                    students = ["Tom", "Diana", "Sofia", "CheckDigit"];
+                    
+                }
+
+                
+
+                
+
+            }
+
+        }
+
+        
+        studentsdisplayed = [false, false, false, false]
+        var Student = "Student"
+        document.getElementById("Student Name").innerHTML = STUDENT;
+
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function Random() {
             const rndInt = randomIntFromInterval(0, 2)
             document.getElementById("text").innerHTML = "Click anywhere";
 
@@ -35,13 +86,16 @@
             }
         }
 
-    function Click() {
+        function Click() {
 
-        if (studentsdisplayed.toString() == "true,true,true,true") {
+            ChooseClassFunction()
 
-            document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
 
-            document.getElementById("text").innerHTML = "All names have been used";
+            if (studentsdisplayed.toString() == "true,true,true,true") {
+
+                document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
+
+                document.getElementById("text").innerHTML = "All names have been used";
 
                 studentsdisplayed = [false, false, false, false]
 
@@ -54,20 +108,20 @@
                     document.getElementById("text").style.color = "white";
                     document.body.style.backgroundColor = "black";
                 }
-        
-    } else {
-        Random()        
-    }
-        
-    }
+
+            } else {
+                Random()
+            }
+
+        }
 
         function AllNames() {
 
             if (studentsdisplayed.toString() == "true,true,true,false") {
 
-           
+
                 studentsdisplayed[3] = true;
-                  
+
 
             }
         }
