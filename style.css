@@ -1,5 +1,35 @@
 body {background-color:#000;}
 
+select {
+    box-decoration-break: unset;
+    box-shadow: none !important;
+    align-self: center;
+    font-family: 'Font';
+    background-color:  rgba(255,255,255,0);
+    border: none;
+    color: white;
+    padding: 15px 150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  select:focus {
+    outline: none;
+}
+
+option {
+    font-family: 'Font';
+    background-color:  white;
+    border: none;
+    color: black;
+    padding: 15px 150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
 
 
 .center {
@@ -11,6 +41,16 @@ body {background-color:#000;}
     transform: translate(-50%, -50%);
     padding: 0px;
   }
+
+  .center1 {
+    text-align: center
+    border: 0px solid;
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0px;
+  } 
 
 p {
 
