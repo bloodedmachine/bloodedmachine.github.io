@@ -15,6 +15,8 @@
                 <option>YEAR 13</option>
                 <option>YEAR 13 IT</option>
                 <option>YEAR 13 PHYSICS</option>
+                <option>YEAR 13 ENGLISH</option>
+                <option>YEAR 13 FRENCH</option>
             </select>
 
         </div>
@@ -45,7 +47,7 @@
                 maxvalue = 18
                 CheckDigit = 19
 
-                students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELLA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
+                students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
                 studentsdisplayed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
                 ClassIndexAllNames = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false"
                 ClassIndexChooseClassFunction = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true"
@@ -84,10 +86,42 @@
 
                     } else {
 
+                        if (ChooseClassValue == "YEAR 13 FRENCH") {
+
+                    minvalue = 0
+                    maxvalue = 2
+                    CheckDigit = 3
+
+                    students = ["LENA", "DANIELA", "LAUREN", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true"
+
+                        } else {
+
+                            if (ChooseClassValue == "YEAR 13 ENGLISH") {
+                     minvalue = 0
+                    maxvalue = 2
+                    CheckDigit = 3
+
+                    students = ["LENA", "SOFIA", "LAUREN", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true"
+
+                                
+                            } else {
+
                         students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
                         studentsdisplayed = [false];
                         ClassIndexAllNames = "true,true,true,false"
                         ClassIndexChooseClassFunction = "true,true,true,true"
+                                
+                            }
+                            
+                        }
+
+
 
                     }
 
