@@ -20,7 +20,7 @@
 
         <h1 id="Student Name" style="color: white;">CHOOSE TO START</h1>
         <br><br>
-        <p id="text">Click anywhere</p>
+        <p id="text">CLICK ANYWHERE</p>
 
     </div>
 
@@ -91,7 +91,7 @@
 
         function Random() {
             const rndInt = randomIntFromInterval(minvalue, maxvalue)
-            document.getElementById("text").innerHTML = "Click anywhere";
+            document.getElementById("text").innerHTML = "CLICK ANYWHERE";
 
             if (studentsdisplayed[rndInt] == false) {
                 Student = students[rndInt];
@@ -109,7 +109,7 @@
 
                 document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
 
-                document.getElementById("text").innerHTML = "All names have been used";
+                document.getElementById("text").innerHTML = "ALL NAMES HAVE BEEN USED";
 
                 studentsdisplayed.fill(false);
 
