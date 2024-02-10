@@ -10,15 +10,15 @@
 
         <div class="center1">
 
-            <select id="ChooseClass" class="">
-                <option disabled selected>Choose a class</option>
-                <option >Year 13</option>
-                <option>Year 12</option>
+            <select id="ChooseClass" onchange="ClassChange()">
+                <option disabled selected>CHOOSE A CLASS</option>
+                <option>YEAR 13</option>
+                <option>YEAR 13 IT CLASS</option>
             </select>
 
         </div>
 
-        <h1 id="Student Name" style="color: white;">CLICK TO START</h1>
+        <h1 id="Student Name" style="color: white;">CHOOSE TO START</h1>
         <br><br>
         <p id="text">Click anywhere</p>
 
@@ -26,47 +26,62 @@
 
     <script>
 
-       var ChooseClassValue = "Choose a class";
-        
+        var ChooseClassValue = "CHOOSE A CLASS";
 
-     students = ["", "", "", ""];
+
+        students = [""];
+        studentsdisplayed = [];
 
 
         let dropdownList = document.getElementById('ChooseClass');
-        dropdownList.onchange = (ev) => {
+
+        function ClassChange() {
             ChooseClassValue = dropdownList.value;
-        }
 
-        function ChooseClassFunction() {
+            if (ChooseClassValue == "YEAR 13") {
 
-            if (ChooseClassValue == "Year 13") {
+                minvalue = 0
+                maxvalue = 7
+                CheckDigit = 8
 
-                students = ["Michael", "Gui", "Sofia", "CheckDigit"];
+                students = ["MICHAEL", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
+                studentsdisplayed = [false, false, false, false, false, false, false, false,false];
+                ClassIndexAllNames = "true,true,true,true,true,true,true,true,false"
+                ClassIndexChooseClassFunction = "true,true,true,true,true,true,true,true,true"
 
-               
+
 
             } else {
 
-                if (ChooseClassValue == "Choose a class") {
+                if (ChooseClassValue == "YEAR 13 IT CLASS") {
 
-                    students = ["Choose a class","Choose a class","Choose a class"];
-                    
+                    minvalue = 0
+                maxvalue = 2
+                CheckDigit = 3
+
+                    students = ["GUI", "MICHAEL", "SOFIA", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                ClassIndexChooseClassFunction = "true,true,true,true"
+
+
                 } else {
 
-                    students = ["Tom", "Diana", "Sofia", "CheckDigit"];
-                    
+                    students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
+                    studentsdisplayed = [false];
+                    ClassIndexAllNames = "true,true,true,false"
+                ClassIndexChooseClassFunction = "true,true,true,true"
+
+
                 }
-
-                
-
-                
 
             }
 
+
         }
 
-        
-        studentsdisplayed = [false, false, false, false]
+
+
         var Student = "Student"
         document.getElementById("Student Name").innerHTML = STUDENT;
 
@@ -75,7 +90,7 @@
         }
 
         function Random() {
-            const rndInt = randomIntFromInterval(0, 2)
+            const rndInt = randomIntFromInterval(minvalue, maxvalue)
             document.getElementById("text").innerHTML = "Click anywhere";
 
             if (studentsdisplayed[rndInt] == false) {
@@ -89,16 +104,14 @@
 
         function Click() {
 
-            ChooseClassFunction()
 
-
-            if (studentsdisplayed.toString() == "true,true,true,true") {
+            if (studentsdisplayed.toString() == ClassIndexChooseClassFunction) {
 
                 document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
 
                 document.getElementById("text").innerHTML = "All names have been used";
 
-                studentsdisplayed = [false, false, false, false]
+                studentsdisplayed.fill(false);
 
                 if (document.getElementById("Student Name").style.color == "white") {
                     document.getElementById("Student Name").style.color = "black";
@@ -122,10 +135,10 @@
 
         function AllNames() {
 
-            if (studentsdisplayed.toString() == "true,true,true,false") {
+            if (studentsdisplayed.toString() == ClassIndexAllNames) {
 
 
-                studentsdisplayed[3] = true;
+                studentsdisplayed[CheckDigit] = true;
 
 
             }
