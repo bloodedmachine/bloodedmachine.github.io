@@ -36,6 +36,7 @@ option {
 
 
 .center {
+    width: max-content;
     text-align: center
     border: 0px solid;
     position: absolute;
