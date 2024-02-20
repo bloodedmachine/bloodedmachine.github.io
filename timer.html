@@ -1,1 +1,118 @@
+<!DOCTYPE HTML>
+<html>
 
+<head>
+
+
+  <link rel="stylesheet" href="style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    p {
+      text-align: center;
+      font-size: 100px;
+      margin-top: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+
+    <!-- <input id="input" class="button"> -->
+
+    
+    
+    <p id="demo"></p>
+
+    
+
+     <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
+
+
+  </div>
+
+
+  <script>
+
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let hour = date.getHours(); 
+let min = date.getMinutes();
+
+var EndTime = " 00:00:00";
+/*currentTimeInMillis = System.currentTimeMillis();
+
+currentDate = new Date(currentTimeInMillis);
+
+currentDateTime = currentDate.toString(); 
+
+    alert(currentDateTime)*/
+
+    if (hour > 15) {
+
+      if (min > 20) {
+
+        EndTime = " 16:50:00"
+      }
+           
+    } else {
+
+      if (hour > 16) {
+
+        if (min > 50) {
+
+          EndTime = " 23:59:59"
+          
+        }
+        
+      } else {
+        
+      }
+      
+    }
+
+      // Set the date we're counting down to
+      var countDownDate = new Date(month + " " + day + "," + year + EndTime).getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var milliseconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var justseconds = seconds*1 + minutes*60 + hours*3600
+
+        //alert(seconds*1 + minutes*60 + hours*3600)
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
+          + minutes + "m " +*/ justseconds ;
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+
+
+
+
+  </script>
+
+</body>
+
+</html>
