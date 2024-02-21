@@ -4,114 +4,321 @@
 <head>
 
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    p {
-      text-align: center;
-      font-size: 100px;
-      margin-top: 0px;
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        p {
+
+            font-size: 100px;
+            margin-bottom: -25px;
+
+        }
+
+        h1 {
+
+            font-size: 50px;
+            margin-top: -25px;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="center">
+    <div class="center">
 
-    <!-- <input id="input" class="button"> -->
-
-    
-    
-    <p id="demo"></p>
-
-    
-
-     <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
+        <!-- <input id="input" class="button"> -->
 
 
-  </div>
+
+        <p id="demo">-</p>
+        <h1 id="text">STATUS</h1>
+        <h1 id="test"></h1>
 
 
-  <script>
 
-const date = new Date();
+        <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
 
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-let hour = date.getHours(); 
-let min = date.getMinutes();
 
-var EndTime = " 00:00:00";
-/*currentTimeInMillis = System.currentTimeMillis();
+    </div>
 
-currentDate = new Date(currentTimeInMillis);
 
-currentDateTime = currentDate.toString(); 
+    <script>
 
-    alert(currentDateTime)*/
+        function getMonthName(monthNumber) {
+            const date = new Date();
+            date.setMonth(monthNumber - 1);
 
-    if (hour > 16) {
-
-      if (min > 50) {
-        
-        EndTime = " 23:59:59"
-      }
-           
-    } else {
-
-      if (hour > 15) {
-
-        if (min > 20) {
-
-          EndTime = " 16:50:00"
-          
+            return date.toLocaleString('en-US', {
+                month: 'long',
+            });
         }
+
+        const date = new Date();
+        //document.getElementById("test").innerHTML = date
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+
+        /*let day = 21;
+        let month = 2;
+        let year = 2024;
+        let hour = 9;
+        let min = 0;*/
         
-      } else {
-        
-      }
-      
-    }
 
-      // Set the date we're counting down to
-      var countDownDate = new Date(month + " " + day + "," + year + EndTime).getTime();
+        //alert(day)
 
-      // Update the count down every 1 second
-      var x = setInterval(function () {
+        var EndTime = " 00:00:00";
 
-        // Get today's date and time
-        var now = new Date().getTime();
+        //let monthname = getMonthName(month)
+        let monthname = "Feb";
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+        //alert(monthname)
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        var milliseconds = Math.floor((distance % (1000 * 60)) / 1000);
-        var justseconds = seconds*1 + minutes*60 + hours*3600
+        function CheckAfterSchool() {
 
-        //alert(seconds*1 + minutes*60 + hours*3600)
 
-        // Output the result in an element with id="demo"
-        document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " +*/ justseconds ;
+            if (hour > 16) {
 
-        // If the count down is over, write some text 
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("demo").innerHTML = "EXPIRED";
+                day = day + 1
+
+                EndTime = " 09:00:00"
+
+                document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
+            } else {
+
+                if (min >= 50) {
+
+                    day = day + 1
+
+                    EndTime = " 09:00:00"
+
+                    document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
+
+                } else {
+
+                    EndTime = " 16:50:00"
+                    document.getElementById("text").innerHTML = "PERIOD 4"
+
+                }
+
+            }
         }
-      }, 1000);
+
+
+        function CheckAfterLunch() {
+
+            if (hour = 13) {
+
+                if (min >= 30) {
+
+                    EndTime = " 15:00:00"
+                    document.getElementById("text").innerHTML = "PERIOD 3"
+
+                } else {
+
+                    EndTime = " 13:30:00"
+                    document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+                }
+
+            } else {
+
+                EndTime = " 15:00:00"
+                document.getElementById("text").innerHTML = "PERIOD 3"
+
+            }
+
+
+
+        }
+
+        function CheckAfterThirdLesson() {
+
+            if (hour = 15) {
+
+                if (min > 20) {
+
+                    EndTime = " 16:50:00"
+                    document.getElementById("text").innerHTML = "PERIOD 4"
+
+                } else {
+
+                    EndTime = " 15:20:00"
+                    document.getElementById("text").innerHTML = "BREAK 2"
+
+                }
+
+            } else {
+
+                EndTime = " 16:50:00"
+                document.getElementById("text").innerHTML = "PERIOD 4"
+
+            }
+
+        }
+
+        function CheckBeforeLunch() {
+
+            if (hour = 12) {
+
+                if (min >= 20) {
+
+                    EndTime = " 13:30:00"
+                    document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+                } else {
+
+                    EndTime = " 12:20:00"
+                    document.getElementById("text").innerHTML = "PERIOD 2"
+
+                }
+
+            } else {
+
+                EndTime = " 13:30:00"
+                document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+            }
+
+        }
+
+        function CheckSecondPeriod() {
+
+            if (hour = 10) {
+
+                if (min >= 50) {
+
+                    EndTime = " 12:20:00"
+                    document.getElementById("text").innerHTML = "PERIOD 2"
+
+                } else {
+
+                    if (min >= 30) {
+
+                        EndTime = " 10:50:00"
+                        document.getElementById("text").innerHTML = "BREAK 1"
+
+                    } else {
+
+                        EndTime = " 10:30:00"
+                        document.getElementById("text").innerHTML = "PERIOD 1"
+
+                    }
+
+                }
+
+            } else {
+
+                EndTime = " 12:20:00"
+                document.getElementById("text").innerHTML = "PERIOD 2"
+
+            }
+
+        }
 
 
 
 
-  </script>
+        if (hour >= 16) {
+
+            CheckAfterSchool()
+
+        } else {
+
+            if (hour >= 15) {
+
+                CheckAfterThirdLesson()
+
+            } else {
+
+                if (hour >= 13) {
+
+                    CheckAfterLunch()
+
+                } else {
+
+                    if (hour >= 12) {
+
+                        CheckBeforeLunch()
+
+                    } else {
+
+                        if (hour >= 10) {
+
+                            CheckSecondPeriod()
+
+                        } else {
+
+                            if (hour >= 9) {
+
+                                EndTime = " 10:30:00"
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+
+
+
+
+
+
+        // Set the date we're counting down to
+        var countDownDate = new Date(monthname + " " + day + "," + year + EndTime).getTime();
+
+        //alert(countDownDate)
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            //var now = new Date(monthname + " " + day + "," + year + " 09:00:00").getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var milliseconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var justseconds = seconds * 1 + minutes * 60 + hours * 3600
+
+            //alert(seconds*1 + minutes*60 + hours*3600)
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
+          + minutes + "m " +*/ justseconds;
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                //document.getElementById("demo").innerHTML = "EXPIRED";
+                location.reload()
+
+            }
+        }, 1000);
+
+
+
+
+    </script>
 
 </body>
 
