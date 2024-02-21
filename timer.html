@@ -57,17 +57,19 @@
         //document.getElementById("test").innerHTML = date
 
         let day = date.getDate();
+        let week = date.getDay();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
         let hour = date.getHours();
         let min = date.getMinutes();
+        let milli = date.getMilliseconds();
 
         /*let day = 21;
         let month = 2;
         let year = 2024;
         let hour = 9;
         let min = 0;*/
-        
+
 
         //alert(day)
 
@@ -222,42 +224,122 @@
 
         }
 
+        function CheckWeekendDay() {
+
+            if (week == 7) {
+
+                day = day + 1
 
 
+                EndTime = " 09:00:00"
 
-        if (hour >= 16) {
-
-            CheckAfterSchool()
-
-        } else {
-
-            if (hour >= 15) {
-
-                CheckAfterThirdLesson()
 
             } else {
 
-                if (hour >= 13) {
+                if (week == 6) {
 
-                    CheckAfterLunch()
+                    day = day + 2
+
+
+                    EndTime = " 09:00:00"
 
                 } else {
 
-                    if (hour >= 12) {
+                    if (hour >= 16) {
 
-                        CheckBeforeLunch()
+                        if (hour = 16) {
 
-                    } else {
+                            if (min >= 50) {
 
-                        if (hour >= 10) {
+                                day = day + 3
 
-                            CheckSecondPeriod()
+
+                                EndTime = " 09:00:00"
+
+                            } else {
+
+                                SchoolDayTimes()
+
+                            }
+
+
 
                         } else {
 
-                            if (hour >= 9) {
 
-                                EndTime = " 10:30:00"
+                            day = day + 3
+
+
+                            EndTime = " 09:00:00"
+
+
+                        }
+
+                    } else {
+
+                        SchoolDayTimes()
+
+                    }
+
+
+
+                }
+
+            }
+
+        }
+
+
+        if (week >= 5) {
+
+            CheckWeekend();
+
+        } else {
+
+
+            SchoolDayTimes();
+
+
+
+        }
+
+        function SchoolDayTimes() {
+
+            if (hour >= 16) {
+
+                CheckAfterSchool()
+
+            } else {
+
+                if (hour >= 15) {
+
+                    CheckAfterThirdLesson()
+
+                } else {
+
+                    if (hour >= 13) {
+
+                        CheckAfterLunch()
+
+                    } else {
+
+                        if (hour >= 12) {
+
+                            CheckBeforeLunch()
+
+                        } else {
+
+                            if (hour >= 10) {
+
+                                CheckSecondPeriod()
+
+                            } else {
+
+                                if (hour >= 9) {
+
+                                    EndTime = " 10:30:00"
+
+                                }
 
                             }
 
@@ -269,7 +351,12 @@
 
             }
 
+
+
         }
+
+
+
 
 
 
@@ -296,15 +383,17 @@
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            var milliseconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var seconds = Math.floor((distance % (100 * 100)) / 1000);
+            var deciseconds = Math.floor((distance % (100 * 10)) / 100);
+            var centiseconds = Math.floor((distance % (10 * 10)) / 10);
+            var milliseconds = Math.floor((distance % (1 * 10)) / 1);
             var justseconds = seconds * 1 + minutes * 60 + hours * 3600
 
             //alert(seconds*1 + minutes*60 + hours*3600)
 
             // Output the result in an element with id="demo"
             document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " +*/ justseconds;
+          + minutes + "m " + */justseconds + "" + deciseconds /* + "" + centiseconds + "" + milliseconds + ""*/;
 
             // If the count down is over, write some text 
             if (distance < 0) {
@@ -313,7 +402,7 @@
                 location.reload()
 
             }
-        }, 1000);
+        }, 1);
 
 
 
