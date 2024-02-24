@@ -5,17 +5,19 @@
 
 
     <link rel="stylesheet" href="style2.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         p {
 
-            font-size: 200px;
+            font-size: 100px;
             margin-bottom: -25px;
 
         }
 
         h1 {
 
-            font-size: 100px;
+            font-size: 50px;
             margin-top: -25px;
         }
     </style>
@@ -228,9 +230,8 @@
 
                 day = day + 1
 
-
                 EndTime = " 09:00:00"
-
+                document.getElementById("text").innerHTML = "WEEKEND"
 
             } else {
 
@@ -238,47 +239,39 @@
 
                     day = day + 2
 
-
                     EndTime = " 09:00:00"
+                    document.getElementById("text").innerHTML = "WEEKEND"
+
 
                 } else {
 
-                    if (hour >= 16) {
+                    if (hour <= 16) {
 
-                        if (hour = 16) {
+                        if (min <= 50) {
 
-                            if (min >= 50) {
-
-                                day = day + 3
-
-
-                                EndTime = " 09:00:00"
-
-                            } else {
-
-                                SchoolDayTimes()
-
-                            }
-
+                            EndTime = " 16:50:00"
+                            document.getElementById("text").innerHTML = "PERIOD 4"
 
 
                         } else {
 
-
                             day = day + 3
 
-
                             EndTime = " 09:00:00"
+                            document.getElementById("text").innerHTML = "WEEKEND"
 
 
                         }
 
                     } else {
 
-                        SchoolDayTimes()
+                        day = day + 3
+
+                        EndTime = " 09:00:00"
+                        document.getElementById("text").innerHTML = "WEEKEND"
+
 
                     }
-
 
 
                 }
@@ -288,9 +281,10 @@
         }
 
 
+
         if (week >= 5) {
 
-            CheckWeekend();
+            CheckWeekendDay();
 
         } else {
 
@@ -376,19 +370,21 @@
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var hundredseconds = Math.floor((distance % (1000000 * 100)) / 100);
-            var decaseconds = Math.floor((distance % (1000 * 100)) / 10000);
+
+            var justseconds = Math.floor((distance % (1000000 * 1000)) / 100);
+
+            var decaseconds = Math.floor((distance % (1000 * 1000)) / 10000);
             var seconds = Math.floor((distance % (100 * 100)) / 1000);
             var deciseconds = Math.floor((distance % (100 * 10)) / 100);
             var centiseconds = Math.floor((distance % (10 * 10)) / 10);
             var milliseconds = Math.floor((distance % (1 * 10)) / 1);
-            var justseconds = seconds * 1 + minutes * 60 + hours * 3600
+
 
             //alert(seconds*1 + minutes*60 + hours*3600)
 
             // Output the result in an element with id="demo"
             document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " + */hundredseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
+          + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
 
             // If the count down is over, write some text 
             if (distance < 0) {
