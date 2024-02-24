@@ -3,7 +3,10 @@
 
 <head>
 
+
     <link rel="stylesheet" href="style2.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         p {
 
@@ -23,30 +26,374 @@
 <body>
     <div class="center">
 
+        <!-- <input id="input" class="button"> -->
 
 
-        <p id="demo">MAKE YOUR CHOICE</p>
 
-        <div>
+        <p id="demo">-</p>
+        <h1 id="text">STATUS</h1>
+        <h1 id="test"></h1>
 
-            <a href="https://myreadyplayerone.github.io/ready.html">
-                <button class="button" onclick="">READY PLAYER ONE</button>
-            </a>
 
-            
 
-            <a href="https://myreadyplayerone.github.io/timer.html">
-                <button class="button">DOOM TIMER</button>
-            </a>
-
-        </div>
-
+        <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
 
 
     </div>
 
 
     <script>
+
+        function getMonthName(monthNumber) {
+            const date = new Date();
+            date.setMonth(monthNumber - 1);
+
+            return date.toLocaleString('en-US', {
+                month: 'long',
+            });
+        }
+
+        const date = new Date();
+        //document.getElementById("test").innerHTML = date
+
+        let day = date.getDate();
+        let week = date.getDay();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let milli = date.getMilliseconds();
+
+        /*let day = 21;
+        let month = 2;
+        let year = 2024;
+        let hour = 9;
+        let min = 0;*/
+
+
+        //alert(day)
+
+        var EndTime = " 00:00:00";
+
+        //let monthname = getMonthName(month)
+        let monthname = "Feb";
+
+        //alert(monthname)
+
+        function CheckAfterSchool() {
+
+
+            if (hour > 16) {
+
+                day = day + 1
+
+                EndTime = " 09:00:00"
+
+                document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
+            } else {
+
+                if (min >= 50) {
+
+                    day = day + 1
+
+                    EndTime = " 09:00:00"
+
+                    document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
+
+                } else {
+
+                    EndTime = " 16:50:00"
+                    document.getElementById("text").innerHTML = "PERIOD 4"
+
+                }
+
+            }
+        }
+
+
+        function CheckAfterLunch() {
+
+            if (hour = 13) {
+
+                if (min >= 30) {
+
+                    EndTime = " 15:00:00"
+                    document.getElementById("text").innerHTML = "PERIOD 3"
+
+                } else {
+
+                    EndTime = " 13:30:00"
+                    document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+                }
+
+            } else {
+
+                EndTime = " 15:00:00"
+                document.getElementById("text").innerHTML = "PERIOD 3"
+
+            }
+
+
+
+        }
+
+        function CheckAfterThirdLesson() {
+
+            if (hour = 15) {
+
+                if (min > 20) {
+
+                    EndTime = " 16:50:00"
+                    document.getElementById("text").innerHTML = "PERIOD 4"
+
+                } else {
+
+                    EndTime = " 15:20:00"
+                    document.getElementById("text").innerHTML = "BREAK 2"
+
+                }
+
+            } else {
+
+                EndTime = " 16:50:00"
+                document.getElementById("text").innerHTML = "PERIOD 4"
+
+            }
+
+        }
+
+        function CheckBeforeLunch() {
+
+            if (hour = 12) {
+
+                if (min >= 20) {
+
+                    EndTime = " 13:30:00"
+                    document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+                } else {
+
+                    EndTime = " 12:20:00"
+                    document.getElementById("text").innerHTML = "PERIOD 2"
+
+                }
+
+            } else {
+
+                EndTime = " 13:30:00"
+                document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+            }
+
+        }
+
+        function CheckSecondPeriod() {
+
+            if (hour = 10) {
+
+                if (min >= 50) {
+
+                    EndTime = " 12:20:00"
+                    document.getElementById("text").innerHTML = "PERIOD 2"
+
+                } else {
+
+                    if (min >= 30) {
+
+                        EndTime = " 10:50:00"
+                        document.getElementById("text").innerHTML = "BREAK 1"
+
+                    } else {
+
+                        EndTime = " 10:30:00"
+                        document.getElementById("text").innerHTML = "PERIOD 1"
+
+                    }
+
+                }
+
+            } else {
+
+                EndTime = " 12:20:00"
+                document.getElementById("text").innerHTML = "PERIOD 2"
+
+            }
+
+        }
+
+        function CheckWeekendDay() {
+
+            if (week == 7) {
+
+                day = day + 1
+
+                EndTime = " 09:00:00"
+                document.getElementById("text").innerHTML = "WEEKEND"
+
+            } else {
+
+                if (week == 6) {
+
+                    day = day + 2
+
+                    EndTime = " 09:00:00"
+                    document.getElementById("text").innerHTML = "WEEKEND"
+
+
+                } else {
+
+                    if (hour <= 16) {
+
+                        if (min <= 50) {
+
+                            EndTime = " 16:50:00"
+                            document.getElementById("text").innerHTML = "PERIOD 4"
+
+
+                        } else {
+
+                            day = day + 3
+
+                            EndTime = " 09:00:00"
+                            document.getElementById("text").innerHTML = "WEEKEND"
+
+
+                        }
+
+                    } else {
+
+                        day = day + 3
+
+                        EndTime = " 09:00:00"
+                        document.getElementById("text").innerHTML = "WEEKEND"
+
+
+                    }
+
+
+                }
+
+            }
+
+        }
+
+
+
+        if (week >= 5) {
+
+            CheckWeekendDay();
+
+        } else {
+
+
+            SchoolDayTimes();
+
+
+
+        }
+
+        function SchoolDayTimes() {
+
+            if (hour >= 16) {
+
+                CheckAfterSchool()
+
+            } else {
+
+                if (hour >= 15) {
+
+                    CheckAfterThirdLesson()
+
+                } else {
+
+                    if (hour >= 13) {
+
+                        CheckAfterLunch()
+
+                    } else {
+
+                        if (hour >= 12) {
+
+                            CheckBeforeLunch()
+
+                        } else {
+
+                            if (hour >= 10) {
+
+                                CheckSecondPeriod()
+
+                            } else {
+
+                                if (hour >= 9) {
+
+                                    EndTime = " 10:30:00"
+
+                                } else {
+
+                                    EndTime = " 09:00:00"
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+        }
+
+        // Set the date we're counting down to
+        var countDownDate = new Date(monthname + " " + day + "," + year + EndTime).getTime();
+
+        //alert(countDownDate)
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            //var now = new Date(monthname + " " + day + "," + year + " 09:00:00").getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            var justseconds = Math.floor((distance % (1000000 * 1000)) / 100);
+
+            var decaseconds = Math.floor((distance % (1000 * 1000)) / 10000);
+            var seconds = Math.floor((distance % (100 * 100)) / 1000);
+            var deciseconds = Math.floor((distance % (100 * 10)) / 100);
+            var centiseconds = Math.floor((distance % (10 * 10)) / 10);
+            var milliseconds = Math.floor((distance % (1 * 10)) / 1);
+
+
+            //alert(seconds*1 + minutes*60 + hours*3600)
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
+          + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                //document.getElementById("demo").innerHTML = "EXPIRED";
+                location.reload()
+
+            }
+        }, 1);
 
     </script>
 
