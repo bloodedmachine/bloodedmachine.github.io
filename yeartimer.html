@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+
+    <link rel="stylesheet" href="style2.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #myProgress {
+            width: 70%;
+            background-color: #ffffff;
+
+        }
+
+        #myBar {
+            width: 0%;
+            height: 30px;
+            background-color: #e13500;
+
+        }
+
+        p {
+
+            font-size: 100px;
+            margin-bottom: 25px;
+
+        }
+
+        h1 {
+
+            font-size: 100px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center2">
+
+        <!-- <input id="input" class="button"> -->
+
+
+
+        <p id="text">LOADING</p>
+        <h1 id="date1">2025</h1>
+
+    </div>
+
+    <div class="centerbar" id="myProgress">
+        <div id="myBar"></div>
+    </div>
+
+
+
+    <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
+
+
+
+
+
+
+    <script>
+
+        
+
+var i = 0;
+      
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }
+    
+
+
+setTimeout(()=> {
+
+    function getMonthName(monthNumber) {
+            const date = new Date();
+            date.setMonth(monthNumber - 1);
+
+            return date.toLocaleString('en-US', {
+                month: 'long',
+            });
+        }
+
+        const date = new Date();
+        //document.getElementById("test").innerHTML = date
+
+        let day = date.getDate();
+        let week = date.getDay();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let milli = date.getMilliseconds();
+
+        var EndTime = " 00:00:00";
+
+        //let monthname = getMonthName(month)
+        let monthname = "Feb";
+
+
+        var starttime = " 00:00:00";
+        var startday = 0;
+
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 1 2025 00:00:00").getTime();
+        var StartDate = new Date("Jan 1 2024 00:00:00").getTime();
+
+
+        var TotalTime = countDownDate - StartDate;
+
+        //alert(TotalTime)
+
+        // Update the count down every 1 second
+
+
+
+
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            //var now = new Date(monthname + " " + day + "," + year + " 09:00:00").getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            var PercentageComplete = (1 - distance / TotalTime) * 100;
+
+            var rounded = Math.round(PercentageComplete * 10) / 10
+
+            document.getElementById("text").innerHTML = rounded + "% COMPLETE";
+
+            document.getElementById("date1").innerHTML = "DAY " + Math.floor((rounded / 100) * 365);
+
+            //alert(PercentageComplete)
+
+            var elem = document.getElementById("myBar");
+
+            elem.style.width = rounded + "%";
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            var justseconds = Math.floor((distance % (1000000 * 1000)) / 100);
+
+            var decaseconds = Math.floor((distance % (1000 * 1000)) / 10000);
+            var seconds = Math.floor((distance % (100 * 100)) / 1000);
+            var deciseconds = Math.floor((distance % (100 * 10)) / 100);
+            var centiseconds = Math.floor((distance % (10 * 10)) / 10);
+            var milliseconds = Math.floor((distance % (1 * 10)) / 1);
+            ;
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                //document.getElementById("demo").innerHTML = "EXPIRED";
+                location.reload()
+
+            }
+        }, 1);
+
+         
+      }
+      ,1100);
+
+        
+
+    </script>
+
+</body>
+
+</html>
