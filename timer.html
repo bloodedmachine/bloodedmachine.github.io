@@ -8,6 +8,17 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        #myProgress {
+            width: 100%;
+            background-color: #000;
+        }
+
+        #myBar {
+            width: 0%;
+            height: 30px;
+            background-color: #fff;
+        }
+
         p {
 
             font-size: 100px;
@@ -34,15 +45,23 @@
         <h1 id="text">STATUS</h1>
         <h1 id="test"></h1>
 
+    </div>
 
-
-        <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
-
-
+    <div id="myProgress">
+        <div id="myBar"></div>
     </div>
 
 
+
+    <!-- <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
+
+
+
+
+
+
     <script>
+
 
         function getMonthName(monthNumber) {
             const date = new Date();
@@ -80,6 +99,9 @@
 
         //alert(monthname)
 
+        var starttime = " 00:00:00";
+        var startday = 0;
+
         function CheckAfterSchool() {
 
 
@@ -91,6 +113,9 @@
 
                 document.getElementById("text").innerHTML = "'TILL SCHOOL"
 
+                var starttime = " 16:50:00";
+                var startday = -1;
+
             } else {
 
                 if (min >= 50) {
@@ -101,11 +126,17 @@
 
                     document.getElementById("text").innerHTML = "'TILL SCHOOL"
 
+                    var starttime = " 16:50:00";
+                    var startday = -1;
+
 
                 } else {
 
                     EndTime = " 16:50:00"
                     document.getElementById("text").innerHTML = "PERIOD 4"
+
+                    var starttime = " 15:30:00";
+                    var startday = 0;
 
                 }
 
@@ -122,10 +153,17 @@
                     EndTime = " 15:00:00"
                     document.getElementById("text").innerHTML = "PERIOD 3"
 
+                    var starttime = " 13:30:00";
+                    var startday = 0;
+
                 } else {
 
                     EndTime = " 13:30:00"
                     document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+
+                var starttime = " 12:20:00";
+                var startday = 0;
 
                 }
 
@@ -133,6 +171,9 @@
 
                 EndTime = " 15:00:00"
                 document.getElementById("text").innerHTML = "PERIOD 3"
+
+                var starttime = " 13:30:00";
+                var startday = 0;
 
             }
 
@@ -148,11 +189,16 @@
 
                     EndTime = " 16:50:00"
                     document.getElementById("text").innerHTML = "PERIOD 4"
+                    var starttime = " 15:20:00";
+                    var startday = 0;
 
                 } else {
 
                     EndTime = " 15:20:00"
                     document.getElementById("text").innerHTML = "BREAK 2"
+
+                    var starttime = " 15:00:00";
+                    var startday = 0;
 
                 }
 
@@ -160,6 +206,9 @@
 
                 EndTime = " 16:50:00"
                 document.getElementById("text").innerHTML = "PERIOD 4"
+
+                var starttime = " 15:20:00";
+                var startday = 0;
 
             }
 
@@ -174,10 +223,18 @@
                     EndTime = " 13:30:00"
                     document.getElementById("text").innerHTML = "LUNCH BREAK"
 
+                    var starttime = " 12:20:00";
+                    var startday = 0;
+
+
+
                 } else {
 
                     EndTime = " 12:20:00"
                     document.getElementById("text").innerHTML = "PERIOD 2"
+
+                    var starttime = " 10:50:00";
+                    var startday = 0;
 
                 }
 
@@ -185,6 +242,9 @@
 
                 EndTime = " 13:30:00"
                 document.getElementById("text").innerHTML = "LUNCH BREAK"
+
+                var starttime = " 12:20:00";
+                var startday = 0;
 
             }
 
@@ -198,6 +258,8 @@
 
                     EndTime = " 12:20:00"
                     document.getElementById("text").innerHTML = "PERIOD 2"
+                    var starttime = " 10:30:00";
+                    var startday = 0;
 
                 } else {
 
@@ -205,11 +267,16 @@
 
                         EndTime = " 10:50:00"
                         document.getElementById("text").innerHTML = "BREAK 1"
+                        var starttime = " 09:00:00";
+                        var startday = 0;
 
                     } else {
 
                         EndTime = " 10:30:00"
                         document.getElementById("text").innerHTML = "PERIOD 1"
+
+                        var starttime = " 09:00:00";
+                        var startday = 0;
 
                     }
 
@@ -220,9 +287,14 @@
                 EndTime = " 12:20:00"
                 document.getElementById("text").innerHTML = "PERIOD 2"
 
+                var starttime = " 10:30:00";
+                var startday = 0;
+
             }
 
         }
+
+
 
         function CheckWeekendDay() {
 
@@ -233,6 +305,9 @@
                 EndTime = " 09:00:00"
                 document.getElementById("text").innerHTML = "WEEKEND"
 
+                var starttime = " 16:50:00";
+                var startday = -2;
+
             } else {
 
                 if (week == 6) {
@@ -241,6 +316,9 @@
 
                     EndTime = " 09:00:00"
                     document.getElementById("text").innerHTML = "WEEKEND"
+
+                    var starttime = " 16:50:00";
+                    var startday = -1;
 
 
                 } else {
@@ -252,6 +330,9 @@
                             EndTime = " 16:50:00"
                             document.getElementById("text").innerHTML = "PERIOD 4"
 
+                            var starttime = " 13:20:00";
+                            var startday = 0;
+
 
                         } else {
 
@@ -259,6 +340,9 @@
 
                             EndTime = " 09:00:00"
                             document.getElementById("text").innerHTML = "WEEKEND"
+
+                            var starttime = " 16:50:00";
+                            var startday = 0;
 
 
                         }
@@ -269,6 +353,9 @@
 
                         EndTime = " 09:00:00"
                         document.getElementById("text").innerHTML = "WEEKEND"
+
+                        var starttime = " 16:50:00";
+                        var startday = 0;
 
 
                     }
@@ -336,9 +423,14 @@
 
                                     EndTime = " 10:30:00"
 
+                                    var starttime = " 09:00:00";
+                                    var startday = 0;
+
                                 } else {
 
                                     EndTime = " 09:00:00"
+                                    var starttime = " 16:50:00";
+                                    var startday = -1;
 
                                 }
 
@@ -356,10 +448,15 @@
 
         }
 
+
+
         // Set the date we're counting down to
         var countDownDate = new Date(monthname + " " + day + "," + year + EndTime).getTime();
+        var StartDate = new Date(monthname + " " + day + "," + year + starttime).getTime();
 
-        //alert(countDownDate)
+        var TotalTime = countDownDate - StartDate;
+
+        //alert(TotalTime)
 
         // Update the count down every 1 second
         var x = setInterval(function () {
@@ -370,6 +467,16 @@
 
             // Find the distance between now and the count down date
             var distance = countDownDate - now;
+
+            var PercentageComplete = (1 - (distance / (TotalTime * 10))) * 100;
+
+            //alert(PercentageComplete)
+
+            var elem = document.getElementById("myBar");
+
+            elem.style.width = PercentageComplete + "%";
+
+
 
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -383,6 +490,13 @@
             var deciseconds = Math.floor((distance % (100 * 10)) / 100);
             var centiseconds = Math.floor((distance % (10 * 10)) / 10);
             var milliseconds = Math.floor((distance % (1 * 10)) / 1);
+
+
+
+
+
+            //alert(distance)
+            //alert(starttime)
 
 
             //alert(seconds*1 + minutes*60 + hours*3600)
@@ -399,6 +513,25 @@
 
             }
         }, 1);
+
+        /*var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 1;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                    }
+                }
+            }
+        }*/
 
     </script>
 
