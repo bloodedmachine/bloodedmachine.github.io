@@ -226,7 +226,7 @@
 
         function CheckWeekendDay() {
 
-            if (week == 7) {
+            if (week == 0) {
 
                 day = day + 1
 
@@ -260,6 +260,7 @@
                             EndTime = " 09:00:00"
                             document.getElementById("text").innerHTML = "WEEKEND"
 
+
                         }
 
                     } else {
@@ -272,21 +273,32 @@
 
                     }
 
+
                 }
 
             }
 
         }
 
-        if (week >= 5) {
+
+        if (week == 0) {
 
             CheckWeekendDay();
 
         } else {
 
-            SchoolDayTimes();
+            if (week >= 5) {
+
+                CheckWeekendDay();
+
+            } else {
+
+                SchoolDayTimes();
+
+            }
 
         }
+
 
         function SchoolDayTimes() {
 
