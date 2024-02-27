@@ -646,12 +646,12 @@
             //  + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
 
             // If the count down is over, write some text 
-            if (distance = 0) {
+            if (distance < 0) {
                 clearInterval(x);
                 //document.getElementById("demo").innerHTML = "EXPIRED";
                 location.reload()
-
             }
+
         }, 1);
 
 
