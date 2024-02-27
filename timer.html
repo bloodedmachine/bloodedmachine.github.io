@@ -237,7 +237,7 @@
 
                     if (checkbox3.checked == true) {
 
-                        document.getElementById("demo").innerHTML = minutes + "M " + hourlessminutelessseconds + "DS";
+                        document.getElementById("demo").innerHTML = ((hours * 60) + minutes) + "M " + hourlessminutelessseconds + "DS";
 
                     } else {
                         document.getElementById("demo").innerHTML = decaseconds;
@@ -261,7 +261,7 @@
 
                     if (checkbox3.checked == true) {
 
-                        document.getElementById("demo").innerHTML = minutes + "M " + justhourlessminutelessseconds + "S";
+                        document.getElementById("demo").innerHTML = ((hours * 60) + minutes) + "M " + justhourlessminutelessseconds + "S";
 
                     } else {
                         document.getElementById("demo").innerHTML = justseconds;
