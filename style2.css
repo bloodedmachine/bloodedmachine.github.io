@@ -170,13 +170,16 @@ margin:auto;
   margin-top: -20px;
   display: block;
   cursor: pointer;
-  width: 300px;
+  width: 150px;
   height: 30px;
   border: 3px solid rgba(255, 255, 255, 0);
   border-radius: 100px;
   position: relative;
   overflow: hidden;
   box-shadow: 0px 0px 0px 2px #fff;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .checkBox div {
@@ -188,6 +191,9 @@ margin:auto;
   position: absolute;
   transform: rotateZ(45deg);
   z-index: 100;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .checkBox input[type=checkbox]:checked + div {
@@ -202,5 +208,48 @@ margin:auto;
 }
 
 .transition {
-  transition: 300ms ease;
+  transition: 100ms ease;
+}
+
+
+.checkBox2 {
+  margin-top:10px;
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0);
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px #fff;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.checkBox2 div {
+  width: 600px;
+  height: 600px;
+  background-color: #fff;
+  top: -550px;
+  left: -500px;
+  position: absolute;
+  transform: rotateZ(45deg);
+  z-index: 100;
+}
+
+.checkBox2 input[type=checkbox]:checked + div {
+  left: -150px;
+  top: -50px;
+}
+
+.checkBox2 input[type=checkbox] {
+  position: absolute;
+  left: 50px;
+  visibility: hidden;
+}
+
+.transition2 {
+  transition: 100ms ease;
 }
