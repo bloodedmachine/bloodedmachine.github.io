@@ -6,6 +6,8 @@
     <link rel="icon" type="image/x-icon" href="https://myreadyplayerone.github.io/logo1.ico">
     <link rel="stylesheet" href="style2.css">
 
+    <script src="script1.js"></script>
+
 </head>
 
 <body>
@@ -20,27 +22,33 @@
     </div>
 
     <div class="bigger">
-    <div class="center">
+        <div class="center">
 
 
-        <p id="demo">-</p>
-        <h1 id="text">STATUS</h1>
+            <p id="demo">-</p>
+            <h1 id="text">STATUS</h1>
 
 
-        <label class="checkBox">
-            <input id="ch1" type="checkbox">
-            <div class="transition"></div>
-        </label>
+            <label class="checkBox">
+                <input id="ch2" type="checkbox">
+                <div class="transition"></div>
+            </label>
 
-        <label class="checkBox2" style="align-items: center;">
-            <input id="ch2" type="checkbox">
-            <div class="transition2"></div>
-        </label>
+            <label class="checkBox2" style="align-items: center;">
+                <input id="ch3" type="checkbox">
+                <div class="transition2"></div>
+            </label>
+            <label class="checkBox3" style="align-items: center;">
+                <input id="ch1" type="checkbox">
+                <div class="transition3"></div>
+            </label>
 
+        </div>
     </div>
-</div>
 
     <script>
+
+
 
         function test1() {
 
@@ -84,251 +92,18 @@
         var starttime = " 00:00:00";
         var startday = 0;
 
-        function CheckAfterSchool() {
-
-            if (hour > 16) {
-
-                day = day + 1
-
-                EndTime = " 09:00:00"
-
-                document.getElementById("text").innerHTML = "'TILL SCHOOL";
-
-            } else {
-
-                if (min >= 50) {
-
-                    day = day + 1
-
-                    EndTime = " 09:00:00"
-
-                    document.getElementById("text").innerHTML = "'TILL SCHOOL"
-
-                } else {
-
-                    EndTime = " 16:50:00"
-                    document.getElementById("text").innerHTML = "PERIOD 4"
-
-                }
-
-            }
+        function dateFromDay(year, day) {
+            var date = new Date(year, 0); // initialize a date in `year-01-01`
+            return new Date(date.setDate(day)); // add the number of days
         }
 
-        function CheckAfterLunch() {
-
-            if (hour < 14) {
-
-
-                if (min >= 30) {
-
-                    EndTime = " 15:00:00"
-                    document.getElementById("text").innerHTML = "PERIOD 3"
-
-                    var starttime = " 13:30:00";
-                    var startday = 0;
-
-                } else {
-
-                    EndTime = " 13:30:00"
-                    document.getElementById("text").innerHTML = "LUNCH BREAK"
-
-                }
-
-            } else {
-
-                EndTime = " 15:00:00"
-                document.getElementById("text").innerHTML = "PERIOD 3"
-
-            }
-
-        }
-
-        function CheckAfterThirdLesson() {
-
-            if (hour = 15) {
-
-                if (min > 20) {
-
-                    EndTime = " 16:50:00"
-                    document.getElementById("text").innerHTML = "PERIOD 4"
-                    var starttime = " 15:20:00";
-                    var startday = 0;
-
-                } else {
-
-                    EndTime = " 15:20:00"
-                    document.getElementById("text").innerHTML = "BREAK 2"
-
-                    var starttime = " 15:00:00";
-                    var startday = 0;
-
-                }
-
-            } else {
-
-                EndTime = " 16:50:00"
-                document.getElementById("text").innerHTML = "PERIOD 4"
-
-                var starttime = " 15:20:00";
-                var startday = 0;
-
-            }
-
-        }
-
-        function CheckBeforeLunch() {
-
-            if (hour = 12) {
-
-                if (min >= 20) {
-
-                    EndTime = " 13:30:00"
-                    document.getElementById("text").innerHTML = "LUNCH BREAK"
-
-                    var starttime = " 12:20:00";
-                    var startday = 0;
-
-
-
-                } else {
-
-                    EndTime = " 12:20:00"
-                    document.getElementById("text").innerHTML = "PERIOD 2"
-
-                    var starttime = " 10:50:00";
-                    var startday = 0;
-
-                }
-
-            } else {
-
-                EndTime = " 13:30:00"
-                document.getElementById("text").innerHTML = "LUNCH BREAK"
-
-                var starttime = " 12:20:00";
-                var startday = 0;
-
-            }
-
-        }
-
-        function CheckSecondPeriod() {
-
-            if (hour = 10) {
-
-                if (min >= 50) {
-
-                    EndTime = " 12:20:00"
-                    document.getElementById("text").innerHTML = "PERIOD 2"
-                    var starttime = " 10:30:00";
-                    var startday = 0;
-
-                } else {
-
-                    if (min >= 30) {
-
-                        EndTime = " 10:50:00"
-                        document.getElementById("text").innerHTML = "BREAK 1"
-                        var starttime = " 09:00:00";
-                        var startday = 0;
-
-                    } else {
-
-                        EndTime = " 10:30:00"
-                        document.getElementById("text").innerHTML = "PERIOD 1"
-
-                        var starttime = " 09:00:00";
-                        var startday = 0;
-
-                    }
-
-                }
-
-            } else {
-
-                EndTime = " 12:20:00"
-                document.getElementById("text").innerHTML = "PERIOD 2"
-
-                var starttime = " 10:30:00";
-                var startday = 0;
-
-            }
-
-        }
-
-
-
-        function CheckWeekendDay() {
-
-            if (week == 0) {
-
-                day = day + 1
-
-                EndTime = " 09:00:00"
-                document.getElementById("text").innerHTML = "WEEKEND"
-
-                var starttime = " 16:50:00";
-                var startday = -2;
-
-            } else {
-
-                if (week == 6) {
-
-                    day = day + 2
-
-                    EndTime = " 09:00:00"
-                    document.getElementById("text").innerHTML = "WEEKEND"
-
-                    var starttime = " 16:50:00";
-                    var startday = -1;
-
-
-                } else {
-
-                    if (hour <= 16) {
-
-                        if (min <= 50) {
-
-                            EndTime = " 16:50:00"
-                            document.getElementById("text").innerHTML = "PERIOD 4"
-
-                            var starttime = " 13:20:00";
-                            var startday = 0;
-
-
-                        } else {
-
-                            day = day + 3
-
-                            EndTime = " 09:00:00"
-                            document.getElementById("text").innerHTML = "WEEKEND"
-
-                            var starttime = " 16:50:00";
-                            var startday = 0;
-
-
-                        }
-
-                    } else {
-
-                        day = day + 3
-
-                        EndTime = " 09:00:00"
-                        document.getElementById("text").innerHTML = "WEEKEND"
-
-                        var starttime = " 16:50:00";
-                        var startday = 0;
-
-
-                    }
-
-
-                }
-
-            }
-
-        }
-
+        var now1 = new Date();
+        var start1 = new Date(now1.getFullYear(), 0, 0);
+        var diff = now1 - start1;
+        var oneDay = 1000 * 60 * 60 * 24;
+        var day1 = Math.floor(diff / oneDay);
+
+        var testmonthandday = dateFromDay(year, day1)
 
         if (week == 0) {
 
@@ -415,6 +190,7 @@
         var x = setInterval(function () {
 
             var countDownDate = new Date(monthname + " " + day + "," + year + EndTime).getTime();
+
             var StartDate = new Date(monthname + " " + (day + startday) + "," + year + starttime).getTime();
 
             var now = new Date().getTime();
@@ -427,35 +203,45 @@
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
             var justseconds = Math.floor((distance % (10000000 * 1000)) / 1000);
-
             var decaseconds = Math.floor((distance % (10000000 * 1000)) / 100);
-
             var hourlessseconds = Math.floor((distance % (1000 * 60 * 60)) / (1000));
-
             var hourlessdecaseconds = Math.floor((distance % (1000 * 60 * 60)) / (100));
-
-
-            var seconds = Math.floor((distance % (100 * 100)) / 1000);
+            var hourlessminutelessseconds = Math.floor((distance % (1000 * 60)) / 100);
+            var justhourlessminutelessseconds = Math.floor((distance % (1000 * 60)) / 1000);
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
             var deciseconds = Math.floor((distance % (100 * 10)) / 100);
             var centiseconds = Math.floor((distance % (10 * 10)) / 10);
             var milliseconds = Math.floor((distance % (1 * 10)) / 1);
-
             var timeformat1 = document.getElementById("ch1").value
 
             var checkbox1 = document.getElementById("ch1");
             var checkbox2 = document.getElementById("ch2");
+            var checkbox3 = document.getElementById("ch3");
 
             if (checkbox1.checked == true) {
 
                 if (checkbox2.checked == true) {
 
-                    document.getElementById("demo").innerHTML = hours + "H " + hourlessdecaseconds + "DS";
+                    if (checkbox3.checked == true) {
+
+                        document.getElementById("demo").innerHTML = hours + "H " + minutes + "M " + hourlessminutelessseconds + "DS";
+
+                    } else {
+
+                        document.getElementById("demo").innerHTML = hours + "H " + hourlessdecaseconds + "DS";
+
+                    }
 
                 } else {
 
-                    document.getElementById("demo").innerHTML = decaseconds;
+                    if (checkbox3.checked == true) {
+
+                        document.getElementById("demo").innerHTML = minutes + "M " + hourlessminutelessseconds + "DS";
+
+                    } else {
+                        document.getElementById("demo").innerHTML = decaseconds;
+                    }
 
                 }
 
@@ -463,11 +249,23 @@
 
                 if (checkbox2.checked == true) {
 
-                    document.getElementById("demo").innerHTML = hours + "H " + hourlessseconds + "S";
+                    if (checkbox3.checked == true) {
+
+                        document.getElementById("demo").innerHTML = hours + "H " + minutes + "M " + justhourlessminutelessseconds + "S";
+
+                    } else {
+                        document.getElementById("demo").innerHTML = hours + "H " + hourlessseconds + "S";
+                    }
 
                 } else {
 
-                    document.getElementById("demo").innerHTML = justseconds;
+                    if (checkbox3.checked == true) {
+
+                        document.getElementById("demo").innerHTML = minutes + "M " + justhourlessminutelessseconds + "S";
+
+                    } else {
+                        document.getElementById("demo").innerHTML = justseconds;
+                    }
 
                 }
 
@@ -480,7 +278,6 @@
             }
 
         }, 1);
-
 
     </script>
 
