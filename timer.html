@@ -44,19 +44,23 @@
         <h1 id="text">STATUS</h1>
 
 
-        <div class="content">
-            <label class="checkBox">
-                <input id="ch1" type="checkbox">
-                <div class="transition"></div>
-            </label>
-        </div>
+        <label class="checkBox">
+            <input id="ch1" type="checkbox">
+            <div class="transition"></div>
+        </label>
 
-         <!--        <h1 id="text1">STATUS</h1>
+        <label class="checkBox2" style="align-items: center;">
+            <input id="ch2" type="checkbox">
+            <div class="transition2"></div>
+        </label>
+
+
+        <!--        <h1 id="text1">STATUS</h1>
         <h1 id="text2">STATUS</h1>
         <h1 id="text3">STATUS</h1>
  -->
 
- 
+
 
 
 
@@ -67,7 +71,7 @@
 
     </div>
 
-    
+
 
 
 
@@ -473,11 +477,16 @@
                                     var starttime = " 09:00:00";
                                     var startday = 0;
 
+                                    document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
                                 } else {
 
                                     EndTime = " 09:00:00"
                                     var starttime = " 16:50:00";
                                     var startday = -1;
+
+                                    document.getElementById("text").innerHTML = "'TILL SCHOOL"
+
 
                                 }
 
@@ -518,19 +527,19 @@
             var distance = countDownDate - now;
             var TotalTime = countDownDate - StartDate;
 
-            var PercentageComplete = (1-(distance / (TotalTime))) * 100;
+            var PercentageComplete = (1 - (distance / (TotalTime))) * 100;
 
             //alert(PercentageComplete)
 
-         /*  document.getElementById("text1").innerHTML = monthname + " " + day + "," + year + EndTime
-            document.getElementById("text2").innerHTML = monthname + " " + day + "," + year + starttime
-            document.getElementById("text3").innerHTML = PercentageComplete
-
-            var elem = document.getElementById("myBar");
-
-            elem.style.width = PercentageComplete + "%";
-
-*/
+            /*  document.getElementById("text1").innerHTML = monthname + " " + day + "," + year + EndTime
+               document.getElementById("text2").innerHTML = monthname + " " + day + "," + year + starttime
+               document.getElementById("text3").innerHTML = PercentageComplete
+   
+               var elem = document.getElementById("myBar");
+   
+               elem.style.width = PercentageComplete + "%";
+   
+   */
 
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -540,6 +549,10 @@
             var justseconds = Math.floor((distance % (10000000 * 1000)) / 1000);
 
             var decaseconds = Math.floor((distance % (10000000 * 1000)) / 100);
+
+            var hourlessseconds = Math.floor((distance % (1000 * 60 * 60)) / (1000));
+
+            var hourlessdecaseconds = Math.floor((distance % (1000 * 60 * 60)) / (100));
 
 
             var seconds = Math.floor((distance % (100 * 100)) / 1000);
@@ -554,21 +567,40 @@
 
 
             var checkbox1 = document.getElementById("ch1");
+            var checkbox2 = document.getElementById("ch2");
 
             if (checkbox1.checked == true) {
 
+                if (checkbox2.checked == true) {
+
+                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
+          + minutes + "m " + */ hours + "H " + hourlessdecaseconds + "DS"/*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
 
 
-                document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
+                } else {
+
+                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
           + minutes + "m " + */decaseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
 
 
+                }
 
             } else {
 
+                if (checkbox2.checked == true) {
 
-                document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
+                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
++ minutes + "m " + */ hours + "H " + hourlessseconds + "S"/*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
+
+
+                } else {
+
+                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
++ minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
+
+
+                }
+
 
 
             }
