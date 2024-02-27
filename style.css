@@ -21,6 +21,21 @@ select {
 
   }
 
+  img{
+    max-width:200px;
+    max-height:200px;
+    
+}
+
+  .logo {
+    max-width: 200px;
+      text-align: center
+      border: 0px solid;
+      position: absolute;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
 
 option {
     font-family: 'Font';
