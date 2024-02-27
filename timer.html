@@ -205,10 +205,10 @@
             }
         }
 
-
         function CheckAfterLunch() {
 
-            if (hour = 13) {
+            if (hour < 14) {
+
 
                 if (min >= 30) {
 
@@ -224,22 +224,19 @@
                     document.getElementById("text").innerHTML = "LUNCH BREAK"
 
 
-                    var starttime = " 12:20:00";
-                    var startday = 0;
 
                 }
+
+
+
+
 
             } else {
 
                 EndTime = " 15:00:00"
                 document.getElementById("text").innerHTML = "PERIOD 3"
 
-                var starttime = " 13:30:00";
-                var startday = 0;
-
             }
-
-
 
         }
 
