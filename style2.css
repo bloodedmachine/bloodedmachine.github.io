@@ -13,6 +13,18 @@ body {background-color:#000;}
 
 }
 
+.moveup {
+
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  border: 0px solid;
+  position: absolute;
+  top: 43%;
+  left: 50%;
+
+}
+
 
 select {
     text-align-last:center;
