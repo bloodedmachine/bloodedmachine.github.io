@@ -27,15 +27,16 @@ select {
     
 }
 
-  .logo {
-    max-width: 200px;
-      text-align: center
-      border: 0px solid;
-      position: absolute;
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-    }
+.logo {
+
+
+  position: absolute;
+  bottom: 0; /* set the bottom to 0*/
+  left: 0;
+  right: 0;
+  margin-bottom: 10px;
+
+}
 
 option {
     font-family: 'Font';
