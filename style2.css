@@ -28,6 +28,7 @@ select {
   img{
     max-width:200px;
     max-height:200px;
+    vertical-align: bottom;
     
 }
 
@@ -39,6 +40,7 @@ select {
       display: block;
       margin-right: auto;
       margin-left: auto;
+      vertical-align: bottom;
     }
 
 
