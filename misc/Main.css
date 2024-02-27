@@ -1,0 +1,21 @@
+﻿h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 45px;
+	text-align: center;
+}
+
+table {
+	padding: 0px;
+	margin: 0px;
+	table-layout: auto;
+}
+body {
+	padding: 0px;
+	margin: 0px;
+	background-color: white;
+	border-spacing: 0px;
+}
+
+img {
+	object-fit: contain;
+}
