@@ -4,36 +4,8 @@
 <head>
     <title>DOOM TIMER</title>
     <link rel="icon" type="image/x-icon" href="https://myreadyplayerone.github.io/logo1.ico">
-
-
     <link rel="stylesheet" href="style2.css">
 
-
-    <style>
-        #myProgress {
-            width: 100%;
-            background-color: #000;
-        }
-
-        #myBar {
-            width: 0%;
-            height: 30px;
-            background-color: #fff;
-        }
-
-        p {
-
-            font-size: 80px;
-            margin-bottom: -25px;
-
-        }
-
-        h1 {
-
-            font-size: 40px;
-            margin-top: -25px;
-        }
-    </style>
 </head>
 
 <body>
@@ -47,8 +19,6 @@
         </center>
     </div>
     <div class="center">
-
-        <!-- <input id="input" class="button"> -->
 
 
         <p id="demo">-</p>
@@ -65,35 +35,7 @@
             <div class="transition2"></div>
         </label>
 
-
-        <!--        <h1 id="text1">STATUS</h1>
-        <h1 id="text2">STATUS</h1>
-        <h1 id="text3">STATUS</h1>
- -->
-
-
-
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
-    <!-- <div id="myProgress">
-        <div id="myBar"></div>
-    </div> <div class="center2"><button onclick="Time()" class="button"> INITIATE</button></div> -->
-
-
-
-
-
 
     <script>
 
@@ -112,18 +54,8 @@
 
                 alert("not checked")
                 decasecondstest = 0
-
             }
-
         }
-
-
-
-
-
-
-
-
 
         function getMonthName(monthNumber) {
             const date = new Date();
@@ -135,7 +67,6 @@
         }
 
         const date = new Date();
-        //document.getElementById("test").innerHTML = date
 
         let day = date.getDate();
         let week = date.getDay();
@@ -145,27 +76,12 @@
         let min = date.getMinutes();
         let milli = date.getMilliseconds();
 
-        /*let day = 21;
-        let month = 2;
-        let year = 2024;
-        let hour = 9;
-        let min = 0;*/
-
-
-        //alert(day)
-
         var EndTime = " 00:00:00";
-
-        //let monthname = getMonthName(month)
         let monthname = "Feb";
-
-        //alert(monthname)
-
         var starttime = " 00:00:00";
         var startday = 0;
 
         function CheckAfterSchool() {
-
 
             if (hour > 16) {
 
@@ -174,8 +90,6 @@
                 EndTime = " 09:00:00"
 
                 document.getElementById("text").innerHTML = "'TILL SCHOOL";
-
-             
 
             } else {
 
@@ -187,14 +101,10 @@
 
                     document.getElementById("text").innerHTML = "'TILL SCHOOL"
 
-
-
                 } else {
 
                     EndTime = " 16:50:00"
                     document.getElementById("text").innerHTML = "PERIOD 4"
-
-         
 
                 }
 
@@ -219,13 +129,7 @@
                     EndTime = " 13:30:00"
                     document.getElementById("text").innerHTML = "LUNCH BREAK"
 
-
-
                 }
-
-
-
-
 
             } else {
 
@@ -491,7 +395,6 @@
 
                                     document.getElementById("text").innerHTML = "'TILL SCHOOL"
 
-
                                 }
 
                             }
@@ -504,48 +407,20 @@
 
             }
 
-
-
         }
 
-
-
-        // Set the date we're counting down to
-
-
-
-        //alert(TotalTime)
-
-        // Update the count down every 1 second
         var x = setInterval(function () {
 
             var countDownDate = new Date(monthname + " " + day + "," + year + EndTime).getTime();
             var StartDate = new Date(monthname + " " + (day + startday) + "," + year + starttime).getTime();
 
-
-            // Get today's date and time
             var now = new Date().getTime();
-            //var now = new Date(monthname + " " + day + "," + year + " 09:00:00").getTime();
 
-            // Find the distance between now and the count down date
             var distance = countDownDate - now;
             var TotalTime = countDownDate - StartDate;
 
             var PercentageComplete = (1 - (distance / (TotalTime))) * 100;
 
-            //alert(PercentageComplete)
-
-            /*  document.getElementById("text1").innerHTML = monthname + " " + day + "," + year + EndTime
-               document.getElementById("text2").innerHTML = monthname + " " + day + "," + year + starttime
-               document.getElementById("text3").innerHTML = PercentageComplete
-   
-               var elem = document.getElementById("myBar");
-   
-               elem.style.width = PercentageComplete + "%";
-   
-   */
-
-            // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -566,10 +441,6 @@
 
             var timeformat1 = document.getElementById("ch1").value
 
-            //alert(timeformat1)
-
-
-
             var checkbox1 = document.getElementById("ch1");
             var checkbox2 = document.getElementById("ch2");
 
@@ -577,15 +448,11 @@
 
                 if (checkbox2.checked == true) {
 
-                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " + */ hours + "H " + hourlessdecaseconds + "DS"/*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
+                    document.getElementById("demo").innerHTML = hours + "H " + hourlessdecaseconds + "DS";
 
                 } else {
 
-                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-          + minutes + "m " + */decaseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
+                    document.getElementById("demo").innerHTML = decaseconds;
 
                 }
 
@@ -593,55 +460,19 @@
 
                 if (checkbox2.checked == true) {
 
-                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-+ minutes + "m " + */ hours + "H " + hourlessseconds + "S"/*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
+                    document.getElementById("demo").innerHTML = hours + "H " + hourlessseconds + "S";
 
                 } else {
 
-                    document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-+ minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
+                    document.getElementById("demo").innerHTML = justseconds;
 
                 }
 
-
-
             }
 
-
-
-            //  if (decasecondstest == 0) {
-
-
-
-            //       document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-            //+ minutes + "m " + */decaseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
-
-            //   } else {
-
-            //       document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-            // + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
-
-            //   }
-
-
-
-
-
-
-
-
-            // Output the result in an element with id="demo"
-            //  document.getElementById("demo").innerHTML = /*days + "d " + hours + "h "
-            //  + minutes + "m " + */justseconds /*+  "" + decaseconds + "" + seconds + "" + deciseconds  + "" + centiseconds + "" + milliseconds + ""*/;
-
-            // If the count down is over, write some text 
             if (distance < 0) {
                 clearInterval(x);
-                //document.getElementById("demo").innerHTML = "EXPIRED";
+                document.getElementById("demo").innerHTML = "LOADING";
                 location.reload()
             }
 
