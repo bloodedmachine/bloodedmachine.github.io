@@ -1,5 +1,57 @@
 body {background-color:#000;}
 
+#myProgress {
+    width: 70%;
+    background-color: #ffffff;
+
+}
+
+#myBar {
+    width: 0%;
+    height: 40px;
+    background-color: #e13500;
+
+}
+
+p {
+
+    font-size: 60px;
+    margin-bottom: 35px;
+
+
+}
+
+h1 {
+
+    font-size: 60px;
+    margin-top: 0px;
+}
+
+h2 {
+
+    color: #fff;
+    font-family: 'Font';
+}
+
+h3 {
+
+    color: #fff;
+    font-family: 'Font';
+}
+
+li {
+
+    color: #fff;
+    font-family: 'Font';
+}
+
+
+span {
+
+    color: #fff;
+    font-family: 'Font';
+}
+
 .bigger {
 
   transform: scale(1.5);
@@ -8,10 +60,24 @@ body {background-color:#000;}
   margin-left: auto;
   border: 0px solid;
   position: absolute;
-  top: 43%;
+  top: 20%;
   left: 50%;
 
 }
+
+.chocchip {
+
+    
+ 
+    margin-right: auto;
+    margin-left: auto;
+    border: 0px solid;
+    margin-top: 10%;
+
+    padding: 10%;
+   
+  
+  }
 
 .moveup {
 
@@ -367,4 +433,82 @@ h1 {
 
 .transition3 {
   transition: 100ms ease;
+}
+
+
+.tippy-box[data-theme~="wprm"] { background-color: #333333; color: #FFFFFF; } .tippy-box[data-theme~="wprm"][data-placement^="top"] > .tippy-arrow::before { border-top-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="bottom"] > .tippy-arrow::before { border-bottom-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="left"] > .tippy-arrow::before { border-left-color: #333333; } .tippy-box[data-theme~="wprm"][data-placement^="right"] > .tippy-arrow::before { border-right-color: #333333; } .tippy-box[data-theme~="wprm"] a { color: #FFFFFF; } .wprm-comment-rating svg { width: 18px !important; height: 18px !important; } img.wprm-comment-rating { width: 90px !important; height: 18px !important; } body { --comment-rating-star-color: #d84c74; } body { --wprm-popup-font-size: 16px; } body { --wprm-popup-background: #ffffff; } body { --wprm-popup-title: #000000; } body { --wprm-popup-content: #444444; } body { --wprm-popup-button-background: #444444; } body { --wprm-popup-button-text: #ffffff; }</style><style> #wprm-print-button-print { border-color: #d84c74 !important; background-color: #d84c74 !important; } .wprm-print-toggle:checked + label:before { border-color: #d84c74 !important; background: #d84c74 !important; } .wprm-print-option-container a.wprm-print-option { border-color: #d84c74 !important; } .wprm-print-option-container a.wprm-print-option.option-active { background-color: #d84c74 !important; }</style><script>var wprm_print_settings = {"print_remove_links":true};</script><style>@media print { .wprm-print-recipe + .wprm-print-recipe { page-break-before: always; } }</style><style type="text/css">.wprm-recipe-template-basic {
+    margin: 20px auto;
+    background-color: #fafafa; /* wprm_background type=color */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 0.9em; /* wprm_main_font_size type=font_size */
+    line-height: 1.5em; /* wprm_main_line_height type=font_size */
+    color: #333333; /* wprm_main_text type=color */
+    max-width: 650px; /* wprm_max_width type=size */
+}
+.wprm-recipe-template-basic a {
+    color: #3498db; /* wprm_link type=color */
+}
+.wprm-recipe-template-basic p, .wprm-recipe-template-basic li {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_main_font_family type=font */
+    font-size: 1em !important;
+    line-height: 1.5em !important; /* wprm_main_line_height type=font_size */
+}
+.wprm-recipe-template-basic li {
+    margin: 0 0 0 32px !important;
+    padding: 0 !important;
+}
+.rtl .wprm-recipe-template-basic li {
+    margin: 0 32px 0 0 !important;
+}
+.wprm-recipe-template-basic ol, .wprm-recipe-template-basic ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-basic br {
+    display: none;
+}
+.wprm-recipe-template-basic .wprm-recipe-name,
+.wprm-recipe-template-basic .wprm-recipe-header {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #fff; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+}
+.wprm-recipe-template-basic h1,
+.wprm-recipe-template-basic h2,
+.wprm-recipe-template-basic h3,
+.wprm-recipe-template-basic h4,
+.wprm-recipe-template-basic h5,
+.wprm-recipe-template-basic h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; /* wprm_header_font_family type=font */
+    color: #212121; /* wprm_header_text type=color */
+    line-height: 1.3em; /* wprm_header_line_height type=font_size */
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.wprm-recipe-template-basic .wprm-recipe-header {
+    margin-top: 1.2em !important;
+}
+.wprm-recipe-template-basic h1 {
+    font-size: 2em; /* wprm_h1_size type=font_size */
+}
+.wprm-recipe-template-basic h2 {
+    font-size: 1.8em; /* wprm_h2_size type=font_size */
+}
+.wprm-recipe-template-basic h3 {
+    font-size: 1.2em; /* wprm_h3_size type=font_size */
+}
+.wprm-recipe-template-basic h4 {
+    font-size: 1em; /* wprm_h4_size type=font_size */
+}
+.wprm-recipe-template-basic h5 {
+    font-size: 1em; /* wprm_h5_size type=font_size */
+}
+.wprm-recipe-template-basic h6 {
+    font-size: 1em; /* wprm_h6_size type=font_size */
+}.wprm-recipe-template-basic {
+	border-style: solid; /* wprm_border_style type=border */
+	border-width: 0px; /* wprm_border_width type=size */
+	border-color: #aaaaaa; /* wprm_border type=color */
+	border-radius: 0px; /* wprm_border_radius type=size */
+	padding: 10px;
 }

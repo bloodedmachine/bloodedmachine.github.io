@@ -2,7 +2,7 @@ body {background-color:#000;}
 
 .bigger {
 
-  transform: scale(1.5);
+  transform: scale(1);
   display: block;
   margin-right: auto;
   margin-left: auto;
