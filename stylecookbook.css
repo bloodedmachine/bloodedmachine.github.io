@@ -243,7 +243,21 @@ h1 {
     margin-left: 10px;
     margin-right: 10px;
   }
-
+  
+  .buttonpink {
+    font-family: 'Font';
+    background-color:  #c9488e;
+    border: none;
+    color: black;
+    padding: 15px 150px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
 
 .container{  
