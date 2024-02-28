@@ -66,7 +66,7 @@ span {
 
 .bigger {
 
-  transform: scale(1.5);
+  transform: scale(1);
   display: block;
   margin-right: auto;
   margin-left: auto;
@@ -219,7 +219,7 @@ text-align: center
 
 h1 {
     color: white;
-    font-size: 80px;
+    font-size: 60px;
 
     text-align: center;
     font-family: 'Font';
