@@ -8,7 +8,12 @@ body {background-color:#ff5bad;}
 
 @font-face {
     font-family: FontBubble;
-    src: url(Bubblegum.ttf);
+    src: url(Peach\ Cake.otf);
+  }
+
+  @font-face {
+    font-family: FontLemon;
+    src: url(Lemon\ Milk.otf);
   }
 
 #myBar {
