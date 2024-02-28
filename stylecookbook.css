@@ -6,6 +6,11 @@ body {background-color:#c94889;}
 
 }
 
+@font-face {
+    font-family: FontBubble;
+    src: url(Bubblegum.ttf);
+  }
+
 #myBar {
     width: 0%;
     height: 40px;
@@ -17,6 +22,7 @@ p {
 
     font-size: 60px;
     margin-bottom: 35px;
+    font-family: 'FontBubble';
 
 
 }
@@ -25,31 +31,37 @@ h1 {
 
     font-size: 60px;
     margin-top: 0px;
+    font-family: 'FontBubble';
 }
 
 h2 {
 
     color: #fff;
-    font-family: 'Font';
+    font-family: 'FontBubble';
+    font-size: 40px;
 }
 
 h3 {
 
     color: #fff;
-    font-family: 'Font';
+    font-family: 'FontBubble';
+    font-size: 20px;
+
 }
 
 li {
 
     color: #fff;
-    font-family: 'Font';
+    font-family: 'FontBubble';
+    font-size: 20px;
 }
 
 
 span {
 
     color: #fff;
-    font-family: 'Font';
+    font-family: 'FontBubble';
+    font-size: 20px;
 }
 
 .bigger {
@@ -72,7 +84,7 @@ span {
     margin-right: auto;
     margin-left: auto;
     border: 0px solid;
-    margin-top: 20%;
+    margin-top: 40%;
 
     padding: 10%;
    
