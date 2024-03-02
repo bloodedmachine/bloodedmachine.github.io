@@ -173,15 +173,13 @@ function CheckSecondPeriod() {
 
 function CheckWeekendDay() {
 
+
     if (week == 0) {
 
         day = day + 1
 
         EndTime = " 09:00:00"
         document.getElementById("text").innerHTML = "WEEKEND"
-
-        var starttime = " 16:50:00";
-        var startday = -2;
 
     } else {
 
@@ -192,10 +190,6 @@ function CheckWeekendDay() {
             EndTime = " 09:00:00"
             document.getElementById("text").innerHTML = "WEEKEND"
 
-            var starttime = " 16:50:00";
-            var startday = -1;
-
-
         } else {
 
             if (hour <= 16) {
@@ -205,20 +199,12 @@ function CheckWeekendDay() {
                     EndTime = " 16:50:00"
                     document.getElementById("text").innerHTML = "PERIOD 4"
 
-                    var starttime = " 13:20:00";
-                    var startday = 0;
-
-
                 } else {
 
                     day = day + 3
 
                     EndTime = " 09:00:00"
                     document.getElementById("text").innerHTML = "WEEKEND"
-
-                    var starttime = " 16:50:00";
-                    var startday = 0;
-
 
                 }
 
@@ -229,15 +215,11 @@ function CheckWeekendDay() {
                 EndTime = " 09:00:00"
                 document.getElementById("text").innerHTML = "WEEKEND"
 
-                var starttime = " 16:50:00";
-                var startday = 0;
-
-
             }
 
 
         }
 
-    }
+    } 
 
 }

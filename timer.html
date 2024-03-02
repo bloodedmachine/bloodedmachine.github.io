@@ -88,7 +88,7 @@
         let milli = date.getMilliseconds();
 
         var EndTime = " 00:00:00";
-        let monthname = "Feb";
+        let monthname = "Mar";
         var starttime = " 00:00:00";
         var startday = 0;
 
@@ -112,6 +112,8 @@
         } else {
 
             if (week >= 5) {
+
+
 
                 CheckWeekendDay();
 
@@ -198,10 +200,9 @@
             var distance = countDownDate - now;
             var TotalTime = countDownDate - StartDate;
 
-            var PercentageComplete = (1 - (distance / (TotalTime))) * 100;
 
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var hours = Math.floor((distance % (100000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             var justseconds = Math.floor((distance % (10000000 * 1000)) / 1000);
             var decaseconds = Math.floor((distance % (10000000 * 1000)) / 100);
