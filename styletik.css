@@ -170,9 +170,10 @@ border: #FFF;
 
 }
 
- th, td {
+table, th, td {
   border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
+  border-collapse: collapse;
  
 }
 

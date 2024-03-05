@@ -8,14 +8,14 @@
 
 
 
-<body>
+<body ondblclick="Reset()">
 
     <div class="center">
 
-        <h1 id="text">TIK TAK TOH</h1>
+        <h1 id="text"></h1>
         <table>
             <tr>
-                <td><button class="buttontiktak" id="1" onclick="OnClick1()">‎‎‎</button></td>
+                <td><button class="buttontiktak" id="1" onclick="OnClick1()"></button></td>
                 <td><button class="buttontiktak" id="2" onclick="OnClick2()"></button></td>
                 <td><button class="buttontiktak" id="3" onclick="OnClick3()"></button></td>
             </tr>
@@ -34,6 +34,20 @@
     </div>
 
     <script>
+
+        function Reset() {
+
+            document.getElementById("1").innerHTML = ""
+            document.getElementById("2").innerHTML = ""
+            document.getElementById("3").innerHTML = ""
+            document.getElementById("4").innerHTML = ""
+            document.getElementById("5").innerHTML = ""
+            document.getElementById("6").innerHTML = ""
+            document.getElementById("7").innerHTML = ""
+            document.getElementById("8").innerHTML = ""
+            document.getElementById("9").innerHTML = ""
+         
+        }
 
         var counter = 0
 
