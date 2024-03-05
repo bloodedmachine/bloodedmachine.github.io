@@ -18,8 +18,8 @@ body {background-color:#000;}
   background-color:  #ff5bad;
   border: none;
   color: rgb(255, 255, 255);
-  width: 150px;
-  height: 15px;
+  width: 400px;
+  height: 50px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -172,8 +172,8 @@ h1 {
     background-color:  white;
     border: none;
     color: black;
-    width: 150px;
-    height: 15px;
+    width: 400px;
+    height: 50px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
