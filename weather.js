@@ -7,11 +7,11 @@ searchForm.addEventListener('submit', (e) => {
     const city = cityInput.value.trim();
     if (city) {
 
-        alert(0)
+      
         getWeather(city);
         cityInput.value = '';
     } else {
-        alert(0)
+    
         alert('Please enter a city name.');
     }
 });

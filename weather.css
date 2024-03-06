@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+}
+h1{
+    font-family: "Font";
+text-align: center;
+    font-size: 60px;
+    color: #ffffff;
+}
+.container {
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: 000f;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Font";
+    width: max-content;
+    text-align: center
+    border: 0px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    font-family: "Font";
+    font-size: 30px;
+
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Font";
+    font-size: 30px;
+
+}
+
+.btn:hover {
+    background-color: #b30000;
+    font-family: "Font";
+    font-size: 30px;
+
+}
+
+#weather-info {
+    margin-top: 20px;
+    font-family: "Font";
+    font-size: 40px;
+    color: #ffffff;
+
+}
+
+@font-face {
+    font-family: Font;
+    src: url(UtahCondensedBold.ttf);
+  }
+
+  .centerbar {
+    width: 50%;
+      text-align: center
+      border: 10px white;
+      
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0px;
+    }
