@@ -25,6 +25,13 @@ h1 {
 
 }
 
+img{
+    max-width:200px;
+    max-height:200px;
+    
+    
+}
+
 .container {
     max-width: 100%;
     margin: 20px auto;
