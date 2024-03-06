@@ -24,12 +24,17 @@ body {background-color:#000;}
 }
 
 .progress {
+
   width: 1px;
   height: 10px;
   border-radius: 10px;
   background: rgb(255, 255, 255);
   transition: 0.5s;
-  animation: loading_44 2s cubic-bezier(.4,1.01,1,1) infinite;
+  animation-name: loading_44 ;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(.4,1.01,1,1);
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes loading_44 {

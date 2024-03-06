@@ -29,7 +29,7 @@
             <br><br><br>
             <h1 id="text">STATUS</h1>
             <div class="progress-loader">
-                <div class="progress"></div>
+                <div class="progress" id="progresstest"></div>
             </div>
 
 
@@ -47,13 +47,23 @@
                 <div class="transition3"></div>
             </label>
 
+
+
         </div>
     </div>
 
     <script>
 
+            var currenttime = new Date().getTime();
+            var currentsecond = Math.floor((currenttime % (1000 * 60)) / 1000);
+            var previoussecond = currentsecond - 1
+            var currentmillisecond = Math.floor((currenttime % (1000 * 60)) / 1);
+            var milliseconddistance = currentmillisecond - previoussecond*1000
 
+            var element = document.getElementById("progresstest")
 
+            element.style.animationDelay = "-" + milliseconddistance + "ms";
+ 
         function test1() {
 
             var decasecondstest = 0
