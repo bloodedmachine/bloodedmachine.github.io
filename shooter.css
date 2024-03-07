@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #000;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.buttonstart {
+    font-family: 'Font';
+    border: none;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.button {
+    position: relative;
+    margin-top: 7%;
+    margin-left: 1%;
+
+    font-size: 20px;
+    font-family: 'Font';
+    border: #000;
+
+    background-color: black;
+    color: rgb(255, 255, 255);
+
+}
+
+@font-face {
+    font-family: Font;
+    src: url(UtahCondensedBold.ttf);
+  }

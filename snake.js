@@ -8,6 +8,7 @@ const columns = canvas.width / scale;
 let snake;
 let food;
 let score = 0;
+let gamePaused = false;
 
 (function setup() {
     snake = new Snake();
@@ -15,6 +16,7 @@ let score = 0;
     food.pickLocation();
 
     window.setInterval(() => {
+        if (!gamePaused) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         snake.update();
         snake.draw();
@@ -27,9 +29,18 @@ let score = 0;
         }
 
         snake.checkCollision();
+    }
     }, 50 );
 }());
-
+window.addEventListener('keydown', (event) => {
+    if (event.key === ' ') {
+        gamePaused = !gamePaused;
+        document.getElementById('status').innerText = gamePaused ? 'Paused' : '';
+    } else if (!gamePaused) {
+        const direction = event.key.replace('Arrow', '');
+        snake.changeDirection(direction);
+    }
+});
 window.addEventListener('keydown', (event) => {
     const direction = event.key.replace('Arrow', '');
     snake.changeDirection(direction);
@@ -143,3 +154,68 @@ function Food() {
         ctx.fillRect(this.x, this.y, scale, scale);
     };
 }
+
+
+/*
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+const scale = 20;
+const rows = canvas.height / scale;
+const columns = canvas.width / scale;
+
+let snake;
+let food;
+let score = 0;
+let gamePaused = false;
+let gameStarted = false;
+
+document.getElementById('start-btn').addEventListener('click', startGame);
+
+function startGame() {
+    if (!gameStarted) {
+        gameStarted = true;
+        document.getElementById('start-btn').style.display = 'none';
+        
+        snake = new Snake();
+        food = new Food();
+        food.pickLocation();
+
+        window.setInterval(() => {
+            if (!gamePaused) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                snake.update();
+                snake.draw();
+                food.draw();
+
+                if (snake.eat(food)) {
+                    score++;
+                    document.getElementById('score').innerText = score;
+                    food.pickLocation();
+                }
+
+                snake.checkCollision();
+            }
+        }, 250);
+    }
+}
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === ' ') {
+        gamePaused = !gamePaused;
+        document.getElementById('status').innerText = gamePaused ? 'Paused' : '';
+    } else if (!gamePaused) {
+        const direction = event.key.replace('Arrow', '');
+        snake.changeDirection(direction);
+    }
+});
+
+function Snake() {
+    // ...
+}
+
+function Food() {
+    // ...
+}
+*/
