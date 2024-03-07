@@ -29,7 +29,7 @@ let dy = 0;
 
 const bulletWidth =20;
 const bulletHeight = 20;
-const bulletSpeed = 12;
+const bulletSpeed = 17;
 let bullets = [];
 
 // Enemy
@@ -38,9 +38,9 @@ enemyImage.src = 'skullred.png';
 
 const enemyWidth = 50;
 const enemyHeight = 50;
-const enemySpeed = 2;
+const enemySpeed = 3;
 let enemies = [];
-const spawnRate = 100; // milliseconds
+const spawnRate = 900; // milliseconds
 let lastSpawn = 0;
 
 // Score and Health
@@ -169,10 +169,6 @@ function draw() {
 
     // Draw enemies
     enemies.forEach((enemy) => ctx.drawImage(enemyImage, enemy.x, enemy.y, enemyWidth, enemyHeight));
-
-   //ctx.fillStyle = 'white';
-  //  enemies.forEach((enemy) => ctx.fillRect(enemy.x, enemy.y, enemyWidth, enemyHeight));
-
     // Draw score
     ctx.fillStyle = 'white';
     ctx.font = '20px Font';
