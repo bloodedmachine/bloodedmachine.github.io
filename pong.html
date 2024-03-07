@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Sided Pong Game</title>
+    <style>
+        canvas {
+            border: 1px solid rgb(255, 255, 255);
+            display: block;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(0, 0, 0);
+            border-radius: 20px;
+        }
+
+        h1 {
+            color: white;
+            font-family: "Font";
+            text-align: center;
+            font-size: 50px;
+        }
+
+        p {
+            color: white;
+            font-family: "Font";
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .center {
+            width: max-content;
+            text-align: center border: 0px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0px;
+        }
+
+        @font-face {
+            font-family: Font;
+            src: url(UtahCondensedBold.ttf);
+        }
+
+        .button {
+            font-family: 'Font';
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border-radius: 2px;
+            border-color: white;
+            width: 150px;
+            height: 50px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 30px;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="pongCanvas" width="600" height="400"></canvas>
+    <div class="center">
+        <h1 id="score" style="display: none;">0</h1>
+        <button id="pauseBtn" class="button">START</button>
+        <br><br>
+        <p id="highscore"></p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('pongCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth - 30;
+        canvas.height = window.innerHeight - 30;
+
+        let gameStarted = true; // Game starts automatically
+        let gamePaused = true;
+
+        var score = 0
+
+        const pauseBtn = document.getElementById('pauseBtn');
+
+        pauseBtn.addEventListener('click', togglePause);
+
+        window.addEventListener('keydown', function (e) {
+            keyState[e.key] = true;
+        });
+
+        window.addEventListener('keyup', function (e) {
+            keyState[e.key] = false;
+        });
+
+        let animationId;
+
+        const paddleSpeed = 5;
+        const paddleWidth = 100;
+        const paddleHeight = 20;
+        let topPaddleX = canvas.width / 2 - paddleWidth / 2;
+
+        const ballSize = 20;
+        let ballX = canvas.width / 2;
+        let ballY = -10 + canvas.height / 2;
+        let ballSpeedX = 7;
+        let ballSpeedY = 7;
+
+        function drawPaddle(x, y) {
+            ctx.fillStyle = 'white';
+            ctx.fillRect(x, y, paddleWidth, paddleHeight);
+        }
+
+        function drawBall() {
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        canvas.addEventListener('mousemove', function (event) {
+            const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+            const mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+            // Update paddle position based on mouse movement
+            topPaddleX = mouseX - paddleWidth / 2;
+
+            // Ensure the paddle stays within the canvas boundaries
+            if (topPaddleX < 0) {
+                topPaddleX = 0;
+            } else if (topPaddleX > canvas.width - paddleWidth) {
+                topPaddleX = canvas.width - paddleWidth;
+            }
+        });
+
+        function update() {
+            // Move paddle
+            if (!gamePaused) {
+                if (keyState.a && topPaddleX > 0) {
+                    topPaddleX -= paddleSpeed;
+                }
+                if (keyState.d && topPaddleX < canvas.width - paddleWidth) {
+                    topPaddleX += paddleSpeed;
+                }
+            }
+
+            // Move ball
+            ballX += -ballSpeedX;
+            ballY += -ballSpeedY;
+
+            // Ball collision with top, bottom, and right walls
+            if (ballY - ballSize < 0 || ballY + ballSize > canvas.height) {
+                ballSpeedY = -ballSpeedY; // Reverse vertical speed if hitting top or bottom walls
+            }
+            if (ballX + ballSize > canvas.width || ballX - ballSize < 0) {
+                ballSpeedX = -ballSpeedX; // Reverse horizontal speed if hitting the right wall
+            }
+
+            // Ball collision with paddle
+            if (ballY + ballSize > canvas.height - paddleHeight && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
+                ballSpeedY = -ballSpeedY;
+                score++;
+                document.getElementById("score").innerHTML = score;
+            }
+
+            // Ball out of bounds (left wall)
+            if (ballY + ballSize > canvas.height) {
+                // Reset ball position
+                ballX = canvas.width / 2;
+                ballY = canvas.height / 2;
+                document.getElementById("highscore").innerHTML = score + " IS KAK";
+                score = 0
+                document.getElementById("score").innerHTML = score;
+            }
+
+                // Speed up ball after score reaches 5
+    if (score >= 5) {
+        ballSpeedX = 15; // Increase horizontal speed by 10%
+        ballSpeedY = 15; // Increase vertical speed by 10%
+    }
+
+ 
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            drawPaddle(topPaddleX, canvas.height - paddleHeight); // Draw paddle at the bottom
+            drawBall();
+        }
+
+        const keyState = {};
+        window.addEventListener('keydown', function (e) {
+            if (!gamePaused) {
+                keyState[e.key] = true;
+            }
+        });
+        window.addEventListener('keyup', function (e) {
+            if (!gamePaused) {
+                keyState[e.key] = false;
+            }
+        });
+
+        function gameLoop() {
+            update();
+            draw();
+            if (!gamePaused) {
+                animationId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        function togglePause() {
+            document.getElementById("score").style.display = "block"
+            gamePaused = !gamePaused;
+            pauseBtn.innerText = gamePaused ? 'RESUME' : 'PAUSE';
+            if (!gamePaused) {
+                gameLoop();
+            }
+        }
+
+        gameLoop();
+    </script>
+</body>
+
+</html>
