@@ -54,9 +54,9 @@
             border-radius: 2px;
             border-color: white;
             width: 150px;
-            height: 50px;
-            padding-top: 2px;
-            padding-bottom: 2px;
+            
+            padding-top: 10px;
+            padding-bottom: 10px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
@@ -71,9 +71,12 @@
     <canvas id="pongCanvas" width="600" height="400"></canvas>
     <div class="center">
         <h1 id="score" style="display: none;">0</h1>
-        <button id="pauseBtn" class="button">START</button>
-        <br><br>
+        
         <p id="highscore"></p>
+        
+        <button id="pauseBtn" class="button">START GAME</button>
+        <button id="startBtn" class="button" style="display: none;">START GAME</button>
+
     </div>
 
     <script>
@@ -109,7 +112,7 @@
 
         const ballSize = 20;
         let ballX = canvas.width / 2;
-        let ballY = -10 + canvas.height / 2;
+        let ballY = 12 + canvas.height / 2;
         let ballSpeedX = 7;
         let ballSpeedY = 7;
 
@@ -167,6 +170,8 @@
             if (ballY + ballSize > canvas.height - paddleHeight && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
                 ballSpeedY = -ballSpeedY;
                 score++;
+                ballSpeedX = ballSpeedX + score;
+                ballSpeedY = ballSpeedY + score;
                 document.getElementById("score").innerHTML = score;
             }
 
@@ -174,20 +179,26 @@
             if (ballY + ballSize > canvas.height) {
                 // Reset ball position
                 ballX = canvas.width / 2;
-                ballY = canvas.height / 2;
+                ballY = 35  + canvas.height / 2;
                 document.getElementById("highscore").innerHTML = score + " IS KAK";
-                score = 0
+                score = 0;
+                togglePause()
+                document.getElementById("score").style.display = "none"
+                document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
                 document.getElementById("score").innerHTML = score;
             }
 
-                // Speed up ball after score reaches 5
-    if (score >= 5) {
-        ballSpeedX = 15; // Increase horizontal speed by 10%
-        ballSpeedY = 15; // Increase vertical speed by 10%
-    }
 
- 
+
+
+
+            // Speed up ball after score reaches 5
+            /*  if (score === 1 && ballSpeedX == 7) {
+                  ballSpeedX *= 2; // Increase horizontal speed by 10%
+                  ballSpeedY *= 2; // Increase vertical speed by 10%
+              }*/
         }
+
 
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
