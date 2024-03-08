@@ -6,11 +6,12 @@ const playpause = document.getElementById('playpause');
 canvas.height = window.innerHeight * 0.9;
 canvas.width = (window.innerHeight * 0.9) / (16/9); //test
 
-playpause.height = window.innerHeight * 0.9 * 0.1;
-playpause.width = (window.innerHeight * 0.9) * 0.1; //test
+playpause.height = window.innerHeight * 0.9 * 0.15;
+playpause.width = window.innerHeight * 0.9 * 0.15; //test
 
 document.getElementById("pongCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
-document.getElementById("score").style.fontSize = window.innerHeight * 0.1 + "px";
+document.getElementById("score").style.fontSize = window.innerHeight * 0.2 + "px";
+//document.getElementById("score").style.height = window.innerHeight * 1 + "px";
 document.getElementById("pauseBtn").style.fontSize = window.innerHeight * 0.05 + "px";
 
 let gameStarted = true; // Game starts automatically
