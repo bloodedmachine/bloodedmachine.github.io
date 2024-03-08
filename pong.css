@@ -45,11 +45,20 @@ p {
 
 .center2 {
 position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 500px;
 
 }
+
+.center3 {
+    position: absolute;
+        top: 50%;
+        left: 52%;
+        transform: translate(-50%, -50%);
+    
+    }
 
 @font-face {
     font-family: Font;
@@ -75,6 +84,30 @@ position: absolute;
     top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+
+}
+
+.button1 {
+    font-family: 'Font';
+
+    color: white;
+
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    
+
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0px;
+
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 
 
 }

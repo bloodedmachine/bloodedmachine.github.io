@@ -2,12 +2,16 @@ const canvas = document.getElementById('pongCanvas');
 const ctx = canvas.getContext('2d');
 
 const playpause = document.getElementById('playpause');
+const playpause2 = document.getElementById('playpause2');
 
 canvas.height = window.innerHeight * 0.9;
 canvas.width = (window.innerHeight * 0.9) / (16/9); //test
 
 playpause.height = window.innerHeight * 0.9 * 0.15;
 playpause.width = window.innerHeight * 0.9 * 0.15; //test
+
+playpause2.height = window.innerHeight * 0.9 * 0.3;
+playpause2.width = window.innerHeight * 0.9 * 0.3; //test
 
 document.getElementById("pongCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
 document.getElementById("score").style.fontSize = window.innerHeight * 0.2 + "px";
@@ -22,6 +26,10 @@ var score = 0
 const pauseBtn = document.getElementById('pauseBtn');
 
 pauseBtn.addEventListener('click', togglePause);
+
+const startBtn = document.getElementById('startBtn');
+
+startBtn.addEventListener('click', togglePause);
 
 window.addEventListener('keydown', function (e) {
     keyState[e.key] = true;
@@ -187,7 +195,8 @@ function gameLoop() {
 
 function togglePause() {
     document.getElementById("pauseBtn").style.fontSize = window.innerHeight * 0.03 + "px";
-    document.getElementById("score").style.display = "block"
+    document.getElementById("score").style.display = "block";
+    document.getElementById("startBtn").style.display = "none";
     gamePaused = !gamePaused;
 
 
