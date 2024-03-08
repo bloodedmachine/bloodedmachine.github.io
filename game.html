@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Shooter Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Setup scene
+        const scene = new THREE.Scene();
+
+        // Setup camera
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.y = 1;
+        camera.position.z = 3;
+
+        // Setup renderer
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create cubes
+        const cubes = [];
+        for (let i = 0; i < 50; i++) {
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff });
+            const cube = new THREE.Mesh(geometry, material);
+            cube.position.x = (Math.random() - 0.5) * 10;
+            cube.position.y = (Math.random() - 0.5) * 10;
+            cube.position.z = (Math.random() - 0.5) * 10;
+            cubes.push(cube);
+            scene.add(cube);
+        }
+
+        // Setup controls
+        const controls = new THREE.PointerLockControls(camera, renderer.domElement);
+        document.addEventListener('click', () => {
+            controls.lock();
+        });
+
+        // Handle shooting
+        document.addEventListener('mousedown', () => {
+            const raycaster = new THREE.Raycaster();
+            const direction = new THREE.Vector3();
+            controls.getDirection(direction);
+            raycaster.set(controls.getObject().position, direction);
+            const intersects = raycaster.intersectObjects(cubes);
+            if (intersects.length > 0) {
+                const obj = intersects[0].object;
+                scene.remove(obj);
+                cubes.splice(cubes.indexOf(obj), 1);
+            }
+        });
+
+        // Add controls to the scene
+        scene.add(controls.getObject());
+
+        // Render loop
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Update controls
+            controls.update();
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
+

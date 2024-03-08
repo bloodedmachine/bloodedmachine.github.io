@@ -1,8 +1,17 @@
 const canvas = document.getElementById('pongCanvas');
 const ctx = canvas.getContext('2d');
 
+const playpause = document.getElementById('playpause');
+
 canvas.height = window.innerHeight * 0.9;
 canvas.width = (window.innerHeight * 0.9) / (16/9); //test
+
+playpause.height = window.innerHeight * 0.9 * 0.1;
+playpause.width = (window.innerHeight * 0.9) * 0.1; //test
+
+document.getElementById("pongCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
+document.getElementById("score").style.fontSize = window.innerHeight * 0.1 + "px";
+document.getElementById("pauseBtn").style.fontSize = window.innerHeight * 0.05 + "px";
 
 let gameStarted = true; // Game starts automatically
 let gamePaused = true;
@@ -24,11 +33,11 @@ window.addEventListener('keyup', function (e) {
 let animationId;
 
 const paddleSpeed = 5;
-const paddleWidth = ((window.innerHeight - 30) / (16/9)) * 0.2;
-const paddleHeight = paddleWidth * 0.333;
+const paddleWidth = ((window.innerHeight - 30) / (16/9)) * 0.25;
+const paddleHeight = paddleWidth * 0.3;
 let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
-const ballSize = paddleWidth * 0.3;
+const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = 12 + canvas.height / 2;
 let ballSpeedX = 8;
@@ -112,7 +121,7 @@ function update() {
     }
 
     // Ball collision with paddle
-    if (ballY + ballSize > canvas.height - paddleHeight && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
+    if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight*1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
         ballSpeedX = ballSpeedX + 2;
@@ -125,6 +134,7 @@ function update() {
         // Reset ball position
         ballX = canvas.width / 2;
         ballY = 35  + canvas.height / 2;
+        topPaddleX = canvas.width / 2 - paddleWidth / 2;
         document.getElementById("highscore").innerHTML = score + " IS KAK";
         score = 0;
         ballSpeedX = 8;
@@ -150,7 +160,7 @@ function update() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawPaddle(topPaddleX, canvas.height - paddleHeight + paddleHeight*0.7); // Draw paddle at the bottom
+    drawPaddle(topPaddleX, canvas.height - paddleHeight - paddleHeight*1); // Draw paddle at the bottom
     drawBall();
 }
 
@@ -175,9 +185,14 @@ function gameLoop() {
 }
 
 function togglePause() {
+    document.getElementById("pauseBtn").style.fontSize = window.innerHeight * 0.03 + "px";
     document.getElementById("score").style.display = "block"
     gamePaused = !gamePaused;
-    pauseBtn.innerText = gamePaused ? 'RESUME' : 'PAUSE';
+
+
+    pauseBtn.innerText = gamePaused ? "RESUME" : "PAUSE";
+
+
     if (!gamePaused) {
         gameLoop();
     }

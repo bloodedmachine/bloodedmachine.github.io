@@ -4,78 +4,19 @@
 <head>
 
     <title>One-Sided Pong Game</title>
-    <style>
-        canvas {
-            border: 1px solid rgb(255, 255, 255);
-            display: block;
-            margin: 0 auto;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgb(0, 0, 0);
-            border-radius: 20px;
-        }
-
-        h1 {
-            color: white;
-            font-family: "Font";
-            text-align: center;
-            font-size: 50px;
-        }
-
-        p {
-            color: white;
-            font-family: "Font";
-            text-align: center;
-            font-size: 20px;
-        }
-
-        .center {
-            width: max-content;
-            text-align: center border: 0px solid;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 0px;
-        }
-
-        @font-face {
-            font-family: Font;
-            src: url(UtahCondensedBold.ttf);
-        }
-
-        .button {
-            font-family: 'Font';
-            background-color: rgb(0, 0, 0);
-            color: white;
-            border-radius: 2px;
-            border-color: white;
-            width: 150px;
-            
-            padding-top: 10px;
-            padding-bottom: 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 30px;
-            border-radius: 10px;
-
-        }
-    </style>
+    <link rel="stylesheet" href="pong.css">
 </head>
 
 <body>
     <canvas id="pongCanvas" width="600" height="400"></canvas>
-    <div class="center">
-        <h1 id="score" style="display: none;">0</h1>
-        
-        <p id="highscore"></p>
-        
-        <button id="pauseBtn" class="button">START GAME</button>
-        <button id="startBtn" class="button" style="display: none;">START GAME</button>
 
+    <div class="center1">
+        <h1 id="score" >0</h1>
+    </div>
+
+    <div lass="center2">
+        <p id="highscore"></p>
+        <button id="pauseBtn" class="button"><img src="play.png" id="playpause"></button>
     </div>
 
     <script src="pong.js">
