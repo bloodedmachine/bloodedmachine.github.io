@@ -26,9 +26,9 @@ let animationId;
 const paddleSpeed = 5;
 const paddleWidth = ((window.innerHeight - 30) / (16/9)) * 0.3;
 const paddleHeight = paddleWidth * 0.333;
-let topPaddleX = canvas.width / 2 - paddleWidth / 2;
+let topPaddleX = canvas.width / 2 - paddleWidth / 2 + paddleHeight * 0.01;
 
-const ballSize = 20;
+const ballSize = paddleWidth * 0.1;
 let ballX = canvas.width / 2;
 let ballY = 12 + canvas.height / 2;
 let ballSpeedX = 8;
