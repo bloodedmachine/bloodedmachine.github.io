@@ -24,8 +24,8 @@ window.addEventListener('keyup', function (e) {
 let animationId;
 
 const paddleSpeed = 5;
-const paddleWidth = 150;
-const paddleHeight = 20;
+const paddleWidth = ((window.innerHeight - 30) / (16/9)) * 0.3;
+const paddleHeight = paddleWidth * 0.333;
 let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
 const ballSize = 20;
