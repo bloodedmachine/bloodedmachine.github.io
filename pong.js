@@ -10,8 +10,8 @@ canvas.width = (window.innerHeight * 0.9) / (16/9); //test
 playpause.height = window.innerHeight * 0.9 * 0.15;
 playpause.width = window.innerHeight * 0.9 * 0.15; //test
 
-playpause2.height = window.innerHeight * 0.9 * 0.3;
-playpause2.width = window.innerHeight * 0.9 * 0.3; //test
+playpause2.height = window.innerHeight * 0.9 * 0.15;
+playpause2.width = window.innerHeight * 0.9 * 0.15; //test
 
 document.getElementById("pongCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
 document.getElementById("score").style.fontSize = window.innerHeight * 0.2 + "px";
@@ -48,9 +48,9 @@ let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
 const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
-let ballY = 12 + canvas.height / 2;
-let ballSpeedX = 8;
-let ballSpeedY = 8;
+let ballY = canvas.height / 2;
+let ballSpeedX = window.innerHeight / 200;
+let ballSpeedY = window.innerHeight / 200;
 
 function drawPaddle(x, y) {
 ctx.fillStyle = 'white';
@@ -142,12 +142,12 @@ function update() {
     if (ballY + ballSize > canvas.height) {
         // Reset ball position
         ballX = canvas.width / 2;
-        ballY = 35  + canvas.height / 2;
+        ballY = canvas.height / 2;
         topPaddleX = canvas.width / 2 - paddleWidth / 2;
         document.getElementById("highscore").innerHTML = score + " IS KAK";
         score = 0;
-        ballSpeedX = 8;
-        ballSpeedY = 8;
+        ballSpeedX = window.innerHeight / 200;
+      ballSpeedY = window.innerHeight / 200;
         togglePause()
         document.getElementById("score").style.display = "none"
         document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
