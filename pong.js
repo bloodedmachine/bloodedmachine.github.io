@@ -150,7 +150,7 @@ function update() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawPaddle(topPaddleX, canvas.height - paddleHeight*5); // Draw paddle at the bottom
+    drawPaddle(topPaddleX, canvas.height - paddleHeight + paddleHeight*0.7); // Draw paddle at the bottom
     drawBall();
 }
 
