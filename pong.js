@@ -2,7 +2,7 @@ const canvas = document.getElementById('pongCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.height = window.innerHeight - 30;
-canvas.width = (window.innerHeight - 30) / (16/9);
+canvas.width = (window.innerHeight - 30) / (16/9); //test
 
 let gameStarted = true; // Game starts automatically
 let gamePaused = true;
