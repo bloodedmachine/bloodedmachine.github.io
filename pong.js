@@ -48,8 +48,8 @@ let animationId;
 
 const paddleSpeed = 5;
 const paddleWidth = ((window.innerHeight - 30) / (16 / 9)) * 0.25;
-//const paddleHeight = paddleWidth * 0.3;
-const paddleHeight = 1;
+const paddleHeight = paddleWidth * 0.3;
+//const paddleHeight = 1;
 let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
 const ballSize = paddleWidth * 0.25;
@@ -136,7 +136,7 @@ function update() {
     }
 
     // Ball collision with paddle
-    if (ballY + ballSize > canvas.height - paddleHeight - (50 + paddleHeight * 6) && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
+    if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
         // ballSpeedX = ballSpeedX + 2;
@@ -199,7 +199,7 @@ function drawBallWithMotionBlur() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawPaddle(topPaddleX, canvas.height - paddleHeight - (50 + paddleHeight * 6)); // Draw paddle at the bottom
+    drawPaddle(topPaddleX, canvas.height - paddleHeight - paddleHeight * 1); // Draw paddle at the bottom
     drawBall();
     drawBallWithMotionBlur(); // Draw ball with motion blur
 }
