@@ -3,15 +3,20 @@ const ctx = canvas.getContext('2d');
 
 const playpause = document.getElementById('playpause');
 const playpause2 = document.getElementById('playpause2');
+const playpause3 = document.getElementById('playpause3');
+
 
 canvas.height = window.innerHeight * 0.9;
-canvas.width = (window.innerHeight * 0.9) / (16/9); //test
+canvas.width = (window.innerHeight * 0.9) / (16 / 9); //test
 
 playpause.height = window.innerHeight * 0.9 * 0.15;
 playpause.width = window.innerHeight * 0.9 * 0.15; //test
 
 playpause2.height = window.innerHeight * 0.9 * 0.15;
 playpause2.width = window.innerHeight * 0.9 * 0.15; //test
+
+playpause3.height = window.innerHeight * 0.9 * 0.15;
+playpause3.width = window.innerHeight * 0.9 * 0.15; //test
 
 document.getElementById("pongCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
 document.getElementById("score").style.fontSize = window.innerHeight * 0.2 + "px";
@@ -42,27 +47,28 @@ window.addEventListener('keyup', function (e) {
 let animationId;
 
 const paddleSpeed = 5;
-const paddleWidth = ((window.innerHeight - 30) / (16/9)) * 0.25;
-const paddleHeight = paddleWidth * 0.3;
+const paddleWidth = ((window.innerHeight - 30) / (16 / 9)) * 0.25;
+//const paddleHeight = paddleWidth * 0.3;
+const paddleHeight = 1;
 let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
 const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = window.innerHeight / 100;
-let ballSpeedY = window.innerHeight / 100;
+let ballSpeedX = 4;
+let ballSpeedY = 4;
 
 function drawPaddle(x, y) {
-ctx.fillStyle = 'white';
-const cornerRadius = paddleHeight / 2; // Adjust this value to change the roundness of the corners
-ctx.beginPath();
-ctx.moveTo(x + cornerRadius, y);
-ctx.arcTo(x + paddleWidth, y, x + paddleWidth, y + paddleHeight, cornerRadius);
-ctx.arcTo(x + paddleWidth, y + paddleHeight, x, y + paddleHeight, cornerRadius);
-ctx.arcTo(x, y + paddleHeight, x, y, cornerRadius);
-ctx.arcTo(x, y, x + paddleWidth, y, cornerRadius);
-ctx.closePath();
-ctx.fill();
+    ctx.fillStyle = 'white';
+    const cornerRadius = paddleHeight / 2; // Adjust this value to change the roundness of the corners
+    ctx.beginPath();
+    ctx.moveTo(x + cornerRadius, y);
+    ctx.arcTo(x + paddleWidth, y, x + paddleWidth, y + paddleHeight, cornerRadius);
+    ctx.arcTo(x + paddleWidth, y + paddleHeight, x, y + paddleHeight, cornerRadius);
+    ctx.arcTo(x, y + paddleHeight, x, y, cornerRadius);
+    ctx.arcTo(x, y, x + paddleWidth, y, cornerRadius);
+    ctx.closePath();
+    ctx.fill();
 }
 
 function drawBall() {
@@ -130,11 +136,11 @@ function update() {
     }
 
     // Ball collision with paddle
-    if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight*1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
+    if (ballY + ballSize > canvas.height - paddleHeight - (50 + paddleHeight * 6) && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
-        ballSpeedX = ballSpeedX + 2;
-        ballSpeedY = ballSpeedY + 2;
+        // ballSpeedX = ballSpeedX + 2;
+        //ballSpeedY = ballSpeedY + 2;
         document.getElementById("score").innerHTML = score;
     }
 
@@ -146,11 +152,11 @@ function update() {
         topPaddleX = canvas.width / 2 - paddleWidth / 2;
         document.getElementById("highscore").innerHTML = score + " IS KAK";
         score = 0;
-        ballSpeedX = window.innerHeight / 200;
-      ballSpeedY = window.innerHeight / 200;
+        ballSpeedX = 4;
+        ballSpeedY = 4;
         togglePause()
         document.getElementById("score").style.display = "none"
-        document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
+       // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
     }
 
@@ -165,12 +171,37 @@ function update() {
       }*/
 }
 
+function drawBallWithMotionBlur() {
+    // Draw multiple semi-transparent copies of the ball at different positions
+    const numBlurFrames = 5; // Adjust the number of blur frames as needed
+    const blurOpacity = 0.4; // Adjust the opacity of the blur effect
+    const blurSpacing = 2; // Adjust the spacing between blur frames
+
+    for (let i = 0; i < numBlurFrames; i++) {
+        // Calculate the position of the ball for this blur frame
+        const blurBallX = ballX + i * blurSpacing * ballSpeedX;
+        const blurBallY = ballY + i * blurSpacing * ballSpeedY;
+
+        // Set the transparency for this blur frame
+        ctx.globalAlpha = blurOpacity;
+
+        // Draw the ball at the blur frame position
+        ctx.beginPath();
+        ctx.arc(blurBallX, blurBallY, ballSize, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + blurOpacity + ')';
+        ctx.fill();
+    }
+
+    // Reset the global alpha to ensure subsequent drawing is not affected
+    ctx.globalAlpha = 1.0;
+}
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawPaddle(topPaddleX, canvas.height - paddleHeight - paddleHeight*1); // Draw paddle at the bottom
+    drawPaddle(topPaddleX, canvas.height - paddleHeight - (50 + paddleHeight * 6)); // Draw paddle at the bottom
     drawBall();
+    drawBallWithMotionBlur(); // Draw ball with motion blur
 }
 
 const keyState = {};
@@ -189,7 +220,7 @@ function gameLoop() {
     update();
     draw();
     if (!gamePaused) {
-        animationId = requestAnimationFrame(gameLoop);
+        setTimeout(gameLoop, 1000 / 240); // Adjust desiredFPS as needed
     }
 }
 
@@ -197,10 +228,14 @@ function togglePause() {
     document.getElementById("pauseBtn").style.fontSize = window.innerHeight * 0.03 + "px";
     document.getElementById("score").style.display = "block";
     document.getElementById("startBtn").style.display = "none";
+    document.getElementById("playpause").style.display = "block";
+  // document.getElementById("playpause3").style.display = "block";
     gamePaused = !gamePaused;
 
-
-    pauseBtn.innerText = gamePaused ? "RESUME" : "PAUSE";
+    document.getElementById("playpause").src = gamePaused ? "play.png" : "pause.png";
+ //   pauseBtn.innerText = gamePaused ? "" : "";
+    //document.getElementById("pauseplay").style.display = "block";
+   // document.getElementById("pauseplay").src = "pause.png";
 
 
     if (!gamePaused) {
