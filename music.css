@@ -96,7 +96,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .buttonsall {
-    margin-top: 20px;
+    margin-top: 10px;
     align-items: center;
     padding-top: 30px;
     width: 900px;
