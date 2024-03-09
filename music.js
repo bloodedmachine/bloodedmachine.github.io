@@ -65,6 +65,11 @@ function nextSong() {
   loadSong(currentSongIndex);
   audio.play();
 }
+function prevSong() {
+  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
+}
 
 audio.addEventListener('timeupdate', function() {
   seekSlider.value = audio.currentTime;
