@@ -220,7 +220,7 @@ function gameLoop() {
     update();
     draw();
     if (!gamePaused) {
-        setTimeout(gameLoop, 1000 / 240); // Adjust desiredFPS as needed
+        setTimeout(gameLoop, 1000 / 1000); // Adjust desiredFPS as needed
     }
 }
 
