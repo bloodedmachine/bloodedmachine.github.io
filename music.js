@@ -69,12 +69,14 @@ function skip(time) {
 function nextSong() {
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
+  playPause();
   audio.play();
 
 }
 function prevSong() {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
+  playPause();
   audio.play();
 
 }
