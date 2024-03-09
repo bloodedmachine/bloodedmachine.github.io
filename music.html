@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalStorage Example</title>
+</head>
+<body>
+
+<h1>LocalStorage Example</h1>
+
+<label for="dataInput">Enter Data:</label>
+<input type="text" id="dataInput">
+<button onclick="saveData()">Save Data</button>
+
+<p>Saved Data:</p>
+<p id="savedData"></p>
+
+<script>
+// Function to save data to localStorage
+function saveData() {
+    // Get the input value
+    var inputData = document.getElementById("dataInput").value;
+
+    // Check if the input is not empty
+    if (inputData.trim() !== "") {
+        // Save the input data to localStorage
+        localStorage.setItem("savedData", inputData);
+
+        // Display a confirmation message
+        alert("Data saved successfully!");
+    } else {
+        alert("Please enter some data!");
+    }
+}
+
+// Function to load saved data from localStorage
+function loadSavedData() {
+    // Check if data is saved in localStorage
+    if (localStorage.getItem("savedData")) {
+        // Get the saved data
+        var savedData = localStorage.getItem("savedData");
+
+        // Display the saved data
+        document.getElementById("savedData").textContent = savedData;
+    } else {
+        // Display a message if no data is saved
+        document.getElementById("savedData").textContent = "No data saved.";
+    }
+}
+
+// Call loadSavedData() function when the page loads
+window.onload = loadSavedData;
+</script>
+
+</body>
+</html>
+
