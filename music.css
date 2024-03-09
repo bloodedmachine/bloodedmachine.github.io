@@ -24,7 +24,7 @@ audio {
 }
 
 input[type="range"] {
-    width: 350px;
+    width: 300px;
     /* Set the track color to transparent */
     --webkit-appearance: none;
     background: white;
