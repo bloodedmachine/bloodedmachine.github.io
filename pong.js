@@ -49,8 +49,8 @@ let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = window.innerHeight / 200;
-let ballSpeedY = window.innerHeight / 200;
+let ballSpeedX = window.innerHeight / 100;
+let ballSpeedY = window.innerHeight / 100;
 
 function drawPaddle(x, y) {
 ctx.fillStyle = 'white';
