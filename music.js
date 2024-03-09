@@ -13,6 +13,12 @@ const songs = [
   { name: 'MIRO', artist: 'Berlioz', albumCover: 'album.png', url: 'Berlioz-Miro.mp3' }
 ];
 
+const playlist1 = [
+  { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
+  { name: 'GOOD LOYAL THOTS', artist: 'Odetari', albumCover: 'album.png', url: 'ODETARI - GOOD LOYAL THOTS.mp3' },
+  { name: 'MIRO', artist: 'Berlioz', albumCover: 'album.png', url: 'Berlioz-Miro.mp3' }
+];
+
 let currentSongIndex = 0;
 const audio = document.getElementById('audio');
 const seekSlider = document.getElementById('seekSlider');
@@ -64,11 +70,13 @@ function nextSong() {
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
   audio.play();
+
 }
 function prevSong() {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(currentSongIndex);
   audio.play();
+
 }
 
 audio.addEventListener('timeupdate', function() {

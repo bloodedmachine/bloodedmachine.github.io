@@ -31,29 +31,38 @@ input[type="range"] {
     /* Set the thumb color to transparent */
     border: none;
     height: 5px;
-  }
-  
-  input[type="range"]::-webkit-slider-runnable-track {
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
     /* Set the track color to white */
     background: white;
     height: 5px;
-  }
-  
-  input[type="range"]::-webkit-slider-thumb {
+}
+
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     /* Set the thumb color to white */
     background: white;
-    
+
     width: 15px;
     height: 15px;
     border-radius: 50%;
     position: relative;
-    top: -5px; /* Adjust this value as needed to center the thumb */
-  }
+    top: -5px;
+    /* Adjust this value as needed to center the thumb */
+}
+
+.all {
+    max-width: max-content;
+    transform: scale(1.3);
+    position: absolute;
+    top: 55%;
+    left: 50%;
+   
+}
 
 
-  
 .button {
     font-family: 'Font';
     color: white;
@@ -82,7 +91,7 @@ input[type="range"] {
 .info {
     align-items: center;
     padding: 20px;
-width: 900px;
+    width: 900px;
     align-content: center;
 }
 
@@ -134,67 +143,67 @@ h3 {
     border-radius: 10px;
     position: relative;
     box-shadow: 5px 5px 0 0 #8b0000;
-  }
-  
-  .plate {
+}
+
+.plate {
     width: fit-content;
-  }
-  
-  .plate .black,
-  .plate .white,
-  .plate .center,
-  .plate .border {
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
     border-radius: 100%;
-  }
-  
-  .container,
-  .plate .black,
-  .plate .white,
-  .plate .border {
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .plate .black {
+}
+
+.plate .black {
     width: 150px;
     height: 150px;
     background-color: #000;
     animation: rotation 2s infinite linear;
-  }
-  
-  @keyframes rotation {
+}
+
+@keyframes rotation {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  
+
     to {
-      transform: rotate(359deg);
+        transform: rotate(359deg);
     }
-  }
-  
-  .plate .white {
+}
+
+.plate .white {
     width: 70px;
     height: 70px;
     background-color: #Fff;
-  }
-  
-  .plate .center {
+}
+
+.plate .center {
     width: 20px;
     height: 20px;
     background-color: #000;
-  }
-  
-  .plate .border {
+}
+
+.plate .border {
     width: 111px;
     height: 111px;
     border-top: 3px solid #Ff0000;
     border-bottom: 3px solid #Ff0000;
     border-left: 3px solid #fff;
     border-right: 3px solid #fff;
-  }
-  
-  .player {
+}
+
+.player {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,22 +215,21 @@ h3 {
     margin-bottom: 8px;
     margin-right: 8px;
     rotate: -45deg;
-  }
-  
-  .player .circ {
+}
+
+.player .circ {
     width: 25px;
     height: 25px;
     background-color: #Ff0000;
     border-radius: 100%;
     z-index: 1;
-  }
-  
-  .player .rect {
+}
+
+.player .rect {
     width: 10px;
     height: 55px;
     background-color: #Ff0000;
     position: absolute;
     bottom: 0;
     margin-bottom: 5px;
-  }
-  
+}
