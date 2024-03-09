@@ -32,7 +32,7 @@ function loadSong(index) {
   audio.src = song.url;
   songNameElement.textContent = song.name;
   artistNameElement.textContent = song.artist;
-  albumCoverElement.src = song.albumCover;
+ // albumCoverElement.src = song.albumCover;
 }
 
 audio.addEventListener('timeupdate', function() {
@@ -78,6 +78,7 @@ function prevSong() {
   audio.play();
 
 }
+
 audio.addEventListener('ended', nextSong);
 
 audio.addEventListener('timeupdate', function() {
