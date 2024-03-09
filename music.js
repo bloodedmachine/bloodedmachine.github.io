@@ -78,6 +78,7 @@ function prevSong() {
   audio.play();
 
 }
+audio.addEventListener('ended', nextSong);
 
 audio.addEventListener('timeupdate', function() {
   seekSlider.value = audio.currentTime;

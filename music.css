@@ -30,7 +30,7 @@ input[type="range"] {
     background: white;
     /* Set the thumb color to transparent */
     border: none;
-    height: 5px;
+    height: 10px;
 }
 
 input[type="range"]::-webkit-slider-runnable-track {
@@ -55,7 +55,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .all {
     max-width: max-content;
-    transform: scale(1.3);
+    transform: scale(1.7);
     position: absolute;
     top: 55%;
     left: 50%;
