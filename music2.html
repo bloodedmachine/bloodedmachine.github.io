@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Music Player</title>
+    <link rel="stylesheet" href="music.css">
+</head>
+
+<body>
+    <div class="app" id="app">
+
+
+        <div class="header">
+            <h1>MUSIC PLAYER</h1>
+            <div class="button-container">
+                <button id="toggleBarsButton" class="searchbutton"><img src="search.png" width="7%"></button>
+            </div>
+        </div>
+
+        <div class="songs" id="songsContainer">
+            <div class="bars">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <select id="filterSelect">
+                    <option value="name">Name</option>
+                    <option value="artist">Artist</option>
+                    
+                </select>
+            </div>
+            <!-- Song list -->
+            <ul id="songList">
+                <!-- Populate this list dynamically with JavaScript -->
+            </ul>
+        </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="music.js">
+    </script>
+
+</body>
+
+</html>

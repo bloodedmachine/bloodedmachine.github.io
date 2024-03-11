@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body style="background-color: black;">
     <div class="all">
         <div id="player">
             <div class="albumart">
@@ -36,7 +36,11 @@
             <audio id="audio">
                 Your browser does not support the audio element.
             </audio>
+            <div class="time">
             <input type="range" id="seekSlider" min="0" step="1">
+
+<h4 id="timeleft">00</h4></div>
+
             <div class="buttonsall">
                 <button onclick="prevSong()" class="button"><img src="playlast.png" id="playnext"
                         height="70px"></button>

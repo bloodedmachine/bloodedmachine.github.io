@@ -1,7 +1,161 @@
 body {
 
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
+.app {
+    border: 1px solid rgb(0, 0, 0);
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0);
+    border-radius: 50px;  
+
+}
+
+.searchbutton {
+    background-color: #000;
+    border-width: 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* Ensures the button stays at the right */
+    align-items: center; /* Vertically center the content */
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.button-container {
+    margin-right: 10px; /* Add some space between the button and the header's right edge */
+}
+
+
+h1 {
+    color: white;
+    font-family: "Font";
+    font-size: 50px;
+    
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.songs {
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+    color: #fff;
+}
+
+.songs {
+    width: 100%;
+
+    text-align: center;
+    color: #fff;
+}
+
+
+
+.controls {
+    width: 90%;
+    
+  
+    position: absolute;
+
+}
+
+input[type="text"],
+select {
+    width: 90%;
+color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    
+}
+
+ul li {
+    padding: 100px;
+    border-bottom: 1px solid #ccc;
+    width: 90%;
+    text-align: center;
+}
+
+
+input[type="text"] {
+
+  
+    color: #fff;
+    padding: 10px;
+    margin: 10px auto; /* Center the search bar horizontally */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.controls {
+    width: 100%;
+    padding: 10px;
+  
+    display: flex;
+    justify-content: center;
+}
+
+input[type="text"],
+select {
+    width: 80%;
+    color: #fff;
+    background-color: #000;
+ 
+    padding: 2%;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul li {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 1%;
+    width: 80%;
+ font-family: "Font";
+    text-align: left;
+}
+
+
+
 
 @font-face {
     font-family: Font;
@@ -55,7 +209,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .all {
     max-width: max-content;
-    transform: scale(1.7);
+    transform: scale(1.5);
     position: absolute;
     top: 55%;
     left: 50%;
@@ -125,8 +279,21 @@ h3 {
 
 }
 
+h4 {
+    
+    color: white;
+    font-family: "font";
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5px;
 
 
+}
+
+.time {
+  
+   margin-bottom: -70px;
+}
 
 
 
@@ -232,4 +399,16 @@ h3 {
     position: absolute;
     bottom: 0;
     margin-bottom: 5px;
+}
+
+
+
+
+.bars {
+    margin-bottom: 3%;
+}
+
+/* Hide the bars by default */
+.bars.hidden {
+    display: none;
 }
