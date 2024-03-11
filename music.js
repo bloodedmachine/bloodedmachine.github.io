@@ -11,6 +11,18 @@ const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
 toggleBarsCheckbox.addEventListener('change', () => {
     const barsContainer = document.querySelector('.bars');
+    Songs();
+
+    var songs2showhide = document.getElementById("song2showhide").style.display;
+
+  if (songs2showhide == "none") {
+    document.getElementById("song2showhide").style.display = "block";
+    
+  } else {
+    
+    document.getElementById("song2showhide").style.display = "none";
+    
+  }
    // barsContainer.classList.toggle('hidden'); // Toggle the 'hidden' class on the barsContainer div
 });
 
