@@ -7,6 +7,8 @@
 </head>
 
 <body>
+
+
     <div class="app" id="app">
 
 
@@ -34,27 +36,29 @@
 
 
     </div>
+    <button class="button2" onclick="Songs()" style="background-color: black;">
+        <h5 style="text-align: center; color: white;">SONGS</h5>
+    </button>
 
-    <div class="app2">
-    <div class="songs" id="songsContainer">
-        <button class="button2" onclick="Songs()"> <h5>SONGS</h5></button>
-        <div style="display: none;" id="songshowhide">
-        <div class="bars">
+    <div class="app2" style="display: none;" id="songshowhide">
 
-            <select id="filterSelect">
-                <option value="name">Name</option>
-                <option value="artist">Artist</option>
-            </select>
-            
+        <div class="songs" id="songsContainer">
+
+            <div class="bars">
+
+                <select id="filterSelect">
+                    <option value="name">Name</option>
+                    <option value="artist">Artist</option>
+                </select>
+
+            </div>
+            <!-- Song list -->
+            <ul id="songList">
+            </ul>
+
         </div>
-        <!-- Song list -->
-        <ul id="songList">
-            <!-- Populate this list dynamically with JavaScript -->
-        </ul>
     </div>
-</div>
-</div>
-</div>
+    </div>
 
     <div id="musicPlayer" style="display: none;">
 
@@ -76,7 +80,7 @@
         </div>
 
 
-         <!--         <div class="time">
+        <!--         <div class="time">
             <input type="range" id="seekSlider" min="0" step="1">
         </div> -->
     </div>

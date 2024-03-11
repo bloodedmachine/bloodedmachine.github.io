@@ -38,6 +38,7 @@ function generateSongList(songs) {
 }
 
 function Songs() {
+
 var songsshowhide = document.getElementById("songshowhide").style.display;
 
   if (songsshowhide == "none") {
