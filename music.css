@@ -17,12 +17,12 @@ body {
    
 }
 .app2 {
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid rgb(189, 189, 189);
   width: 98%;
   color: #fff;
   background-color: rgb(255, 255, 255);
   border-radius: 50px;  
-  padding-bottom: 10%;
+  padding-bottom: 12%;
   padding-top: 8%;
   margin: 0 auto;
 
@@ -69,7 +69,7 @@ ul {
 
 ul li {
     
-    border-bottom: 4px solid #333333;
+    border-bottom: 4px solid #bfbfbf;
     color: #000000;
     font-size: 3em;
     padding-bottom: 4%;
