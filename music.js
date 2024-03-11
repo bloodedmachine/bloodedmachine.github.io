@@ -37,6 +37,20 @@ function generateSongList(songs) {
   });
 }
 
+function Songs() {
+var songsshowhide = document.getElementById("songshowhide").style.display;
+
+  if (songsshowhide == "none") {
+    document.getElementById("songshowhide").style.display = "block";
+    
+  } else {
+    
+    document.getElementById("songshowhide").style.display = "none";
+    
+  }
+  
+}
+
 function filterSongs() {
   const filterBy = filterSelect.value;
   const searchTerm = searchInput.value.toLowerCase();

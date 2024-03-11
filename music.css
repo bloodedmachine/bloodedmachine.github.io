@@ -22,7 +22,7 @@ body {
   color: #fff;
   background-color: rgb(255, 255, 255);
   border-radius: 50px;  
-  padding-bottom: 10%;
+  padding-bottom: 8%;
   padding-top: 8%;
   margin: 0 auto;
 
@@ -42,6 +42,12 @@ body {
     background-color: rgba(0, 0, 0, 0);
     border: rgba(0, 0, 0, 0);
     display: inline-block;
+}
+
+.button2 {
+  background-color: rgba(0, 0, 0, 0);
+  border-width: 0px;
+  width: 100%;
 }
 
 .buttonsall {
