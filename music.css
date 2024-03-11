@@ -177,7 +177,7 @@ h5 {
     justify-content: center;
     border-radius: 200px;
     background-color: rgb(255, 255, 255);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
   }
   
   .checkbox:focus {
@@ -204,8 +204,8 @@ h5 {
   
   .checkbox {
     box-sizing: border-box;
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
     position: absolute;
     border-color: black;
     right: 17px;
