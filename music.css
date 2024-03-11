@@ -230,6 +230,7 @@ h5 {
   box-sizing: border-box;
   text-align: center;
   border-radius: 2em;
+  margin-bottom: 1%;
   z-index: 9999; /* Ensure it's above other content */
 }
 
