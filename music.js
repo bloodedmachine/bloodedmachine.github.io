@@ -78,6 +78,19 @@ const songNameElement = document.getElementById('songName');
 const artistNameElement = document.getElementById('artistName');
 const albumCoverElement = document.getElementById('albumCover');
 
+function generateSongList(songs) {
+  songList.innerHTML = '';
+  songs.forEach((song, index) => {
+    const li = document.createElement('li');
+    li.textContent = `${song.name} - ${song.artist} `;
+    li.addEventListener('click', () => {
+      currentSongIndex = index;
+      loadSong(currentSongIndex);
+      playPause();
+    });
+    songList.appendChild(li);
+  });
+}
 
 function loadSong(index) {
     const song = songs[index];
@@ -109,6 +122,7 @@ function playPause() {
   if (audio.paused) {
     audio.play();
     document.getElementById("playpause").src = "pause.png" ;
+    document.getElementById("musicPlayer").style.display = "block"; 
   } else {
     audio.pause();
     
