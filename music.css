@@ -229,7 +229,7 @@ h5 {
   padding: 10px;
   box-sizing: border-box;
   text-align: center;
-  border-radius: 2em;
+  border-radius: 4em;
   margin-bottom: 1%;
   z-index: 9999; /* Ensure it's above other content */
   padding-bottom: 50px;
