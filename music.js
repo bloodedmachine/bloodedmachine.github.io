@@ -3,9 +3,11 @@ const songs = [
   { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
   { name: 'GOOD LOYAL THOTS', artist: 'Odetari', albumCover: 'album.png', url: 'ODETARI - GOOD LOYAL THOTS.mp3' },
   { name: 'MIRO', artist: 'Berlioz', albumCover: 'album.png', url: 'Berlioz-Miro.mp3' },
- { name: 'BACK TO ME', artist: 'ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' }
+ { name: 'BACK TO ME', artist: 'ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+ { name: 'CARNIVAL', artist: 'ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps)' },
   
 ];
+
 
 const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
