@@ -12,8 +12,14 @@ const playlist1 = [
   { name: 'MIRO', artist: 'Berlioz', albumCover: 'album.png', url: 'Berlioz-Miro.mp3' }
 ];
 
+const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
-const toggleBarsButton = document.getElementById('toggleBarsButton');
+toggleBarsCheckbox.addEventListener('change', () => {
+    const barsContainer = document.querySelector('.bars');
+   // barsContainer.classList.toggle('hidden'); // Toggle the 'hidden' class on the barsContainer div
+});
+
+
 const barsContainer = document.querySelector('.bars');
 
 window.addEventListener('load', () => {
@@ -21,9 +27,7 @@ window.addEventListener('load', () => {
   barsContainer.classList.add('hidden');
 });
 
-toggleBarsButton.addEventListener('click', () => {
-    barsContainer.classList.toggle('hidden'); // Toggle the 'hidden' class on the barsContainer div
-});
+
 
 const searchInput = document.getElementById('searchInput');
 const filterSelect = document.getElementById('filterSelect');
@@ -145,3 +149,10 @@ seekSlider.addEventListener('change', function() {
 
   // Load the first song
   loadSong(currentSongIndex);
+
+
+
+
+
+
+  

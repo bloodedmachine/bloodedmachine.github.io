@@ -17,44 +17,23 @@ body {
 
 }
 
-.searchbutton {
-    background-color: #000;
-    border-width: 0px;
-}
+
 
 .header {
     display: flex;
     justify-content: space-between; /* Ensures the button stays at the right */
     align-items: center; /* Vertically center the content */
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
-.button-container {
-    margin-right: 10px; /* Add some space between the button and the header's right edge */
-}
+
 
 
 h1 {
     color: white;
     font-family: "Font";
-    font-size: 50px;
-    
-}
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-.songs {
-    
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    
-    color: #fff;
+    font-size: 4em;
 }
 
 .songs {
@@ -66,72 +45,24 @@ body, html {
 
 
 
-.controls {
-    width: 90%;
-    
-  
-    position: absolute;
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 input[type="text"],
 select {
-    width: 90%;
-color: #fff;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    
-}
-
-ul {
-    list-style-type: none;
-    padding: 10px;
-    margin: 0;
-    
-}
-
-ul li {
-    padding: 100px;
-    border-bottom: 1px solid #ccc;
-    width: 90%;
-    text-align: center;
-}
 
 
-input[type="text"] {
-
-  
-    color: #fff;
-    padding: 10px;
-    margin: 10px auto; /* Center the search bar horizontally */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.hidden {
-    display: none;
-}
-
-.controls {
-    width: 100%;
-    padding: 10px;
-  
-    display: flex;
-    justify-content: center;
-}
-
-input[type="text"],
-select {
-    width: 80%;
-    color: #fff;
-    background-color: #000;
- 
-    padding: 2%;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
 }
 
 ul {
@@ -142,6 +73,8 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+font-family: 'Franklin Gothic Medium', 'Arial', Arial, sans-serif;
+
 }
 
 ul li {
@@ -150,7 +83,7 @@ ul li {
     border-radius: 10px;
     margin: 1%;
     width: 80%;
- font-family: "Font";
+font-family: 'Franklin Gothic Medium', 'Arial', Arial, sans-serif;
     text-align: left;
 }
 
@@ -162,85 +95,12 @@ ul li {
     src: url(UtahCondensedBold.ttf);
 }
 
-#player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-audio {
-    width: 300px;
-    margin-bottom: 10px;
-}
-
-input[type="range"] {
-    width: 300px;
-    /* Set the track color to transparent */
-    --webkit-appearance: none;
-    background: white;
-    /* Set the thumb color to transparent */
-    border: none;
-    height: 10px;
-}
-
-input[type="range"]::-webkit-slider-runnable-track {
-    -webkit-appearance: none;
-    /* Set the track color to white */
-    background: white;
-    height: 5px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    /* Set the thumb color to white */
-    background: white;
-
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    position: relative;
-    top: -5px;
-    /* Adjust this value as needed to center the thumb */
-}
-
-.all {
-    max-width: max-content;
-    transform: scale(1.5);
-    position: absolute;
-    top: 55%;
-    left: 50%;
-   
-}
 
 
-.button {
-    font-family: 'Font';
-    color: white;
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
 
-    font-size: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
 
-}
 
-.button2 {
-    font-family: 'Font';
-    color: white;
-    border: 0px;
-    background-color: rgba(0, 0, 0, 0);
-    transform: scale(0.8);
 
-    font-size: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
 
 .info {
     align-items: center;
@@ -249,18 +109,7 @@ input[type="range"]::-webkit-slider-thumb {
     align-content: center;
 }
 
-.buttonsall {
-    margin-top: 10px;
-    align-items: center;
-    padding-top: 30px;
-    width: 900px;
-    align-content: center;
-    display: flex;
-    justify-content: center;
 
-    transform: scale(0.9);
-
-}
 
 h2 {
     font-family: "font";
@@ -280,135 +129,108 @@ h3 {
 }
 
 h4 {
-    
     color: white;
     font-family: "font";
     font-size: 30px;
     text-align: center;
     margin-top: 5px;
-
-
-}
-
-.time {
-  
-   margin-bottom: -70px;
 }
 
 
 
-
-.albumart {
-    padding: 70px;
-    transform: scale(2);
-}
-
-.container {
-    width: 175px;
-    height: 175px;
-    background-color: #fff;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 5px 5px 0 0 #8b0000;
-}
-
-.plate {
-    width: fit-content;
-}
-
-.plate .black,
-.plate .white,
-.plate .center,
-.plate .border {
-    border-radius: 100%;
-}
-
-.container,
-.plate .black,
-.plate .white,
-.plate .border {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.plate .black {
-    width: 150px;
-    height: 150px;
-    background-color: #000;
-    animation: rotation 2s infinite linear;
-}
-
-@keyframes rotation {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(359deg);
-    }
-}
-
-.plate .white {
-    width: 70px;
-    height: 70px;
-    background-color: #Fff;
-}
-
-.plate .center {
-    width: 20px;
-    height: 20px;
-    background-color: #000;
-}
-
-.plate .border {
-    width: 111px;
-    height: 111px;
-    border-top: 3px solid #Ff0000;
-    border-bottom: 3px solid #Ff0000;
-    border-left: 3px solid #fff;
-    border-right: 3px solid #fff;
-}
-
-.player {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: fit-content;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 8px;
-    margin-right: 8px;
-    rotate: -45deg;
-}
-
-.player .circ {
-    width: 25px;
-    height: 25px;
-    background-color: #Ff0000;
-    border-radius: 100%;
-    z-index: 1;
-}
-
-.player .rect {
-    width: 10px;
-    height: 55px;
-    background-color: #Ff0000;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 5px;
-}
-
-
-
-
-.bars {
-    margin-bottom: 3%;
-}
-
-/* Hide the bars by default */
 .bars.hidden {
     display: none;
 }
+
+
+
+
+
+
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+  }
+  
+  .mainbox {
+    box-sizing: border-box;
+    position: relative;
+    width: 230px;
+    height: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    border-radius: 160px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+  }
+  
+  .checkbox:focus {
+    border: none;
+    outline: none;
+  }
+  
+  .checkbox:checked {
+    right: 10px;
+  }
+  
+  .checkbox:checked ~ .mainbox {
+    width: 50px;
+  }
+  
+  .checkbox:checked ~ .mainbox .search_input {
+    width: 0;
+    height: 0px;
+  }
+  
+  .checkbox:checked ~ .mainbox .iconContainer {
+    padding-right: 8px;
+  }
+  
+  .checkbox {
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-color: black;
+    right: 17px;
+    top: 10px;
+    z-index: 9;
+    cursor: pointer;
+    appearance: none;
+  }
+  
+  .search_input {
+    box-sizing: border-box;
+    height: 100%;
+    width: 170px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    transition: all 0.3s ease;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .search_input::placeholder {
+    color: rgba(0, 0, 0, 1);
+  }
+  
+  .iconContainer {
+    box-sizing: border-box;
+    padding-top: 5px;
+    width: fit-content;
+    transition: all 0.3s ease;
+  }
+  
+  .search_icon {
+    box-sizing: border-box;
+    fill: white;
+    font-size: 1.3em;
+  }
