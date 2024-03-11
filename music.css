@@ -47,7 +47,7 @@ ul li {
     
     border-bottom: 2px solid #333333;
     
-    font-size: 1.5em;
+    font-size: 3em;
     padding-bottom: 4%;
     padding-top: 4%;
     width: 86%;
@@ -72,6 +72,7 @@ h1 {
     color: white;
     font-family: "Font";
     font-size: 10em;
+    margin-left: -1%;
 }
 
 h2 {
@@ -102,7 +103,7 @@ h4 {
 h5 {
     color: white;
     font-family: "font";
-    font-size: 1.75em;
+    font-size: 3em;
     text-align: left;
     padding-left: 7%;
     margin-top: auto;
