@@ -41,7 +41,6 @@
     <button id="song4showhide" class="button2" onclick="Artists()" onclick="" style="background-color: black;">
         <h5 style="text-align: center; color: white;">ARTISTS</h5>
     </button>
-</div>
 
     <div class="app2" style="display: none;" id="songshowhide">
 
@@ -51,7 +50,6 @@
 
                 <select id="filterSelect">
                     <option value="albumcover"></option>
-
                     <option value="name">Name</option><br>
                     <option value="artist">Artist</option>
                 </select>
@@ -65,25 +63,19 @@
 
         </div>
         
-
     </div>
 
+    <div id="albumshowhide" style="display: none;">
+        <button class="button3" onclick="playVulturesSongs()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>VULTURES</h6></button>
+        <button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>UTOPIA</h6></button>
     </div>
 
-
-<div id="albumshowhide" style="display: none;">
-<button class="button3" onclick="playVulturesSongs()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>VULTURES</h6></button>
-<button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>UTOPIA</h6></button>
-</div>
-
-<div id="artistshowhide" style="display: none;">
-    <button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Ye</h6></button>
-    <button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Travis Scott</h6></button>
+    <div id="artistshowhide" style="display: none;">
+        <button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Ye</h6></button>
+        <button class="button3" onclick=""><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Travis Scott</h6></button>
     </div>
 
-<div id="musicPlayer" style="display: none;">
-    
-    
+    <div id="musicPlayer" style="display: none;">
         <div class="info">
             <h2 id="songName"></h2>
             <h3 id="artistName"></h3>
@@ -93,28 +85,14 @@
             Your browser does not support the audio element.
         </audio>
 
-
-
         <div class="buttonsall">
             <button onclick="prevSong()" class="button"><img src="playlast.png" id="playnext" height="70px"></button>
             <button onclick="playPause()" class="button"><img src="play.png" id="playpause" height="100px"></button>
             <button onclick="nextSong()" class="button"><img src="playnext.png" id="playnext" height="70px"></button>
         </div>
-
-
-        <!--         <div class="time">
-            <input type="range" id="seekSlider" min="0" step="1">
-        </div> -->
     </div>
 
-
-
-
-
-
-
-    <script src="music.js">
-    </script>
+    <script src="music.js"></script>
 
 </body>
 
