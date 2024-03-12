@@ -6,14 +6,17 @@ const songs = [
   
 ];
 
-
 const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
 toggleBarsCheckbox.addEventListener('change', () => {
     const barsContainer = document.querySelector('.bars');
+    var songs2showhide = document.getElementById("song2showhide").style.display;
+    var songshowhide = document.getElementById("songshowhide").style.display;
+
+
     Songs();
 
-    var songs2showhide = document.getElementById("song2showhide").style.display;
+    
 
   if (songs2showhide == "none") {
     document.getElementById("song2showhide").style.display = "block";
@@ -27,14 +30,13 @@ toggleBarsCheckbox.addEventListener('change', () => {
 });
 
 
+
 const barsContainer = document.querySelector('.bars');
 
 window.addEventListener('load', () => {
   const barsContainer = document.querySelector('.bars');
   barsContainer.classList.add('hidden');
 });
-
-
 
 const searchInput = document.getElementById('searchInput');
 const filterSelect = document.getElementById('filterSelect');
@@ -86,12 +88,10 @@ function filterSongs() {
 searchInput.addEventListener('input', filterSongs);
 filterSelect.addEventListener('change', filterSongs);
 
+
+
 // Initial song list generation
 generateSongList(songs);
-
-
-
-
 
 let currentSongIndex = 0;
 const audio = document.getElementById('audio');
@@ -104,15 +104,53 @@ function generateSongList(songs) {
   songList.innerHTML = '';
   songs.forEach((song, index) => {
     const li = document.createElement('li');
-    li.textContent = `${song.name} - ${song.artist} `;
-    li.addEventListener('click', () => {
+
+    // Create a container for album cover and song info
+    const songContainer = document.createElement('div');
+    songContainer.classList.add('song-container');
+
+    // Create album cover image element
+    const albumCoverImg = document.createElement('img');
+    albumCoverImg.src = song.albumCover;
+    albumCoverImg.alt = 'Album Cover';
+    
+    // Add album-cover class to limit the size
+    albumCoverImg.classList.add('album-cover');
+
+    // Append album cover image to song container
+    songContainer.appendChild(albumCoverImg);
+
+    // Append song name and artist
+    const songInfo = document.createElement('div');
+    songInfo.textContent = `${song.name} - ${song.artist}`;
+    songContainer.appendChild(songInfo);
+
+    // Add click event listener to play the song
+    songContainer.addEventListener('click', () => {
       currentSongIndex = index;
       loadSong(currentSongIndex);
       playPause();
     });
+
+    // Append song container to list item
+    li.appendChild(songContainer);
+
+    // Append list item to song list
     songList.appendChild(li);
   });
 }
+
+
+function playNextSong() {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
+}
+
+// Other code...
+
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', playNextSong);
 
 function loadSong(index) {
     const song = songs[index];
@@ -176,6 +214,17 @@ audio.addEventListener('ended', nextSong);
 audio.addEventListener('timeupdate', function() {
   seekSlider.value = audio.currentTime;
 });
+
+// Function to play the next song
+function playNextSong() {
+  currentSongIndex = (currentSongIndex + 1) % songs.length;
+  loadSong(currentSongIndex);
+  audio.play();
+}
+
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', playNextSong);
+
 
 seekSlider.addEventListener('change', function() {
   audio.currentTime = seekSlider.value;
