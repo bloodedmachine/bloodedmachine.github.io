@@ -173,9 +173,9 @@ function update() {
 
 function drawBallWithMotionBlur() {
     // Draw multiple semi-transparent copies of the ball at different positions
-    const numBlurFrames = 5; // Adjust the number of blur frames as needed
-    const blurOpacity = 0.4; // Adjust the opacity of the blur effect
-    const blurSpacing = 2; // Adjust the spacing between blur frames
+    const numBlurFrames = 4; // Adjust the number of blur frames as needed
+    const blurOpacity = 0.6; // Adjust the opacity of the blur effect
+    const blurSpacing = 1; // Adjust the spacing between blur frames
 
     for (let i = 0; i < numBlurFrames; i++) {
         // Calculate the position of the ball for this blur frame
