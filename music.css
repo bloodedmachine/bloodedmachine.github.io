@@ -283,13 +283,14 @@ h5 {
   background-color: #000000;
   color: white;
   padding: 10px;
-  box-sizing: border-box;
+  
   text-align: center;
   border-radius: 50px;
   margin-bottom: 2%;
   z-index: 9999; /* Ensure it's above other content */
   padding-bottom: 50px;
   max-width: 1000px;
+
 
   
 }
