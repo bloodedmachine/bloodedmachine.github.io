@@ -220,7 +220,7 @@ function gameLoop() {
     update();
     draw();
     if (!gamePaused) {
-        setTimeout(gameLoop, 1000 / 1000); // Adjust desiredFPS as needed
+        animationId = requestAnimationFrame(gameLoop);
     }
 }
 
