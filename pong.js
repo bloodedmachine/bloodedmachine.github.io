@@ -55,8 +55,8 @@ let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = 20;
-let ballSpeedY = 20;
+let ballSpeedX = 10;
+let ballSpeedY = 10;
 
 function drawPaddle(x, y) {
     ctx.fillStyle = 'white';
@@ -152,8 +152,8 @@ function update() {
         topPaddleX = canvas.width / 2 - paddleWidth / 2;
         document.getElementById("highscore").innerHTML = score + " IS KAK";
         score = 0;
-        ballSpeedX = 20;
-        ballSpeedY = 20;
+        ballSpeedX = 7;
+        ballSpeedY = 7;
         togglePause()
         document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
