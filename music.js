@@ -5,7 +5,6 @@ const songs = [
   { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
   { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
   { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
-
 ];
 
 
