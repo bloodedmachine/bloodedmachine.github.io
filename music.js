@@ -1,55 +1,48 @@
 
 const songs = [
   { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
-{ name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
- { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
- { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
- { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
-  
-];
+  { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+  { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+  { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+  { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
 
+];
 
 
 const Vultures = [
-{ name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
- { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
- { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
- { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
-  
+  { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+  { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+  { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+  { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
 ];
 
-
-
+const loadMoreButton = document.getElementById('loadMoreButton');
+let loadedAllSongs = false;
 
 
 const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
 toggleBarsCheckbox.addEventListener('change', () => {
-    const barsContainer = document.querySelector('.bars');
+  const barsContainer = document.querySelector('.bars');
 
-    var songContainer = document.getElementById("songshowhide");
-    var albumContainer = document.getElementById("albumshowhide");
+  var songContainer = document.getElementById("songshowhide");
+  var albumContainer = document.getElementById("albumshowhide");
 
-    if (toggleBarsCheckbox.checked) {
+  if (toggleBarsCheckbox.checked) {
 
-
-      document.getElementById("song2showhide").style.display = "inline-block";
-      document.getElementById("song3showhide").style.display = "inline-block";
-      document.getElementById("song4showhide").style.display = "inline-block";
-      songContainer.style.display = "none";
-      albumContainer.style.display = "none";
-
+    document.getElementById("song2showhide").style.display = "inline-block";
+    document.getElementById("song3showhide").style.display = "inline-block";
+    document.getElementById("song4showhide").style.display = "inline-block";
+    songContainer.style.display = "none";
+    albumContainer.style.display = "none";
 
   } else {
-
 
     document.getElementById("song2showhide").style.display = "none";
     document.getElementById("song3showhide").style.display = "none";
     document.getElementById("song4showhide").style.display = "none";
-  songContainer.style.display = "flex";
-  albumContainer.style.display = "inline-block";
-
-
+    songContainer.style.display = "flex";
+    albumContainer.style.display = "inline-block";
 
   }
 
@@ -60,11 +53,11 @@ function playVulturesSongs() {
   audio.src = '';
   // Reset the current song index
   currentSongIndex = 0;
-  
+
   // Load and play the first song in the Vultures array
-  loadSong(currentSongIndex,Vultures);
+  loadSong(currentSongIndex, Vultures);
   audio.play();
-  document.getElementById("playpause").src = "pause.png" ;
+  document.getElementById("playpause").src = "pause.png";
   document.getElementById("musicPlayer").style.display = "block";
 }
 
@@ -82,16 +75,17 @@ const songList = document.getElementById('songList');
 function generateSongList(songs) {
   songList.innerHTML = '';
   songs.forEach(song => {
-      const li = document.createElement('li');
-      li.textContent = `${song.name} - ${song.artist} `;
-      songList.appendChild(li);
+    const li = document.createElement('li');
+    li.textContent = `${song.name} - ${song.artist} `;
+    songList.appendChild(li);
   });
 }
 
 function Songs() {
   var songContainer = document.getElementById("songshowhide");
   songContainer.style.display = (songContainer.style.display === "none") ? "block" : "none";
-  
+  document.getElementById("albumshowhide").style.display = "none";
+  document.getElementById("artistshowhide").style.display = "none";
   // Ensure that the buttons appear in line when shown
   document.getElementById("song2showhide").style.display = "inline-block";
   document.getElementById("song3showhide").style.display = "inline-block";
@@ -99,8 +93,10 @@ function Songs() {
 
 function Albums() {
   var albumContainer = document.getElementById("albumshowhide");
- albumContainer.style.display = (albumContainer.style.display === "none") ? "block" : "none";
-  
+  albumContainer.style.display = (albumContainer.style.display === "none") ? "block" : "none";
+  document.getElementById("songshowhide").style.display = "none";
+  document.getElementById("artistshowhide").style.display = "none";
+
   // Ensure that the buttons appear in line when shown
   //document.getElementById("song2showhide").style.display = "inline-block";
   //document.getElementById("song3showhide").style.display = "inline-block";
@@ -108,8 +104,10 @@ function Albums() {
 
 function Artists() {
   var artistsContainer = document.getElementById("artistshowhide");
- artistsContainer.style.display = (artistsContainer.style.display === "none") ? "block" : "none";
-  
+  artistsContainer.style.display = (artistsContainer.style.display === "none") ? "block" : "none";
+  document.getElementById("songshowhide").style.display = "none";
+  document.getElementById("albumshowhide").style.display = "none";
+
   // Ensure that the buttons appear in line when shown
   //document.getElementById("song2showhide").style.display = "inline-block";
   //document.getElementById("song3showhide").style.display = "inline-block";
@@ -117,7 +115,6 @@ function Artists() {
 
 searchInput.addEventListener('input', filterSongs);
 filterSelect.addEventListener('change', filterSongs);
-
 
 
 function filterSongs() {
@@ -127,13 +124,13 @@ function filterSongs() {
   let filteredSongs = songs;
 
   if (filterBy !== 'all') {
-      filteredSongs = songs.filter(song => {
-          if (filterBy === 'name') {
-              return song.name.toLowerCase().includes(searchTerm);
-          } else if (filterBy === 'artist') {
-              return song.artist.toLowerCase().includes(searchTerm);
-          } 
-      });
+    filteredSongs = songs.filter(song => {
+      if (filterBy === 'name') {
+        return song.name.toLowerCase().includes(searchTerm);
+      } else if (filterBy === 'artist') {
+        return song.artist.toLowerCase().includes(searchTerm);
+      }
+    });
   }
 
   generateSongList(filteredSongs);
@@ -141,8 +138,6 @@ function filterSongs() {
 
 searchInput.addEventListener('input', filterSongs);
 filterSelect.addEventListener('change', filterSongs);
-
-
 
 // Initial song list generation
 generateSongList(songs);
@@ -156,7 +151,9 @@ const artistNameElement = document.getElementById('artistName');
 
 function generateSongList(songs) {
   songList.innerHTML = '';
-  songs.forEach((song, index) => {
+  const songsToShow = loadedAllSongs ? songs : songs.slice(0, 3); // Show only the first three songs initially or all songs if loaded
+
+  songsToShow.forEach((song, index) => {
     const li = document.createElement('li');
 
     // Create a container for album cover and song info
@@ -167,7 +164,7 @@ function generateSongList(songs) {
     const albumCoverImg = document.createElement('img');
     albumCoverImg.src = song.albumCover;
     albumCoverImg.alt = 'Album Cover';
-    
+
     // Add album-cover class to limit the size
     albumCoverImg.classList.add('album-cover');
 
@@ -182,7 +179,7 @@ function generateSongList(songs) {
     // Add click event listener to play the song
     songContainer.addEventListener('click', () => {
       currentSongIndex = index;
-      loadSong(currentSongIndex,songs);
+      loadSong(currentSongIndex, songs);
       playPause();
     });
 
@@ -192,58 +189,58 @@ function generateSongList(songs) {
     // Append list item to song list
     songList.appendChild(li);
   });
+
+  // Show load more button if there are more songs to load
+  if (!loadedAllSongs && songs.length > 3) {
+    loadMoreButton.style.display = 'block';
+  } else {
+    loadMoreButton.style.display = 'none';
+  }
 }
 
-
-
-
-
-
-
-
-
-
+loadMoreButton.addEventListener('click', () => {
+  loadedAllSongs = true;
+  generateSongList(songs);
+});
 
 // Other code...
 
 // Event listener for the 'ended' event on the <audio> element
 audio.addEventListener('ended', playNextSong);
 
-function loadSong(index,arraysongs) {
-    const song = arraysongs[index];
+function loadSong(index, arraysongs) {
+  const song = arraysongs[index];
   audio.src = song.url;
   songNameElement.textContent = song.name;
   artistNameElement.textContent = song.artist;
- // albumCoverElement.src = song.albumCover;
+  // albumCoverElement.src = song.albumCover;
 }
 
-audio.addEventListener('timeupdate', function() {
+audio.addEventListener('timeupdate', function () {
   const duration = audio.duration;
   const currentTime = audio.currentTime;
 
   document.getElementById("timeleft").innerHTML = Math.floor(duration - currentTime);
-  
+
   if (!isNaN(duration) && !isNaN(currentTime)) {
     seekSlider.value = (currentTime / duration) * 100; // Update the value of the range input
   }
 });
 
-seekSlider.addEventListener('input', function() {
+seekSlider.addEventListener('input', function () {
   const duration = audio.duration;
   const seekTo = duration * (seekSlider.value / 100); // Calculate the new time to seek to
   audio.currentTime = seekTo; // Seek to the new time
 });
 
-
 function playPause() {
   if (audio.paused) {
     audio.play();
-    document.getElementById("playpause").src = "pause.png" ;
-    document.getElementById("musicPlayer").style.display = "block"; 
+    document.getElementById("playpause").src = "pause.png";
+    document.getElementById("musicPlayer").style.display = "block";
   } else {
     audio.pause();
-    
-    document.getElementById("playpause").src = "play.png" ;
+    document.getElementById("playpause").src = "play.png";
   }
 }
 
@@ -251,21 +248,16 @@ function skip(time) {
   audio.currentTime += time;
 }
 
-
-
-
-
-
 audio.addEventListener('ended', nextSong);
 
-audio.addEventListener('timeupdate', function() {
+audio.addEventListener('timeupdate', function () {
   seekSlider.value = audio.currentTime;
 });
 
 // Function to play the next song
 function playNextSong() {
   currentSongIndex = (currentSongIndex + 1) % arraysongs.length;
-  loadSong(currentSongIndex,arraysongs);
+  loadSong(currentSongIndex, arraysongs);
   audio.play();
 }
 
@@ -278,22 +270,7 @@ function nextSong() {
 // Event listener for the 'ended' event on the <audio> element
 audio.addEventListener('ended', playNextSong);
 
-
-seekSlider.addEventListener('change', function() {
+seekSlider.addEventListener('change', function () {
   audio.currentTime = seekSlider.value;
 
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-  
