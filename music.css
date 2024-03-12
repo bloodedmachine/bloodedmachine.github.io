@@ -28,9 +28,14 @@ body {
 
   margin: 0 auto;
   margin-top: 2%;
+  margin-bottom: 3%;
 
   
 
+}
+
+.subapp {
+  display: flex;
 }
 
 .song-container {
@@ -44,6 +49,8 @@ body {
   max-height: 200px; /* Set maximum height */
   margin-right: 40px; /* Add some space between album cover and song info */
   border-radius: 30px; /* Adjust the radius value to round the corners */
+  background-color: white;
+
 
 
 }
@@ -69,11 +76,13 @@ body {
   background-color: rgba(0, 0, 0, 0);
   border-width: 0px;
   border-color: rgb(84, 84, 84);
-  width: 25%;
+  width: 30%;
   margin: 2%;
   border-radius: 40px;
   padding: 30px;
   margin-bottom: 0px;
+  text-align: center;
+  margin-right: -1%;
 
 }
 
