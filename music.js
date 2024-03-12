@@ -3,8 +3,22 @@ const songs = [
   { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
 { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
  { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+ { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+ { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
   
 ];
+
+
+
+const Vultures = [
+{ name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+ { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+ { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+ { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
+  
+];
+
+
 
 
 
@@ -12,9 +26,6 @@ const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
 toggleBarsCheckbox.addEventListener('change', () => {
     const barsContainer = document.querySelector('.bars');
-    var songs2showhide = document.getElementById("song2showhide").style.display;
-    var songs3showhide = document.getElementById("song3showhide").style.display;
-    var songs4showhide = document.getElementById("song4showhide").style.display;
 
     var songContainer = document.getElementById("songshowhide");
     var albumContainer = document.getElementById("albumshowhide");
@@ -35,7 +46,7 @@ toggleBarsCheckbox.addEventListener('change', () => {
     document.getElementById("song2showhide").style.display = "none";
     document.getElementById("song3showhide").style.display = "none";
     document.getElementById("song4showhide").style.display = "none";
-  songContainer.style.display = "inline-block";
+  songContainer.style.display = "flex";
   albumContainer.style.display = "inline-block";
 
 
@@ -44,7 +55,18 @@ toggleBarsCheckbox.addEventListener('change', () => {
 
 });
 
-
+function playVulturesSongs() {
+  // Clear the existing playlist
+  audio.src = '';
+  // Reset the current song index
+  currentSongIndex = 0;
+  
+  // Load and play the first song in the Vultures array
+  loadSong(currentSongIndex,Vultures);
+  audio.play();
+  document.getElementById("playpause").src = "pause.png" ;
+  document.getElementById("musicPlayer").style.display = "block";
+}
 
 const barsContainer = document.querySelector('.bars');
 
@@ -92,6 +114,10 @@ function Artists() {
   //document.getElementById("song2showhide").style.display = "inline-block";
   //document.getElementById("song3showhide").style.display = "inline-block";
 }
+
+searchInput.addEventListener('input', filterSongs);
+filterSelect.addEventListener('change', filterSongs);
+
 
 
 function filterSongs() {
@@ -156,7 +182,7 @@ function generateSongList(songs) {
     // Add click event listener to play the song
     songContainer.addEventListener('click', () => {
       currentSongIndex = index;
-      loadSong(currentSongIndex);
+      loadSong(currentSongIndex,songs);
       playPause();
     });
 
@@ -174,19 +200,17 @@ function generateSongList(songs) {
 
 
 
-function playNextSong() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length;
-  loadSong(currentSongIndex);
-  audio.play();
-}
+
+
+
 
 // Other code...
 
 // Event listener for the 'ended' event on the <audio> element
 audio.addEventListener('ended', playNextSong);
 
-function loadSong(index) {
-    const song = songs[index];
+function loadSong(index,arraysongs) {
+    const song = arraysongs[index];
   audio.src = song.url;
   songNameElement.textContent = song.name;
   artistNameElement.textContent = song.artist;
@@ -227,22 +251,9 @@ function skip(time) {
   audio.currentTime += time;
 }
 
-function nextSong() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length;
-  loadSong(currentSongIndex);
-  playPause();
-  audio.play();
 
-}
-function prevSong() {
-  currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-  loadSong(currentSongIndex);
-  playPause();
-  audio.play();
 
-}
-searchInput.addEventListener('input', filterSongs);
-filterSelect.addEventListener('change', filterSongs);
+
 
 
 audio.addEventListener('ended', nextSong);
@@ -253,9 +264,15 @@ audio.addEventListener('timeupdate', function() {
 
 // Function to play the next song
 function playNextSong() {
-  currentSongIndex = (currentSongIndex + 1) % songs.length;
-  loadSong(currentSongIndex);
+  currentSongIndex = (currentSongIndex + 1) % arraysongs.length;
+  loadSong(currentSongIndex,arraysongs);
   audio.play();
+}
+
+function nextSong() {
+  currentSongIndex = (currentSongIndex + 1) % Vultures.length;
+  loadSong(currentSongIndex, Vultures);
+  playPause();
 }
 
 // Event listener for the 'ended' event on the <audio> element

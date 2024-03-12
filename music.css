@@ -27,7 +27,8 @@ body {
   border-radius: 50px;  
   margin: 0 auto;
   margin-top: 2.2%;
-  margin-bottom: 2%;
+  margin-bottom: 0%;
+  display: flex;
 }
 
 .app3 {
@@ -110,6 +111,7 @@ body {
   margin-right: 0%;
   padding-bottom: 3%;
   padding-top: 4%;
+  margin-top: 2%;
   text-align: center;
 }
 
