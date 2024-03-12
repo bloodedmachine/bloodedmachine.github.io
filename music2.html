@@ -42,8 +42,11 @@
     <button id="song2showhide" class="button2" onclick="Songs()" style="background-color: black;">
         <h5 style="text-align: center; color: white;">SONGS</h5>
     </button>
-    <button id="song3showhide" class="button2" onclick="" style="background-color: black;">
+    <button id="song3showhide" class="button2" onclick="Albums()"style="background-color: black;">
         <h5 style="text-align: center; color: white;">ALBUMS</h5>
+    </button>
+    <button id="song4showhide" class="button2" onclick="Artists()" onclick="" style="background-color: black;">
+        <h5 style="text-align: center; color: white;">ARTISTS</h5>
     </button>
 </div>
 
@@ -68,9 +71,19 @@
         </div>
     </div>
     </div>
+<div id="albumshowhide" style="display: none;">
+<button class="button3" onclick="VulturesAlbum()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>VULTURES</h6></button>
+<button class="button3" onclick="VulturesAlbum()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>UTOPIA</h6></button>
+</div>
 
-    <div id="musicPlayer" style="display: none;">
+<div id="artistshowhide" style="display: none;">
+    <button class="button3" onclick="VulturesAlbum()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Ye</h6></button>
+    <button class="button3" onclick="VulturesAlbum()"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>Travis Scott</h6></button>
+    </div>
 
+<div id="musicPlayer" style="display: none;">
+    
+    
         <div class="info">
             <h2 id="songName"></h2>
             <h3 id="artistName"></h3>

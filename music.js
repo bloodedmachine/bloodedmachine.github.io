@@ -6,27 +6,42 @@ const songs = [
   
 ];
 
+
+
 const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
 
 toggleBarsCheckbox.addEventListener('change', () => {
     const barsContainer = document.querySelector('.bars');
     var songs2showhide = document.getElementById("song2showhide").style.display;
-    var songshowhide = document.getElementById("songshowhide").style.display;
+    var songs3showhide = document.getElementById("song3showhide").style.display;
+    var songs4showhide = document.getElementById("song4showhide").style.display;
+
+    var songContainer = document.getElementById("songshowhide");
+    var albumContainer = document.getElementById("albumshowhide");
+
+    if (toggleBarsCheckbox.checked) {
 
 
-    Songs();
+      document.getElementById("song2showhide").style.display = "inline-block";
+      document.getElementById("song3showhide").style.display = "inline-block";
+      document.getElementById("song4showhide").style.display = "inline-block";
+      songContainer.style.display = "none";
+      albumContainer.style.display = "none";
 
-    
 
-  if (songs2showhide == "none") {
-    document.getElementById("song2showhide").style.display = "block";
-    
   } else {
-    
+
+
     document.getElementById("song2showhide").style.display = "none";
-    
+    document.getElementById("song3showhide").style.display = "none";
+    document.getElementById("song4showhide").style.display = "none";
+  songContainer.style.display = "inline-block";
+  albumContainer.style.display = "inline-block";
+
+
+
   }
-   // barsContainer.classList.toggle('hidden'); // Toggle the 'hidden' class on the barsContainer div
+
 });
 
 
@@ -52,19 +67,32 @@ function generateSongList(songs) {
 }
 
 function Songs() {
-
-var songsshowhide = document.getElementById("songshowhide").style.display;
-
-  if (songsshowhide == "none") {
-    document.getElementById("songshowhide").style.display = "block";
-    
-  } else {
-    
-    document.getElementById("songshowhide").style.display = "none";
-    
-  }
+  var songContainer = document.getElementById("songshowhide");
+  songContainer.style.display = (songContainer.style.display === "none") ? "block" : "none";
   
+  // Ensure that the buttons appear in line when shown
+  document.getElementById("song2showhide").style.display = "inline-block";
+  document.getElementById("song3showhide").style.display = "inline-block";
 }
+
+function Albums() {
+  var albumContainer = document.getElementById("albumshowhide");
+ albumContainer.style.display = (albumContainer.style.display === "none") ? "block" : "none";
+  
+  // Ensure that the buttons appear in line when shown
+  //document.getElementById("song2showhide").style.display = "inline-block";
+  //document.getElementById("song3showhide").style.display = "inline-block";
+}
+
+function Artists() {
+  var artistsContainer = document.getElementById("artistshowhide");
+ artistsContainer.style.display = (artistsContainer.style.display === "none") ? "block" : "none";
+  
+  // Ensure that the buttons appear in line when shown
+  //document.getElementById("song2showhide").style.display = "inline-block";
+  //document.getElementById("song3showhide").style.display = "inline-block";
+}
+
 
 function filterSongs() {
   const filterBy = filterSelect.value;
@@ -141,6 +169,11 @@ function generateSongList(songs) {
 }
 
 
+
+
+
+
+
 function playNextSong() {
   currentSongIndex = (currentSongIndex + 1) % songs.length;
   loadSong(currentSongIndex);
@@ -208,6 +241,9 @@ function prevSong() {
   audio.play();
 
 }
+searchInput.addEventListener('input', filterSongs);
+filterSelect.addEventListener('change', filterSongs);
+
 
 audio.addEventListener('ended', nextSong);
 
@@ -232,8 +268,11 @@ seekSlider.addEventListener('change', function() {
 
 });
 
-  // Load the first song
-  loadSong(currentSongIndex);
+
+
+
+
+
 
 
 
