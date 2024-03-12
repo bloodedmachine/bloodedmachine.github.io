@@ -55,8 +55,8 @@ let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 const ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
-let ballSpeedX = 20;
-let ballSpeedY = 20;
+let ballSpeedX = 10;
+let ballSpeedY = 10;
 
 function drawPaddle(x, y) {
     ctx.fillStyle = 'white';
@@ -139,8 +139,8 @@ function update() {
     if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
-        // ballSpeedX = ballSpeedX + 2;
-        //ballSpeedY = ballSpeedY + 2;
+         ballSpeedX = ballSpeedX + 2;
+        ballSpeedY = ballSpeedY + 2;
         document.getElementById("score").innerHTML = score;
     }
 
@@ -152,8 +152,8 @@ function update() {
         topPaddleX = canvas.width / 2 - paddleWidth / 2;
         document.getElementById("highscore").innerHTML = score + " IS KAK";
         score = 0;
-        ballSpeedX = 20;
-        ballSpeedY = 20;
+        ballSpeedX = 7;
+        ballSpeedY = 7;
         togglePause()
         document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
@@ -173,9 +173,9 @@ function update() {
 
 function drawBallWithMotionBlur() {
     // Draw multiple semi-transparent copies of the ball at different positions
-    const numBlurFrames = 5; // Adjust the number of blur frames as needed
-    const blurOpacity = 0.4; // Adjust the opacity of the blur effect
-    const blurSpacing = 2; // Adjust the spacing between blur frames
+    const numBlurFrames = 4; // Adjust the number of blur frames as needed
+    const blurOpacity = 0.6; // Adjust the opacity of the blur effect
+    const blurSpacing = 1; // Adjust the spacing between blur frames
 
     for (let i = 0; i < numBlurFrames; i++) {
         // Calculate the position of the ball for this blur frame
@@ -220,7 +220,7 @@ function gameLoop() {
     update();
     draw();
     if (!gamePaused) {
-        setTimeout(gameLoop, 1000 / 1000); // Adjust desiredFPS as needed
+        animationId = requestAnimationFrame(gameLoop);
     }
 }
 
