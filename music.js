@@ -13,9 +13,9 @@ if (!userName) {
     // Store the user's name in local storage
     localStorage.setItem('userName', userName);
 }
-document.getElementById("username").innerText = userName;
 
-
+Usernamecapital = userName.toUpperCase();
+document.getElementById("username").innerText = Usernamecapital;
 
 
 const songs = [
