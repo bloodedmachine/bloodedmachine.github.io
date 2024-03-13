@@ -58,14 +58,8 @@ const searchInput = document.getElementById('searchInput');
 const filterSelect = document.getElementById('filterSelect');
 const songList = document.getElementById('songList');
 
-function generateSongList(songs) {
-  songList.innerHTML = '';
-  songs.forEach(song => {
-    const li = document.createElement('li');
-    li.textContent = `${song.name} - ${song.artist} `;
-    songList.appendChild(li);
-  });
-}
+
+
 
 function Songs() {
   var songContainer = document.getElementById("songshowhide");
@@ -136,11 +130,23 @@ function generateSongList(songs) {
     const songInfo = document.createElement('div');
     songInfo.textContent = `${song.name} - ${song.artist}`;
     songContainer.appendChild(songInfo);
+
+    // Add event listener to play the song when clicked
     songContainer.addEventListener('click', () => {
       currentSongIndex = index;
+      currentsongarray = songs
       loadSong(currentSongIndex, songs);
       playPause();
     });
+
+    // Add a button to play the song after the current one
+    const playAfterButton = document.createElement('button');
+    playAfterButton.textContent = 'Play After';
+    playAfterButton.addEventListener('click', () => {
+      playSongAfter(index);
+    });
+    songContainer.appendChild(playAfterButton);
+
     li.appendChild(songContainer);
     songList.appendChild(li);
   });
@@ -151,6 +157,29 @@ function generateSongList(songs) {
     loadMoreButton.style.display = 'none';
   }
 }
+
+// Variable to store the index of the song to play after the current one finishes
+let currentSongIndexToPlayAfter = -1;
+
+// Function to play a song after the current one finishes
+function playSongAfter(index) {
+  // Set the index of the song to play after the current one finishes
+  currentSongIndexToPlayAfter = index;
+}
+
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', function() {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Load and play the song
+    loadSong(currentSongIndexToPlayAfter, songs);
+    playPause();
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  }
+});
+
+
 
 loadMoreButton.addEventListener('click', () => {
   loadedAllSongs = true;
