@@ -28,7 +28,6 @@ const songs = [
 
 ];
 
-
 const Vultures = [
   { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
   { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
@@ -38,7 +37,6 @@ const Vultures = [
 
 const Utopia = [
   { name: 'TELEKINESIS', artist: 'Travis Scott', albumCover: 'album.png', url: 'Travis Scott - TELEKINESIS (Official Audio) ft. SZA, Future (256 kbps).mp3' },
-
 ];
 
 var currentsongarray = songs;
