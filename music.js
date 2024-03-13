@@ -1,3 +1,23 @@
+// Check if the user's name is already stored in local storage
+let userName = localStorage.getItem('userName');
+
+// If the user's name is not stored, prompt the user to input their name
+if (!userName) {
+    userName = prompt('Please enter your name (3 letters):');
+
+    // Check if the user input is valid (exactly 3 letters)
+    while (!userName || userName.length !== 3) {
+        userName = prompt('Invalid input! Please enter exactly 3 letters for your name:');
+    }
+
+    // Store the user's name in local storage
+    localStorage.setItem('userName', userName);
+}
+document.getElementById("username").innerText = userName;
+
+
+
+
 const songs = [
   { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
   { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
@@ -23,6 +43,7 @@ const Utopia = [
 
 var currentsongarray = songs;
 const loadMoreButton = document.getElementById('loadMoreButton');
+
 let loadedAllSongs = false;
 
 const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
@@ -75,10 +96,13 @@ const songList = document.getElementById('songList');
 function Songs() {
   var songContainer = document.getElementById("songshowhide");
   songContainer.style.display = (songContainer.style.display === "none") ? "block" : "none";
+  loadMoreButton.style.display = (loadMoreButton.style.display === "none") ? "block" : "none";
   document.getElementById("albumshowhide").style.display = "none";
   document.getElementById("artistshowhide").style.display = "none";
   document.getElementById("song2showhide").style.display = "inline-block";
   document.getElementById("song3showhide").style.display = "inline-block";
+
+
 }
 
 function Albums() {
@@ -118,7 +142,7 @@ function filterSongs() {
 
 
 generateSongList(songs);
-
+loadMoreButton.style.display = 'none';
 let currentSongIndex = 0;
 const audio = document.getElementById('audio');
 const seekSlider = document.getElementById('seekSlider');
@@ -153,6 +177,7 @@ function generateSongList(songs) {
     // Add a button to play the song after the current one
     const playAfterButton = document.createElement('button');
     playAfterButton.textContent = 'Play After';
+    playAfterButton.classList.add('play-after-button');
     playAfterButton.addEventListener('click', () => {
       playSongAfter(index);
     });
@@ -162,11 +187,11 @@ function generateSongList(songs) {
     songList.appendChild(li);
   });
 
-  if (!loadedAllSongs && songs.length > 3) {
+  /*if (!loadedAllSongs && songs.length > 3) {
     loadMoreButton.style.display = 'block';
   } else {
     loadMoreButton.style.display = 'none';
-  }
+  }*/
 }
 
 // Variable to store the index of the song to play after the current one finishes
@@ -179,16 +204,27 @@ function playSongAfter(index) {
 }
 
 // Event listener for the 'ended' event on the <audio> element
-audio.addEventListener('ended', function() {
+audio.addEventListener('ended', function () {
   // If there's a song queued up to play after the current one finishes
   if (currentSongIndexToPlayAfter !== -1) {
-    // Load and play the song
+    // Load the song but don't play it yet
     loadSong(currentSongIndexToPlayAfter, songs);
-    playPause();
     // Reset the index to indicate no queued song
     currentSongIndexToPlayAfter = -1;
   }
 });
+
+// Function to play the queued song after the current one finishes
+function playQueuedSong() {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Play the queued song
+    audio.play();
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  }
+}
+
 
 
 
@@ -230,15 +266,10 @@ function playPause() {
     audio.pause();
     document.getElementById("playpause").src = "play.png";
   }
+  // Play the queued song (if any) after toggling play/pause
+  playQueuedSong();
 }
 
-function skip(time) {
-  audio.currentTime += time;
-}
-
-audio.addEventListener('timeupdate', function () {
-  seekSlider.value = audio.currentTime;
-});
 
 function nextSong() {
   currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
@@ -248,6 +279,21 @@ function nextSong() {
 
 audio.addEventListener('ended', playNextSong);
 
-seekSlider.addEventListener('change', function () {
+
+// Event listener for the 'input' event on the seek slider
+seekSlider.addEventListener('input', () => {
   audio.currentTime = seekSlider.value;
 });
+
+// Event listener for the 'timeupdate' event on the <audio> element
+audio.addEventListener('timeupdate', () => {
+  seekSlider.value = audio.currentTime;
+});
+
+// Function to update song information
+function updateSongInfo(name, artist) {
+  document.getElementById('songName').textContent = name;
+  document.getElementById('artistName').textContent = artist;
+}
+
+

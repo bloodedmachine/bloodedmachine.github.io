@@ -11,7 +11,7 @@
 
         <div class="header">
          
-            <h1>MYX</h1>
+            <h1 id="username">MYX</h1>
 
             <div class="container">
                 <input checked="" class="checkbox" type="checkbox" id="toggleBarsCheckbox">
@@ -59,11 +59,12 @@
             <ul id="songList">
             </ul>
 
-            <button id="loadMoreButton" class="button" style="padding-bottom: 6%; margin: 0 auto;"><p>LOAD MORE</p></button>
-
         </div>
         
     </div>
+
+    <button id="loadMoreButton" class="button2" style=" margin: 0 auto; width: fit-content; margin-top: 2%; margin-bottom: 2%;"><h5>LOAD MORE</h5></button>
+
 
     <div id="albumshowhide" style="display: none;">
         <button class="button3" onclick="playAlbum(Vultures)"><img src="album.png" width="100%" style="border-radius: 30px; margin-bottom: 4%;"><h6>VULTURES</h6></button>
@@ -89,6 +90,9 @@
             <button onclick="prevSong()" class="button"><img src="playlast.png" id="playnext" height="70px"></button>
             <button onclick="playPause()" class="button"><img src="play.png" id="playpause" height="100px"></button>
             <button onclick="nextSong()" class="button"><img src="playnext.png" id="playnext" height="70px"></button>
+        </div>
+        <div class="progress-container">
+            <input type="range" id="seekSlider" min="0" value="0" step="1">
         </div>
     </div>
 
