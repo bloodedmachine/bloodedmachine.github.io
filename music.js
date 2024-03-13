@@ -4,13 +4,21 @@ const songs = [
   { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
   { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
   { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
+  { name: 'TELEKINESIS', artist: 'Travis Scott', albumCover: 'album.png', url: 'Travis Scott - TELEKINESIS (Official Audio) ft. SZA, Future (256 kbps).mp3' },
+
 ];
+
 
 const Vultures = [
   { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
   { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
   { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
   { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
+];
+
+const Utopia = [
+  { name: 'TELEKINESIS', artist: 'Travis Scott', albumCover: 'album.png', url: 'Travis Scott - TELEKINESIS (Official Audio) ft. SZA, Future (256 kbps).mp3' },
+
 ];
 
 var currentsongarray = songs;
@@ -38,15 +46,18 @@ toggleBarsCheckbox.addEventListener('change', () => {
   }
 });
 
-function playVulturesSongs() {
-  currentsongarray = Vultures;
+
+
+function playAlbum(Album) {
+  currentsongarray = Album;
   audio.src = '';
   currentSongIndex = 0;
-  loadSong(currentSongIndex, Vultures);
+  loadSong(currentSongIndex, Album);
   audio.play();
   document.getElementById("playpause").src = "pause.png";
   document.getElementById("musicPlayer").style.display = "block";
 }
+
 
 const barsContainer = document.querySelector('.bars');
 window.addEventListener('load', () => {
