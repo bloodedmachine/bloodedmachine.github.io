@@ -2,9 +2,432 @@
 <html lang="en">
 <head>
     <title>MYXIC PLAYER</title>
-    <link rel="stylesheet" href="music.css">
+
 </head>
 
+
+<style>
+
+body {
+
+background-color: rgb(255, 255, 255);
+margin: 0 auto;
+
+
+}
+
+.app {
+border: 1px solid rgb(0, 0, 0);
+display: block;
+
+position: relative;
+width: 97%;
+background-color: rgb(0, 0, 0);
+border-radius: 50px;
+margin: 0 auto;
+margin-top: 2%;
+}
+
+
+.app2 {
+border: 0px solid rgb(189, 189, 189);
+width: 97%;
+color: #000000;
+background-color: rgb(0, 0, 0);
+border-radius: 50px;
+margin: 0 auto;
+margin-top: 2.2%;
+margin-bottom: 0%;
+display: flex;
+}
+
+.app3 {
+border: 0px solid rgb(189, 189, 189);
+width: 97%;
+color: #000000;
+background-color: rgb(0, 0, 0);
+border-radius: 50px;
+margin: 0 auto;
+margin-top: 2.2%;
+margin-bottom: 3%;
+}
+
+.subapp {
+display: flex;
+
+}
+
+.song-container {
+display: flex;
+align-items: center;
+/* Align items vertically */
+
+}
+
+.album-cover {
+max-width: 200px;
+/* Set maximum width */
+max-height: 200px;
+/* Set maximum height */
+margin-right: 40px;
+/* Add some space between album cover and song info */
+border-radius: 30px;
+/* Adjust the radius value to round the corners */
+background-color: white;
+
+
+
+}
+
+.header {
+display: flex;
+justify-content: space-between;
+/* Ensures the button stays at the right */
+align-items: center;
+/* Vertically center the content */
+padding-left: 7%;
+padding-right: 7%;
+margin-top: -8%;
+margin-bottom: -7%;
+}
+
+.button {
+background-color: rgb(0, 0, 0);
+border: rgba(0, 0, 0, 0);
+display: inline-block;
+}
+
+.button2 {
+display: inline-block;
+/* Change display property to inline-block */
+background-color: rgb(0, 0, 0);
+border-width: 0px;
+border-color: rgb(84, 84, 84);
+margin: 0 auto;
+width: 30.5%;
+margin: 2%;
+border-radius: 40px;
+padding: 30px;
+margin-bottom: 0px;
+text-align: center;
+margin-right: 0%;
+}
+
+.button3 {
+display: inline-block;
+/* Change display property to inline-block */
+background-color: rgb(0, 0, 0);
+border-width: 0px;
+margin: 0 auto;
+
+border-color: rgb(84, 84, 84);
+width: 46.7%;
+color: #fff;
+margin: 2%;
+border-radius: 40px;
+padding: 35px;
+margin-bottom: 0px;
+margin-right: 0%;
+padding-bottom: 3%;
+padding-top: 4%;
+margin-top: 2%;
+text-align: center;
+}
+
+
+.buttonsall {
+vertical-align: middle
+}
+
+.songs {
+width: 100%;
+text-align: center;
+color: #fff;
+}
+
+ul {
+list-style-type: none;
+padding: 0px;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+padding-bottom: 4%;
+
+}
+
+ul li {
+
+border-bottom: 0px solid #202020;
+color: #ffffff;
+font-size: 3em;
+padding: 0px;
+padding-bottom: 0%;
+padding-top: 4%;
+width: 93%;
+
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+text-align: left;
+}
+
+@font-face {
+font-family: Font;
+src: url(UtahCondensedBold.ttf);
+}
+
+.info {
+text-align: left;
+padding-left: 5%;
+
+}
+
+p {
+color: white;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 3em;
+}
+
+h1 {
+color: white;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+font-size: 10em;
+margin-left: -1%;
+}
+
+h2 {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+color: rgb(255, 255, 255);
+font-size: 60px;
+}
+
+h3 {
+color: rgb(255, 255, 255);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+font-size: 30px;
+
+
+}
+
+h4 {
+color: white;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+font-size: 30px;
+text-align: center;
+margin-top: 5px;
+}
+
+h5 {
+color: rgb(255, 255, 255);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+font-size: 4em;
+text-align: left;
+padding-left: 0%;
+margin-top: auto;
+margin-bottom: auto;
+padding-bottom: 2%;
+}
+
+h6 {
+color: rgb(255, 255, 255);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+text-align: center;
+font-size: 4em;
+text-align: left;
+padding-left: 0%;
+margin-top: auto;
+margin-bottom: auto;
+padding-bottom: 2%;
+display: block;
+
+}
+
+
+.bars.hidden {
+display: none;
+}
+
+
+
+.container {
+
+position: relative;
+box-sizing: border-box;
+width: fit-content;
+margin-bottom: 0.5%;
+}
+
+.mainbox {
+box-sizing: border-box;
+position: relative;
+width: 400px;
+height: 100px;
+display: flex;
+flex-direction: row-reverse;
+align-items: center;
+justify-content: center;
+border-radius: 200px;
+background-color: rgb(255, 255, 255);
+transition: all 0.2s ease;
+}
+
+.checkbox:focus {
+border: none;
+outline: none;
+}
+
+.checkbox:checked {
+right: 10px;
+}
+
+.checkbox:checked~.mainbox {
+width: 100px;
+}
+
+.checkbox:checked~.mainbox .search_input {
+width: 0;
+height: 0px;
+}
+
+.checkbox:checked~.mainbox .iconContainer {
+padding-right: 8px;
+}
+
+.checkbox {
+box-sizing: border-box;
+width: 100px;
+height: 100px;
+position: absolute;
+border-color: black;
+right: 17px;
+top: 10px;
+z-index: 9;
+cursor: pointer;
+appearance: none;
+}
+
+.search_input {
+box-sizing: border-box;
+height: 100%;
+width: 300px;
+background-color: transparent;
+border: none;
+outline: none;
+padding-bottom: 4px;
+padding-left: 10px;
+font-size: 2em;
+color: rgb(0, 0, 0);
+transition: all 0.3s ease;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search_input::placeholder {
+color: rgba(0, 0, 0, 1);
+}
+
+.iconContainer {
+box-sizing: border-box;
+padding-top: 5px;
+width: fit-content;
+transition: all 0.3s ease;
+}
+
+.search_icon {
+box-sizing: border-box;
+fill: white;
+font-size: 1.3em;
+margin-right: 15px;
+}
+
+
+
+
+
+#musicPlayer {
+position: fixed;
+margin: 0 auto;
+
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 94%;
+background-color: #000000;
+color: white;
+padding: 10px;
+
+text-align: center;
+border-radius: 50px;
+margin-bottom: 2%;
+z-index: 9999;
+/* Ensure it's above other content */
+padding-bottom: 50px;
+max-width: 1000px;
+
+
+
+}
+
+
+
+
+
+.info,
+.buttonsall {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+padding: 0 10%;
+/* Adjust the padding as needed */
+}
+
+.buttonsall .button {
+margin-left: 10px;
+/* Adjust the margin between buttons */
+}
+
+.progress-container {
+width: 102%;
+margin-top: 30px;
+bottom: 0;
+margin-left: -1%;
+margin-bottom: -5%;
+}
+
+input[type="range"] {
+width: 100%;
+margin-left: -0%;
+height: 10px;
+-webkit-appearance: none;
+background-color: #ffffff;
+outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 10px;
+height: 10px;
+background-color: #000;
+cursor: pointer;
+}
+
+
+
+
+.play-after-button {
+position: relative;
+
+right: -10%; /* Adjust the value as needed */
+
+}
+</style>
 <body>
 
     <div class="app" id="app">
@@ -94,7 +517,413 @@
 
     </div>
 
-    <script src="music.js"></script>
+    <script>
+
+        // Check if the user's name is already stored in local storage
+let userName = localStorage.getItem('userName');
+
+// If the user's name is not stored, prompt the user to input their name
+if (!userName) {
+    userName = prompt('Please enter your name (3 letters):');
+
+    // Check if the user input is valid (exactly 3 letters)
+    while (!userName || userName.length !== 3) {
+        userName = prompt('Invalid input! Please enter exactly 3 letters for your name:');
+    }
+
+    // Store the user's name in local storage
+    localStorage.setItem('userName', userName);
+}
+
+Usernamecapital = userName.toUpperCase();
+document.getElementById("username").innerText = Usernamecapital;
+
+
+const songs = [
+  { name: 'FASHION', artist: 'Britney Mason', albumCover: 'album.png', url: 'Britney-Manson-Fashion.mp3' },
+  { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+  { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+  { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+  { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
+  { name: 'TELEKINESIS', artist: 'Travis Scott', albumCover: 'album.png', url: 'Travis Scott - TELEKINESIS (Official Audio) ft. SZA, Future (256 kbps).mp3' },
+
+];
+
+const Vultures = [
+  { name: 'BACK TO ME', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - BACK TO ME (Lyrics) ft. Freddie Gibbs & Quavo (192 kbps).mp3' },
+  { name: 'CARNIVAL', artist: 'Ye', albumCover: 'album.png', url: 'CARNIVAL - Kanye West & Ty Dolla $ign (ft Playboi Carti & Rich The Kid) (lyrics) (192 kbps).mp3' },
+  { name: 'PAPER WORK', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PAPERWORK (Lyrics) ft. Quavo (192 kbps).mp3' },
+  { name: 'PROBLEMATIC', artist: 'Ye', albumCover: 'album.png', url: 'Kanye West & Ty Dolla $ign - PROBLEMATIC (Lyrics) (192 kbps).mp3' },
+];
+
+const Utopia = [
+  { name: 'TELEKINESIS', artist: 'Travis Scott', albumCover: 'album.png', url: 'Travis Scott - TELEKINESIS (Official Audio) ft. SZA, Future (256 kbps).mp3' },
+];
+
+var currentsongarray = songs;
+const loadMoreButton = document.getElementById('loadMoreButton');
+
+let loadedAllSongs = false;
+
+const toggleBarsCheckbox = document.getElementById('toggleBarsCheckbox');
+toggleBarsCheckbox.addEventListener('change', () => {
+  const barsContainer = document.querySelector('.bars');
+  var songContainer = document.getElementById("songshowhide");
+  var albumContainer = document.getElementById("albumshowhide");
+
+  if (toggleBarsCheckbox.checked) {
+    document.getElementById("song2showhide").style.display = "inline-block";
+    document.getElementById("song3showhide").style.display = "inline-block";
+    document.getElementById("song4showhide").style.display = "inline-block";
+    songContainer.style.display = "none";
+    albumContainer.style.display = "none";
+  } else {
+    document.getElementById("song2showhide").style.display = "none";
+    document.getElementById("song3showhide").style.display = "none";
+    document.getElementById("song4showhide").style.display = "none";
+    songContainer.style.display = "flex";
+    albumContainer.style.display = "inline-block";
+  }
+});
+
+
+
+function playAlbum(Album) {
+  currentsongarray = Album;
+  audio.src = '';
+  currentSongIndex = 0;
+  loadSong(currentSongIndex, Album);
+  audio.play();
+  document.getElementById("playpause").src = "pause.png";
+  document.getElementById("musicPlayer").style.display = "block";
+}
+
+
+const barsContainer = document.querySelector('.bars');
+window.addEventListener('load', () => {
+  const barsContainer = document.querySelector('.bars');
+  barsContainer.classList.add('hidden');
+});
+
+const searchInput = document.getElementById('searchInput');
+const filterSelect = document.getElementById('filterSelect');
+const songList = document.getElementById('songList');
+
+
+function Songs() {
+  var songContainer = document.getElementById("songshowhide");
+  songContainer.style.display = (songContainer.style.display === "none") ? "block" : "none";
+  loadMoreButton.style.display = (loadMoreButton.style.display === "none") ? "block" : "none";
+  document.getElementById("albumshowhide").style.display = "none";
+  document.getElementById("artistshowhide").style.display = "none";
+  document.getElementById("song2showhide").style.display = "inline-block";
+  document.getElementById("song3showhide").style.display = "inline-block";
+
+
+}
+
+function Albums() {
+  var albumContainer = document.getElementById("albumshowhide");
+  albumContainer.style.display = (albumContainer.style.display === "none") ? "block" : "none";
+  document.getElementById("songshowhide").style.display = "none";
+  document.getElementById("artistshowhide").style.display = "none";
+  document.getElementById("loadMoreButton").style.display = "none";
+
+}
+
+function Artists() {
+  var artistsContainer = document.getElementById("artistshowhide");
+  artistsContainer.style.display = (artistsContainer.style.display === "none") ? "block" : "none";
+  document.getElementById("songshowhide").style.display = "none";
+  document.getElementById("albumshowhide").style.display = "none";
+  document.getElementById("loadMoreButton").style.display = "none";
+
+}
+
+searchInput.addEventListener('input', filterSongs);
+filterSelect.addEventListener('change', filterSongs);
+
+function filterSongs() {
+  const filterBy = "name";
+  const searchTerm = searchInput.value.toLowerCase();
+  let filteredSongs = songs;
+
+  if (filterBy !== 'all') {
+    filteredSongs = songs.filter(song => {
+      if (filterBy === 'name') {
+        return song.name.toLowerCase().includes(searchTerm);
+      } else if (filterBy === 'artist') {
+        return song.artist.toLowerCase().includes(searchTerm);
+      }
+    });
+  }
+
+  generateSongList(filteredSongs);
+}
+
+
+generateSongList(songs);
+loadMoreButton.style.display = 'none';
+let currentSongIndex = 0;
+const audio = document.getElementById('audio');
+const seekSlider = document.getElementById('seekSlider');
+const songNameElement = document.getElementById('songName');
+const artistNameElement = document.getElementById('artistName');
+
+function generateSongList(songs) {
+  songList.innerHTML = '';
+  const songsToShow = loadedAllSongs ? songs : songs.slice(0, 3);
+
+  songsToShow.forEach((song, index) => {
+    const li = document.createElement('li');
+    const songContainer = document.createElement('div');
+    songContainer.classList.add('song-container');
+    const albumCoverImg = document.createElement('img');
+    albumCoverImg.src = song.albumCover;
+    albumCoverImg.alt = 'Album Cover';
+    albumCoverImg.classList.add('album-cover');
+    songContainer.appendChild(albumCoverImg);
+    const songInfo = document.createElement('div');
+    songInfo.textContent = `${song.name} - ${song.artist}`;
+    songContainer.appendChild(songInfo);
+
+    // Add event listener to play the song when clicked
+    songContainer.addEventListener('click', () => {
+      currentSongIndex = index;
+      currentsongarray = songs
+      loadSong(currentSongIndex, songs);
+      playPause();
+    });
+
+  /* // Add a button to play the song after the current one
+    const playAfterButton = document.createElement('button');
+    playAfterButton.textContent = 'Play After';
+    playAfterButton.classList.add('play-after-button');
+    playAfterButton.addEventListener('click', () => {
+      playSongAfter(index);
+    });
+    songContainer.appendChild(playAfterButton);
+*/
+    li.appendChild(songContainer);
+    songList.appendChild(li);
+  });
+
+  /*if (!loadedAllSongs && songs.length > 3) {
+    loadMoreButton.style.display = 'block';
+  } else {
+    loadMoreButton.style.display = 'none';
+  }*/
+
+  mediaplayer()
+
+  
+}
+
+// Variable to store the index of the song to play after the current one finishes
+let currentSongIndexToPlayAfter = -1;
+
+// Function to play a song after the current one finishes
+function playSongAfter(index) {
+  // Set the index of the song to play after the current one finishes
+  currentSongIndexToPlayAfter = index;
+}
+
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', function () {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Load the song but don't play it yet
+    loadSong(currentSongIndexToPlayAfter, songs);
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  }
+});
+
+// Function to play the queued song after the current one finishes
+function playQueuedSong() {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Play the queued song
+    audio.play();
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  }
+}
+
+
+
+
+loadMoreButton.addEventListener('click', () => {
+  loadedAllSongs = true;
+  generateSongList(songs);
+});
+
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', function () {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Load the song but don't play it yet
+    loadSong(currentSongIndexToPlayAfter, songs);
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  } else {
+    // Otherwise, play the next song in the array
+    playNextSong();
+  }
+});
+
+function playNextSong() {
+  // Increment the current song index
+  currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
+  // Load and play the next song
+  loadSong(currentSongIndex, currentsongarray);
+  playPause();
+}
+function loadSong(index, arraysongs) {
+  const song = arraysongs[index];
+  audio.src = song.url;
+  songNameElement.textContent = song.name;
+  artistNameElement.textContent = song.artist;
+  mediaplayer()
+}
+
+audio.addEventListener('timeupdate', function () {
+  const duration = audio.duration;
+  const currentTime = audio.currentTime;
+  document.getElementById("timeleft").innerHTML = Math.floor(duration - currentTime);
+  if (!isNaN(duration) && !isNaN(currentTime)) {
+    seekSlider.value = (currentTime / duration) * 100;
+  }
+});
+
+seekSlider.addEventListener('input', function () {
+  const duration = audio.duration;
+  const seekTo = duration * (seekSlider.value / 100);
+  audio.currentTime = seekTo;
+});
+
+function playPause() {
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("playpause").src = "pause.png";
+    document.getElementById("musicPlayer").style.display = "block";
+  } else {
+    audio.pause();
+    document.getElementById("playpause").src = "play.png";
+  }
+  // Play the queued song (if any) after toggling play/pause
+  playQueuedSong();
+}
+
+
+function nextSong() {
+  currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
+  loadSong(currentSongIndex, currentsongarray);
+  playPause();
+}
+
+function prevSong() {
+  currentSongIndex = (currentSongIndex - 1) % currentsongarray.length;
+  loadSong(currentSongIndex, currentsongarray);
+  playPause();
+}
+
+audio.addEventListener('ended', playNextSong);
+
+
+
+
+
+
+// Function to update song information
+function updateSongInfo(name, artist) {
+  document.getElementById('songName').textContent = name;
+  document.getElementById('artistName').textContent = artist;
+}
+
+
+
+
+function mediaplayer() {
+  const audio = document.querySelector('audio');
+
+  const songNameElement1 = document.getElementById('songName');
+const artistNameElement1 = document.getElementById('artistName');
+
+
+if ( 'mediaSession' in navigator ) {
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: songNameElement1.textContent,
+    artist: artistNameElement1.textContent,
+    album: 'MYXCHINE',
+    artwork: [
+      { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '96x96', type: 'image/png' },
+      { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '128x128', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '192x192', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '256x256', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '384x384', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '512x512', type: 'image/png' }
+    ]
+  });
+
+  navigator.mediaSession.setActionHandler('pause', () => {
+    audio.pause();
+  });
+  navigator.mediaSession.setActionHandler('play', () => {
+    audio.play();
+  });
+  navigator.mediaSession.setActionHandler('seekbackward', (details) => {
+    currentSongIndex = (currentSongIndex - 1) % currentsongarray.length;
+    loadSong(currentSongIndex, currentsongarray);
+    playPause();
+  });
+  navigator.mediaSession.setActionHandler('seekforward', (details) => {
+    currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
+    loadSong(currentSongIndex, currentsongarray);
+    playPause();
+  });
+  navigator.mediaSession.setActionHandler('previoustrack', () => {
+    //find the index of the audio src in our srcs array to know what src to set next
+    const index = srcs.indexOf(audio.src);
+    
+    //if the current track is not the first, set the src and corresponding title to that of the previous track of the current track
+    if (index !== 0) {
+      audio.src = srcs[index - 1];
+      navigator.mediaSession.metadata.title = titles[index - 1];
+    }
+    
+    //else set the src and title to the last in the arrays because the current track was the first in the album
+    else {
+      audio.src = srcs[2];
+      navigator.mediaSession.metadata.title = titles[2];
+    }
+    
+    //play the previous track
+    audio.play();
+  });
+  navigator.mediaSession.setActionHandler('nexttrack', () => {
+    //find the index of the audio src in our srcs array to know what src to set next
+    const index = srcs.indexOf(audio.src);
+    
+    //if the current track is not the last, set the src and corresponding title to that of the next track of the current track
+    if (index !== 2) {
+      audio.src = srcs[index + 1];
+      navigator.mediaSession.metadata.title = titles[index + 1];
+    }
+    
+    //else set the src and title to the first in the arrays because the current track was the last in the album
+    else {
+      audio.src = srcs[0];
+      navigator.mediaSession.metadata.title = titles[0];
+    }
+    
+    //play the next track
+    audio.play();
+  });
+}
+  
+}
+    </script>
 
 </body>
 
