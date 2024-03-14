@@ -239,6 +239,13 @@ loadMoreButton.addEventListener('click', () => {
 
 audio.addEventListener('ended', playNextSong);
 
+function playNextSong() {
+  // Increment the current song index
+  currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
+  // Load and play the next song
+  loadSong(currentSongIndex, currentsongarray);
+  playPause();
+}
 function loadSong(index, arraysongs) {
   const song = arraysongs[index];
   audio.src = song.url;
