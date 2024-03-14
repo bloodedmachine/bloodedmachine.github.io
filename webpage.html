@@ -1,64 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="webpage.css">
+
     <title>Responsive Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media screen and (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-        }
-    </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>Responsive Webpage</h1>
-        </div>
-
-        <div class="content">
-            <p>This is a simple example of a responsive webpage.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero quis sem aliquam, id congue lacus tincidunt. Maecenas vel justo ac libero convallis tincidunt a eu ligula. Nulla facilisi. Nulla sit amet lectus mi. Duis commodo diam sed justo tincidunt, nec rutrum lectus ullamcorper. Mauris eget tortor eu nunc scelerisque hendrerit nec ut felis. Proin ultricies tellus eget arcu interdum, quis convallis sapien tempor.</p>
-        </div>
-
-        <div class="footer">
-            <p>© 2024 Responsive Webpage. All rights reserved.</p>
+    <div class="header" >
+        <div class="widget">
+            <h1 id="username">MYXCHINE</h1>
         </div>
     </div>
 
+    <button id="song2showhide" class="button2" onclick="Songs()" style="background-color: black;">
+        <h5 style="text-align: center; color: white;">PORTFOLIO</h5>
+    </button>
+    <button id="song3showhide" class="button2" onclick="Albums()"style="background-color: black;">
+        <h5 style="text-align: center; color: white;">ABOUT</h5>
+    </button>
+    <button id="song4showhide" class="button2" onclick="Artists()" onclick="" style="background-color: black;">
+        <h5 style="text-align: center; color: white;">CONTACT</h5>
+    </button>
+    <div class="header" >
+        <div class="widget">
+            <h1 id="username">footer</h1>
+        </div>
+    </div>
+    <div class="header" >
+        <div class="widget" style="text-align: center;">
+            <p id="username" style="margin-top: 5%; text-align: center; margin-bottom: 5%;">© 2023, DUALITY MEDIA & MARKETING AGENCY PORTUGAL CREATED WITH LOVE BY DUALITY</p>
+        </div>
+    </div>
+
+
 </body>
+
 </html>

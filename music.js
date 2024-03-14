@@ -89,8 +89,6 @@ const filterSelect = document.getElementById('filterSelect');
 const songList = document.getElementById('songList');
 
 
-
-
 function Songs() {
   var songContainer = document.getElementById("songshowhide");
   songContainer.style.display = (songContainer.style.display === "none") ? "block" : "none";
@@ -190,6 +188,10 @@ function generateSongList(songs) {
   } else {
     loadMoreButton.style.display = 'none';
   }*/
+
+  mediaplayer()
+
+  
 }
 
 // Variable to store the index of the song to play after the current one finishes
@@ -238,6 +240,7 @@ function loadSong(index, arraysongs) {
   audio.src = song.url;
   songNameElement.textContent = song.name;
   artistNameElement.textContent = song.artist;
+  mediaplayer()
 }
 
 audio.addEventListener('timeupdate', function () {
@@ -295,3 +298,80 @@ function updateSongInfo(name, artist) {
 }
 
 
+
+
+function mediaplayer() {
+  const audio = document.querySelector('audio');
+
+  const songNameElement1 = document.getElementById('songName');
+const artistNameElement1 = document.getElementById('artistName');
+
+
+if ( 'mediaSession' in navigator ) {
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: songNameElement1.textContent,
+    artist: artistNameElement1.textContent,
+    album: 'MYXCHINE',
+    artwork: [
+      { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '96x96', type: 'image/png' },
+      { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '128x128', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '192x192', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '256x256', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '384x384', type: 'image/png' },
+       { src: 'https://assets.codepen.io/4358584/1.300.jpg', sizes: '512x512', type: 'image/png' }
+    ]
+  });
+
+  navigator.mediaSession.setActionHandler('pause', () => {
+    audio.pause();
+  });
+  navigator.mediaSession.setActionHandler('play', () => {
+    audio.play();
+  });
+  navigator.mediaSession.setActionHandler('seekbackward', (details) => {
+    audio.currentTime = audio.currentTime - (details.seekOffset || 10);
+  });
+  navigator.mediaSession.setActionHandler('seekforward', (details) => {
+    audio.currentTime = audio.currentTime + (details.seekOffset || 10);
+  });
+  navigator.mediaSession.setActionHandler('previoustrack', () => {
+    //find the index of the audio src in our srcs array to know what src to set next
+    const index = srcs.indexOf(audio.src);
+    
+    //if the current track is not the first, set the src and corresponding title to that of the previous track of the current track
+    if (index !== 0) {
+      audio.src = srcs[index - 1];
+      navigator.mediaSession.metadata.title = titles[index - 1];
+    }
+    
+    //else set the src and title to the last in the arrays because the current track was the first in the album
+    else {
+      audio.src = srcs[2];
+      navigator.mediaSession.metadata.title = titles[2];
+    }
+    
+    //play the previous track
+    audio.play();
+  });
+  navigator.mediaSession.setActionHandler('nexttrack', () => {
+    //find the index of the audio src in our srcs array to know what src to set next
+    const index = srcs.indexOf(audio.src);
+    
+    //if the current track is not the last, set the src and corresponding title to that of the next track of the current track
+    if (index !== 2) {
+      audio.src = srcs[index + 1];
+      navigator.mediaSession.metadata.title = titles[index + 1];
+    }
+    
+    //else set the src and title to the first in the arrays because the current track was the last in the album
+    else {
+      audio.src = srcs[0];
+      navigator.mediaSession.metadata.title = titles[0];
+    }
+    
+    //play the next track
+    audio.play();
+  });
+}
+  
+}
