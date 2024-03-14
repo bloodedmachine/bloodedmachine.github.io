@@ -106,6 +106,8 @@ function Albums() {
   albumContainer.style.display = (albumContainer.style.display === "none") ? "block" : "none";
   document.getElementById("songshowhide").style.display = "none";
   document.getElementById("artistshowhide").style.display = "none";
+  document.getElementById("loadMoreButton").style.display = "none";
+
 }
 
 function Artists() {
@@ -113,6 +115,8 @@ function Artists() {
   artistsContainer.style.display = (artistsContainer.style.display === "none") ? "block" : "none";
   document.getElementById("songshowhide").style.display = "none";
   document.getElementById("albumshowhide").style.display = "none";
+  document.getElementById("loadMoreButton").style.display = "none";
+
 }
 
 searchInput.addEventListener('input', filterSongs);
@@ -171,13 +175,13 @@ function generateSongList(songs) {
     });
 
     // Add a button to play the song after the current one
-    const playAfterButton = document.createElement('button');
-    playAfterButton.textContent = 'Play After';
-    playAfterButton.classList.add('play-after-button');
-    playAfterButton.addEventListener('click', () => {
-      playSongAfter(index);
-    });
-    songContainer.appendChild(playAfterButton);
+    //const playAfterButton = document.createElement('button');
+    //playAfterButton.textContent = 'Play After';
+    //playAfterButton.classList.add('play-after-button');
+    //playAfterButton.addEventListener('click', () => {
+     // playSongAfter(index);
+    //});
+    //songContainer.appendChild(playAfterButton);
 
     li.appendChild(songContainer);
     songList.appendChild(li);
@@ -278,18 +282,18 @@ function nextSong() {
   playPause();
 }
 
+function prevSong() {
+  currentSongIndex = (currentSongIndex - 1) % currentsongarray.length;
+  loadSong(currentSongIndex, currentsongarray);
+  playPause();
+}
+
 audio.addEventListener('ended', playNextSong);
 
 
-// Event listener for the 'input' event on the seek slider
-seekSlider.addEventListener('input', () => {
-  audio.currentTime = seekSlider.value;
-});
 
-// Event listener for the 'timeupdate' event on the <audio> element
-audio.addEventListener('timeupdate', () => {
-  seekSlider.value = audio.currentTime;
-});
+
+
 
 // Function to update song information
 function updateSongInfo(name, artist) {
@@ -329,10 +333,14 @@ if ( 'mediaSession' in navigator ) {
     audio.play();
   });
   navigator.mediaSession.setActionHandler('seekbackward', (details) => {
-    audio.currentTime = audio.currentTime - (details.seekOffset || 10);
+    currentSongIndex = (currentSongIndex - 1) % currentsongarray.length;
+    loadSong(currentSongIndex, currentsongarray);
+    playPause();
   });
   navigator.mediaSession.setActionHandler('seekforward', (details) => {
-    audio.currentTime = audio.currentTime + (details.seekOffset || 10);
+    currentSongIndex = (currentSongIndex + 1) % currentsongarray.length;
+    loadSong(currentSongIndex, currentsongarray);
+    playPause();
   });
   navigator.mediaSession.setActionHandler('previoustrack', () => {
     //find the index of the audio src in our srcs array to know what src to set next
