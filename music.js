@@ -174,15 +174,15 @@ function generateSongList(songs) {
       playPause();
     });
 
-    // Add a button to play the song after the current one
-    //const playAfterButton = document.createElement('button');
-    //playAfterButton.textContent = 'Play After';
-    //playAfterButton.classList.add('play-after-button');
-    //playAfterButton.addEventListener('click', () => {
-     // playSongAfter(index);
-    //});
-    //songContainer.appendChild(playAfterButton);
-
+  /* // Add a button to play the song after the current one
+    const playAfterButton = document.createElement('button');
+    playAfterButton.textContent = 'Play After';
+    playAfterButton.classList.add('play-after-button');
+    playAfterButton.addEventListener('click', () => {
+      playSongAfter(index);
+    });
+    songContainer.appendChild(playAfterButton);
+*/
     li.appendChild(songContainer);
     songList.appendChild(li);
   });
@@ -237,7 +237,19 @@ loadMoreButton.addEventListener('click', () => {
   generateSongList(songs);
 });
 
-audio.addEventListener('ended', playNextSong);
+// Event listener for the 'ended' event on the <audio> element
+audio.addEventListener('ended', function () {
+  // If there's a song queued up to play after the current one finishes
+  if (currentSongIndexToPlayAfter !== -1) {
+    // Load the song but don't play it yet
+    loadSong(currentSongIndexToPlayAfter, songs);
+    // Reset the index to indicate no queued song
+    currentSongIndexToPlayAfter = -1;
+  } else {
+    // Otherwise, play the next song in the array
+    playNextSong();
+  }
+});
 
 function playNextSong() {
   // Increment the current song index
