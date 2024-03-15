@@ -130,15 +130,16 @@ function update() {
         ballSpeedX = -ballSpeedX; // Reverse horizontal speed if hitting the right wall
     }
 
-    // Ball collision with paddle
-    if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
-        ballSpeedY = -ballSpeedY;
-        score++;
-        ballSize += 2; // Increase ball size
-        ballSpeedX += 2; // Increase ball speed
-        ballSpeedY += 2; // Increase ball speed
-        document.getElementById("score").innerHTML = score;
-    }
+// Ball collision with paddle
+if (ballY + ballSize >= canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
+    ballSpeedY = -ballSpeedY;
+    score++;
+    ballSize += 2; // Increase ball size
+    ballSpeedX += 2; // Increase ball speed
+    ballSpeedY += 2; // Increase ball speed
+    document.getElementById("score").innerHTML = score;
+}
+
 
     // Ball out of bounds (left wall)
     if (ballY + ballSize > canvas.height) {
@@ -150,7 +151,7 @@ function update() {
         score = 0;
         ballSpeedX = 7;
         ballSpeedY = 7;
-       // togglePause()
+        togglePause()
         document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
