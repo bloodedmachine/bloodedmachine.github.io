@@ -139,6 +139,7 @@ function update() {
     if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
+        ballsize = ballsize + 2;
          ballSpeedX = ballSpeedX + 2;
         ballSpeedY = ballSpeedY + 2;
         document.getElementById("score").innerHTML = score;
