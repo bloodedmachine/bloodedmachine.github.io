@@ -71,12 +71,7 @@ function drawPaddle(x, y) {
     ctx.fill();
 }
 
-function drawBall() {
-    ctx.fillStyle = 'white';
-    ctx.beginPath();
-    ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
-    ctx.fill();
-}
+
 
 canvas.addEventListener('mousemove', function (event) {
     const mouseX = event.clientX - canvas.getBoundingClientRect().left;
@@ -139,9 +134,9 @@ function update() {
     if (ballY + ballSize > canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
         ballSpeedY = -ballSpeedY;
         score++;
-        ballSize = ballSize + 2;
-         ballSpeedX = ballSpeedX + 2;
-        ballSpeedY = ballSpeedY + 2;
+        ballSize += 2; // Increase ball size
+        ballSpeedX += 2; // Increase ball speed
+        ballSpeedY += 2; // Increase ball speed
         document.getElementById("score").innerHTML = score;
     }
 
@@ -160,17 +155,15 @@ function update() {
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
     }
-
-
-
-
-
-    // Speed up ball after score reaches 5
-    /*  if (score === 1 && ballSpeedX == 7) {
-          ballSpeedX *= 2; // Increase horizontal speed by 10%
-          ballSpeedY *= 2; // Increase vertical speed by 10%
-      }*/
 }
+
+function drawBall() {
+    ctx.fillStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, ballSize, 0, Math.PI * 2);
+    ctx.fill();
+}
+
 
 function drawBallWithMotionBlur() {
     // Draw multiple semi-transparent copies of the ball at different positions
