@@ -10,11 +10,11 @@ document.getElementById("button-container").style.width = (canvas.width*0.9) + "
 //document.getElementById("button-container").style.height = (canvas.height*0.1) + "px";
 // Create a heading
 // Create a heading
-const heading = document.createElement('h1');
+/*const heading = document.createElement('h1');
 heading.textContent = 'KOK FIGHT';
 heading.style.textAlign = 'center';
 heading.style.color = 'black';
-document.body.insertBefore(heading, canvas);
+document.body.insertBefore(heading, canvas);*/
 
 const generateButton = document.getElementById('generateButton');
 generateButton.onclick = bet;
@@ -23,6 +23,7 @@ generateButton.onclick = bet;
 document.getElementById('balance').textContent = balance;
 
 function bet() {
+    
     const betAmount = parseInt(document.getElementById('betAmount').value);
     if (isNaN(betAmount) || betAmount <= 0) {
         alert('Please enter a valid bet amount.');
@@ -56,3 +57,5 @@ function bet() {
     // Save balance to local storage
     localStorage.setItem('balance', balance.toString());
 }
+
+
