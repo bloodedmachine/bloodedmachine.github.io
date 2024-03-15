@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="https://myxchine.github.io/newlogo3.ico">
+    <title>KOK FIGHT</title>
+    <link rel="stylesheet" href="pong.css">
+    <style>
+        .button-container {
+            position: absolute;
+            top: 78%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            z-index: 99999999;
+        }
+
+        button {
+            font-size: 16px;
+margin-top: 4%;
+            cursor: pointer;
+            border-radius: 50px;
+            color: black;
+            background-color: white;
+            width: 100%;
+
+            padding: 5%;
+            text-align: center;
+            vertical-align: middle;
+            border-width: 0;
+        }
+
+        input[type="number"] {
+            padding: 2%;
+            font-size: 16px;
+            border-radius: 20px;
+            height: 10%;
+            border-width: 0;
+            width: 96.5%;
+            height: 50%;
+
+        }
+
+        .balance {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+            display: inline-block;
+        }
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 200px; /* Width of the radio button */
+            height: 30px; /* Height of the radio button */
+            border-radius: 20px; /* Make it circular */
+            border: 2px solid #ccc; /* Border color */
+            outline: none; /* Remove outline */
+            cursor: pointer; /* Add cursor */
+            margin-right: 5px; /* Margin between radio buttons */
+        }
+
+        /* Style for radio button when checked */
+        input[type="radio"]:checked {
+            background-color: #ffffff; /* Change background color when checked */
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="kokCanvas" width="600" height="400"></canvas>
+    <div class="button-container" id="button-container">
+
+
+
+    <div style="display: inline-block;">
+        <input type="radio" name="color" value="green" checked> <h1></h1>
+        <input type="radio" name="color" value="red"> <h1></h1>
+    </div>  
+
+        <input type="number" id="betAmount" placeholder="ENTER BET..."><br>
+        <button id="generateButton">
+            <h1 style="color: black;">BET</h1>
+        </button>
+    </div>
+    <div class="balance">
+        <h1>$</h1>
+        <h1 id="balance">10000</h1>
+    </div>
+
+    <script src="kokfight.js"></script>
+</body>
+
+</html>
+
+
