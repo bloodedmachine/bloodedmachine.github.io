@@ -1,5 +1,6 @@
 let balance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 10000; // Initial balance retrieved from local storage or set to 10000 if not present
 
+
 const canvas = document.getElementById('kokCanvas');
 const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight * 0.9;
@@ -34,28 +35,117 @@ function bet() {
         return;
     }
 
-    const colorToBetOn = document.querySelector('input[name="color"]:checked').value;
-    const randomNumber = Math.round(Math.random());
+    animate()
+
+
 
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
     ctx.font = '30px Font';
     ctx.textAlign = 'center';
 
-    if ((colorToBetOn === 'green' && randomNumber === 0) || (colorToBetOn === 'red' && randomNumber === 1)) {
-        ctx.fillStyle = 'green';
-        ctx.fillText('You won! Your bet is doubled.', canvas.width / 2, canvas.height / 2);
-        balance += betAmount; // Update balance
-    } else {
-        ctx.fillStyle = 'red';
-        ctx.fillText('You lost! Your bet is gone.', canvas.width / 2, canvas.height / 2);
-        balance -= betAmount; // Update balance
+
+}
+
+
+// Chicken images
+const chicken1 = new Image();
+chicken1.onload = function() {
+    draw(); // Draw the chickens once the image is loaded
+};
+chicken1.src = 'chickenfacingright.png';
+
+const chicken2 = new Image();
+chicken2.onload = function() {
+    draw(); // Draw the chickens once the image is loaded
+};
+chicken2.src = 'chickenfacingleft.png';
+let chickenWidth = 150; // Width of the chicken image
+let chickenHeight = 150; // Height of the chicken image
+// Initial positions
+let chicken1X = (canvas.width - chickenWidth) / 2 - canvas.width / 5; // Centered horizontally
+let chicken2X = (canvas.width - chickenWidth) / 2 + canvas.width / 5; // Adjusted to have space between the chickens
+
+const chickenY = canvas.height * 0.35;
+
+// Draw function
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw chicken 1 with larger size
+    ctx.drawImage(chicken1, chicken1X, chickenY, 150, 150);
+    // Draw chicken 2 with larger size
+    ctx.drawImage(chicken2, chicken2X, chickenY, 150, 150);
+}
+
+// Call draw initially to ensure images are drawn before animation starts
+draw();
+
+// Animation loop
+function animate() {
+    // Move chickens randomly
+    chicken1X += Math.random() * 4 - 1;
+    chicken2X += Math.random() * 4 - 3;
+
+    draw(); // Redraw the chickens in their new positions
+
+    // Check for collision
+    if (Math.abs(chicken1X - chicken2X) < 10) {
+        fight();
+        return;
     }
 
-    // Update balance display
+    requestAnimationFrame(animate);
+}
+
+    // Fight function
+    function fight() {
+
+        const betAmount = parseInt(document.getElementById('betAmount').value);
+        if (isNaN(betAmount) || betAmount <= 0) {
+            alert('Please enter a valid bet amount.');
+            return;
+        }
+        if (betAmount > balance) {
+            alert('You do not have enough balance.');
+            return;
+        }
+        const winner = Math.random() < 0.5 ? 1 : 2;
+
+
+        const colorToBetOn = document.querySelector('input[name="color"]:checked').value;
+        const randomNumber = Math.round(Math.random());
+
+
+        if (winner == 1) {
+            ctx.fillStyle = 'white';
+            ctx.fillText('CHICKEN 1 WON', canvas.width / 2, canvas.height / 4);
+
+        } else {
+            ctx.fillStyle = 'white';
+            ctx.fillText('CHICKEN 2 WON', canvas.width / 2, canvas.height / 4);
+        }
+
+        if ((colorToBetOn === 'green' && winner === 1) || (colorToBetOn === 'red' && randomNumber === 1)) {
+            ctx.fillStyle = 'green';
+            ctx.fillText('You won! Your bet has been doubled.', canvas.width / 2, canvas.height / 3);
+            balance += betAmount; // Update balance
+chicken1X = (canvas.width - chickenWidth) / 2 - canvas.width / 5; // Centered horizontally
+chicken2X = (canvas.width - chickenWidth) / 2 + canvas.width / 5; // Adjusted to have space between the chickens
+
+        } else {
+            ctx.fillStyle = 'red';
+            ctx.fillText('You lost! Your bet is gone.', canvas.width / 2, canvas.height / 3);
+            balance -= betAmount; // Update balance
+
+chicken1X = (canvas.width - chickenWidth) / 2 - canvas.width / 5; // Centered horizontally
+chicken2X = (canvas.width - chickenWidth) / 2 + canvas.width / 5; // Adjusted to have space between the chickens
+
+        }
+
+            // Update balance display
     document.getElementById('balance').textContent = balance;
 
     // Save balance to local storage
     localStorage.setItem('balance', balance.toString());
-}
+      }
 
-
+  
