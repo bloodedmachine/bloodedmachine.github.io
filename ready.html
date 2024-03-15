@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +7,7 @@
     <link rel="icon" type="image/x-icon" href="https://myxchine.github.io/logo1.ico">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body id="body" onclick="Click(); AllNames();">
-
     <div class="logo">
         <center>
             <a href="https://myxchine.github.io">
@@ -18,7 +15,6 @@
             </a>
         </center>
     </div>
-
     <div class="center">
         <div class="center1">
             <select id="ChooseClass" onchange="ClassChange()">
@@ -113,17 +109,12 @@
                 document.getElementById("StudentName").innerHTML = "CLICK TO RESTART";
                 document.getElementById("text").innerHTML = "ALL NAMES HAVE BEEN USED";
                 studentsdisplayed.fill(false);
-                var body = document.body;
-                var studentName = document.getElementById("StudentName");
-                var text = document.getElementById("text");
-                var chooseClass = document.getElementById("ChooseClass");
-                var logo = document.getElementById("logo");
-                body.style.backgroundColor = body.style.backgroundColor === "white" ? "black" : "white";
-                studentName.style.color = studentName.style.color === "white" ? "black" : "white";
-                text.style.color = text.style.color === "white" ? "black" : "white";
-                chooseClass.style.color = chooseClass.style.color === "black" ? "white" : "black";
-                chooseClass.style.backgroundColor = chooseClass.style.backgroundColor === "white" ? "black" : "white";
-                logo.src = logo.src === "https://myxchine.github.io/newlogo2.png" ? "https://myxchine.github.io/newlogo3.png" : "https://myxchine.github.io/newlogo2.png";
+                document.body.style.backgroundColor = document.body.style.backgroundColor === "white" ? "black" : "white";
+                document.getElementById("StudentName").style.color = document.getElementById("StudentName").style.color === "white" ? "black" : "white";
+                document.getElementById("text").style.color = document.getElementById("text").style.color === "white" ? "black" : "white";
+                document.getElementById("ChooseClass").style.color = document.getElementById("ChooseClass").style.color === "black" ? "white" : "black";
+                document.getElementById("ChooseClass").style.backgroundColor = document.getElementById("ChooseClass").style.backgroundColor === "white" ? "black" : "white";
+                document.getElementById("logo").src = document.getElementById("logo").src === "https://myxchine.github.io/newlogo2.png" ? "https://myxchine.github.io/newlogo3.png" : "https://myxchine.github.io/newlogo2.png";
             } else {
                 Random();
             }
@@ -138,5 +129,4 @@
         }
     </script>
 </body>
-
 </html>
