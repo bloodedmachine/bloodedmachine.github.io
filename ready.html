@@ -1,132 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MY READY PLAYER ONE</title>
+    
     <link rel="icon" type="image/x-icon" href="https://myxchine.github.io/logo1.ico">
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="body" onclick="Click(); AllNames();">
+
+<body id="body" onclick="Click() ; AllNames() ">
+
     <div class="logo">
+
         <center>
             <a href="https://myxchine.github.io">
-                <img class="img" src="https://myxchine.github.io/newlogo2.png" alt="LOGO" id="logo">
+            <img class="img" src="https://myxchine.github.io/newlogo2.png" alt="LOGO" id="logo">
             </a>
         </center>
     </div>
+
     <div class="center">
+
         <div class="center1">
+
             <select id="ChooseClass" onchange="ClassChange()">
                 <option disabled selected>CHOOSE A CLASS</option>
-                <option value="YEAR 13">YEAR 13</option>
-                <option value="YEAR 13 IT">YEAR 13 IT</option>
-                <option value="YEAR 13 PHYSICS">YEAR 13 PHYSICS</option>
-                <option value="YEAR 13 ENGLISH">YEAR 13 ENGLISH</option>
-                <option value="YEAR 13 FRENCH">YEAR 13 FRENCH</option>
+                <option>YEAR 13</option>
+                <option>YEAR 13 IT</option>
+                <option>YEAR 13 PHYSICS</option>
+                <option>YEAR 13 ENGLISH</option>
+                <option>YEAR 13 FRENCH</option>
             </select>
+
         </div>
-        <h1 id="StudentName" style="color: white;">CHOOSE TO START</h1>
+
+        <h1 id="Student Name" style="color: white;">CHOOSE TO START</h1>
         <br><br>
         <p id="text">CLICK ANYWHERE</p>
+
     </div>
 
     <script>
-        var students = [];
-        var studentsdisplayed = [];
+
         var ChooseClassValue = "CHOOSE A CLASS";
-        var minvalue = 0;
-        var maxvalue = 0;
-        var CheckDigit = 0;
+
+
+        students = [""];
+        studentsdisplayed = [];
+
+
+        let dropdownList = document.getElementById('ChooseClass');
 
         function ClassChange() {
-            var dropdownList = document.getElementById('ChooseClass');
             ChooseClassValue = dropdownList.value;
 
-            switch (ChooseClassValue) {
-                case "YEAR 13":
-                    minvalue = 0;
-                    maxvalue = 18;
-                    CheckDigit = 19;
-                    students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM"];
-                    studentsdisplayed = Array(students.length).fill(false);
-                    break;
+            if (ChooseClassValue == "YEAR 13") {
 
-                case "YEAR 13 IT":
-                    minvalue = 0;
-                    maxvalue = 2;
-                    CheckDigit = 3;
-                    students = ["GUI", "MICHAEL", "SOFIA"];
-                    studentsdisplayed = Array(students.length).fill(false);
-                    break;
+                minvalue = 0
+                maxvalue = 18
+                CheckDigit = 19
 
-                case "YEAR 13 PHYSICS":
-                    minvalue = 0;
-                    maxvalue = 5;
-                    CheckDigit = 6;
-                    students = ["LUCA", "MICHAEL", "SAM", "BERNARDO", "KIANA", "ALEJANDRA"];
-                    studentsdisplayed = Array(students.length).fill(false);
-                    break;
+                students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
+                studentsdisplayed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+                ClassIndexAllNames = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false"
+                ClassIndexChooseClassFunction = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true"
 
-                case "YEAR 13 FRENCH":
-                    minvalue = 0;
-                    maxvalue = 2;
-                    CheckDigit = 3;
-                    students = ["LENA", "DANIELA", "LAUREN"];
-                    studentsdisplayed = Array(students.length).fill(false);
-                    break;
 
-                case "YEAR 13 ENGLISH":
-                    minvalue = 0;
-                    maxvalue = 2;
-                    CheckDigit = 3;
-                    students = ["LENA", "SOFIA", "LAUREN"];
-                    studentsdisplayed = Array(students.length).fill(false);
-                    break;
 
-                default:
-                    students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
-                    studentsdisplayed = Array(1).fill(false);
-                    break;
+            } else {
+
+                if (ChooseClassValue == "YEAR 13 IT") {
+
+                    minvalue = 0
+                    maxvalue = 2
+                    CheckDigit = 3
+
+                    students = ["GUI", "MICHAEL", "SOFIA", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true"
+
+
+                } else {
+
+
+                    if (ChooseClassValue == "YEAR 13 PHYSICS") {
+
+                    minvalue = 0
+                    maxvalue = 5
+                    CheckDigit = 6
+
+                    students = ["LUCA", "MICHAEL", "SAM", "BERNARDO", "KIANA", "ALEJANDRA", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false, false,false,false];
+                    ClassIndexAllNames = "true,true,true,true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true,true,true,true"
+
+
+
+                    } else {
+
+                        if (ChooseClassValue == "YEAR 13 FRENCH") {
+
+                    minvalue = 0
+                    maxvalue = 2
+                    CheckDigit = 3
+
+                    students = ["LENA", "DANIELA", "LAUREN", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true"
+
+                        } else {
+
+                            if (ChooseClassValue == "YEAR 13 ENGLISH") {
+                     minvalue = 0
+                    maxvalue = 2
+                    CheckDigit = 3
+
+                    students = ["LENA", "SOFIA", "LAUREN", "CheckDigit"];
+                    studentsdisplayed = [false, false, false, false];
+                    ClassIndexAllNames = "true,true,true,false"
+                    ClassIndexChooseClassFunction = "true,true,true,true"
+
+                                
+                            } else {
+
+                        students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
+                        studentsdisplayed = [false];
+                        ClassIndexAllNames = "true,true,true,false"
+                        ClassIndexChooseClassFunction = "true,true,true,true"
+                                
+                            }
+                            
+                        }
+
+
+
+                    }
+
+
+
+
+                }
+
             }
+
+
+        }
+
+
+
+        var Student = "Student"
+        document.getElementById("Student Name").innerHTML = STUDENT;
+
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
         }
 
         function Random() {
-            const rndInt = Math.floor(Math.random() * (maxvalue - minvalue + 1) + minvalue);
+            const rndInt = randomIntFromInterval(minvalue, maxvalue)
             document.getElementById("text").innerHTML = "CLICK ANYWHERE";
+
             if (studentsdisplayed[rndInt] == false) {
-                document.getElementById("StudentName").innerHTML = students[rndInt];
+                Student = students[rndInt];
                 studentsdisplayed[rndInt] = true;
+                document.getElementById("Student Name").innerHTML = Student;
             } else {
-                Random();
+                Random()
             }
         }
 
         function Click() {
-            if (studentsdisplayed.every(function (val, i) {
-                    return val === (i < CheckDigit);
-                })) {
-                document.getElementById("StudentName").innerHTML = "CLICK TO RESTART";
+
+
+            if (studentsdisplayed.toString() == ClassIndexChooseClassFunction) {
+
+                document.getElementById("Student Name").innerHTML = "CLICK TO RESTART";
+
                 document.getElementById("text").innerHTML = "ALL NAMES HAVE BEEN USED";
+
                 studentsdisplayed.fill(false);
-                document.body.style.backgroundColor = document.body.style.backgroundColor === "white" ? "black" : "white";
-                document.getElementById("StudentName").style.color = document.getElementById("StudentName").style.color === "white" ? "black" : "white";
-                document.getElementById("text").style.color = document.getElementById("text").style.color === "white" ? "black" : "white";
-                document.getElementById("ChooseClass").style.color = document.getElementById("ChooseClass").style.color === "black" ? "white" : "black";
-                document.getElementById("ChooseClass").style.backgroundColor = document.getElementById("ChooseClass").style.backgroundColor === "white" ? "black" : "white";
-                document.getElementById("logo").src = document.getElementById("logo").src === "https://myxchine.github.io/newlogo2.png" ? "https://myxchine.github.io/newlogo3.png" : "https://myxchine.github.io/newlogo2.png";
+
+                if (document.getElementById("Student Name").style.color == "white") {
+                    document.getElementById("Student Name").style.color = "black";
+                    document.getElementById("text").style.color = "black";
+                    document.body.style.backgroundColor = "white";
+                    document.getElementById("ChooseClass").style.color = "white";
+                    document.getElementById("ChooseClass").style.backgroundColor = "black";
+                    document.getElementById("logo").src="https://myxchine.github.io/newlogo3.png";
+                } else {
+                    document.getElementById("Student Name").style.color = "white";
+                    document.getElementById("text").style.color = "white";
+                    document.body.style.backgroundColor = "black";
+                    document.getElementById("ChooseClass").style.color = "black";
+                    document.getElementById("ChooseClass").style.backgroundColor = "white";
+                    document.getElementById("logo").src="https://myxchine.github.io/newlogo2.png";
+                }
+
             } else {
-                Random();
+                Random()
             }
+
         }
 
         function AllNames() {
-            if (studentsdisplayed.every(function (val, i) {
-                    return val === (i < CheckDigit);
-                })) {
+
+            if (studentsdisplayed.toString() == ClassIndexAllNames) {
+
+
                 studentsdisplayed[CheckDigit] = true;
+
+
             }
         }
+
     </script>
 </body>
+
 </html>
