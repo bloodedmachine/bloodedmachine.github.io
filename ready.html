@@ -51,102 +51,68 @@
 
         let dropdownList = document.getElementById('ChooseClass');
 
-        function ClassChange() {
-            ChooseClassValue = dropdownList.value;
+  function ClassChange() {
+    ChooseClassValue = dropdownList.value;
 
-            if (ChooseClassValue == "YEAR 13") {
+    switch (ChooseClassValue) {
+        case "YEAR 13":
+            minvalue = 0;
+            maxvalue = 18;
+            CheckDigit = 19;
+            students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
+            studentsdisplayed = Array(students.length).fill(false);
+            ClassIndexAllNames = "true,".repeat(students.length - 1) + "false";
+            ClassIndexChooseClassFunction = "true,".repeat(students.length);
+            break;
 
-                minvalue = 0
-                maxvalue = 18
-                CheckDigit = 19
+        case "YEAR 13 IT":
+            minvalue = 0;
+            maxvalue = 2;
+            CheckDigit = 3;
+            students = ["GUI", "MICHAEL", "SOFIA", "CheckDigit"];
+            studentsdisplayed = Array(students.length).fill(false);
+            ClassIndexAllNames = "true,".repeat(students.length - 1) + "false";
+            ClassIndexChooseClassFunction = "true,".repeat(students.length);
+            break;
 
-                students = ["MICHAEL", "CATARINA", "ALEJANDRA", "ANAIS", "DANIELA", "KIANA", "BEA", "BERNARDO", "LAUREN", "LUISA", "MARIANA", "TARUSHI", "GUI", "SOFIA A", "SOFIA M", "LENA", "ADAM", "LUCA", "SAM", "CheckDigit"];
-                studentsdisplayed = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-                ClassIndexAllNames = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false"
-                ClassIndexChooseClassFunction = "true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true"
+        case "YEAR 13 PHYSICS":
+            minvalue = 0;
+            maxvalue = 5;
+            CheckDigit = 6;
+            students = ["LUCA", "MICHAEL", "SAM", "BERNARDO", "KIANA", "ALEJANDRA", "CheckDigit"];
+            studentsdisplayed = Array(students.length).fill(false);
+            ClassIndexAllNames = "true,".repeat(students.length - 1) + "false";
+            ClassIndexChooseClassFunction = "true,".repeat(students.length);
+            break;
 
+        case "YEAR 13 FRENCH":
+            minvalue = 0;
+            maxvalue = 2;
+            CheckDigit = 3;
+            students = ["LENA", "DANIELA", "LAUREN", "CheckDigit"];
+            studentsdisplayed = Array(students.length).fill(false);
+            ClassIndexAllNames = "true,".repeat(students.length - 1) + "false";
+            ClassIndexChooseClassFunction = "true,".repeat(students.length);
+            break;
 
+        case "YEAR 13 ENGLISH":
+            minvalue = 0;
+            maxvalue = 2;
+            CheckDigit = 3;
+            students = ["LENA", "SOFIA", "LAUREN", "CheckDigit"];
+            studentsdisplayed = Array(students.length).fill(false);
+            ClassIndexAllNames = "true,".repeat(students.length - 1) + "false";
+            ClassIndexChooseClassFunction = "true,".repeat(students.length);
+            break;
 
-            } else {
-
-                if (ChooseClassValue == "YEAR 13 IT") {
-
-                    minvalue = 0
-                    maxvalue = 2
-                    CheckDigit = 3
-
-                    students = ["GUI", "MICHAEL", "SOFIA", "CheckDigit"];
-                    studentsdisplayed = [false, false, false, false];
-                    ClassIndexAllNames = "true,true,true,false"
-                    ClassIndexChooseClassFunction = "true,true,true,true"
-
-
-                } else {
-
-
-                    if (ChooseClassValue == "YEAR 13 PHYSICS") {
-
-                    minvalue = 0
-                    maxvalue = 5
-                    CheckDigit = 6
-
-                    students = ["LUCA", "MICHAEL", "SAM", "BERNARDO", "KIANA", "ALEJANDRA", "CheckDigit"];
-                    studentsdisplayed = [false, false, false, false, false,false,false];
-                    ClassIndexAllNames = "true,true,true,true,true,true,false"
-                    ClassIndexChooseClassFunction = "true,true,true,true,true,true,true"
-
-
-
-                    } else {
-
-                        if (ChooseClassValue == "YEAR 13 FRENCH") {
-
-                    minvalue = 0
-                    maxvalue = 2
-                    CheckDigit = 3
-
-                    students = ["LENA", "DANIELA", "LAUREN", "CheckDigit"];
-                    studentsdisplayed = [false, false, false, false];
-                    ClassIndexAllNames = "true,true,true,false"
-                    ClassIndexChooseClassFunction = "true,true,true,true"
-
-                        } else {
-
-                            if (ChooseClassValue == "YEAR 13 ENGLISH") {
-                     minvalue = 0
-                    maxvalue = 2
-                    CheckDigit = 3
-
-                    students = ["LENA", "SOFIA", "LAUREN", "CheckDigit"];
-                    studentsdisplayed = [false, false, false, false];
-                    ClassIndexAllNames = "true,true,true,false"
-                    ClassIndexChooseClassFunction = "true,true,true,true"
-
-                                
-                            } else {
-
-                        students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
-                        studentsdisplayed = [false];
-                        ClassIndexAllNames = "true,true,true,false"
-                        ClassIndexChooseClassFunction = "true,true,true,true"
-                                
-                            }
-                            
-                        }
-
-
-
-                    }
-
-
-
-
-                }
-
-            }
-
-
-        }
+        default:
+            students = ["CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS", "CHOOSE A CLASS"];
+            studentsdisplayed = [false];
+            ClassIndexAllNames = "true,false,false,false";
+            ClassIndexChooseClassFunction = "true,true,true,true";
+            break;
+    }
+}
 
 
 
