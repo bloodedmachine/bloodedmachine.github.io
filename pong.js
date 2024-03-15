@@ -150,7 +150,7 @@ function update() {
         score = 0;
         ballSpeedX = 7;
         ballSpeedY = 7;
-        togglePause()
+       // togglePause()
         document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
