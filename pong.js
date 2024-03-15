@@ -52,7 +52,7 @@ const paddleHeight = paddleWidth * 0.3;
 //const paddleHeight = 1;
 let topPaddleX = canvas.width / 2 - paddleWidth / 2;
 
-const ballSize = paddleWidth * 0.25;
+let ballSize = paddleWidth * 0.25;
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
 let ballSpeedX = 10;
