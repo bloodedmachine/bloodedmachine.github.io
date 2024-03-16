@@ -1,6 +1,5 @@
 let balance = localStorage.getItem('balance') ? parseInt(localStorage.getItem('balance')) : 10000; // Initial balance retrieved from local storage or set to 10000 if not present
 
-
 const canvas = document.getElementById('kokCanvas');
 const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight * 0.9;
@@ -8,6 +7,9 @@ canvas.width = (window.innerHeight * 0.9) / (16 / 9);
 document.getElementById("kokCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
 document.getElementById("kokCanvas").style.borderRadius = window.innerHeight * 0.05 + "px";
 document.getElementById("button-container").style.width = (canvas.width * 0.9) + "px";
+document.getElementById("chickenselect").style.height = (canvas.height * 0.07) + "px";
+document.getElementById("chickenselect").style.width = (canvas.width * 0.9) + "px";
+
 //document.getElementById("button-container").style.height = (canvas.height*0.1) + "px";
 // Create a heading
 // Create a heading
@@ -25,15 +27,6 @@ document.getElementById('balance').textContent = balance;
 
 function bet() {
 
-    const betAmount = parseInt(document.getElementById('betAmount').value);
-    if (isNaN(betAmount) || betAmount <= 0) {
-        alert('Please enter a valid bet amount.');
-        return;
-    }
-    if (betAmount > balance) {
-        alert('You do not have enough balance.');
-        return;
-    }
 
     animate()
 
@@ -96,18 +89,29 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+// Get all radio buttons with name "bet"
+const radioButtons = document.querySelectorAll('input[name="bet"]');
+
+let selectedValue = 0.25; // Initialize selectedValue
+
+// Add event listener to each radio button
+radioButtons.forEach(function(radioButton) {
+    radioButton.addEventListener('change', function() {
+        if (this.checked) {
+            // Update selectedValue when a radio button is selected
+            selectedValue = this.value;
+           
+        }
+    });
+});
+
+
 // Fight function
 function fight() {
 
-    const betAmount = parseInt(document.getElementById('betAmount').value);
-    if (isNaN(betAmount) || betAmount <= 0) {
-        alert('Please enter a valid bet amount.');
-        return;
-    }
-    if (betAmount > balance) {
-        alert('You do not have enough balance.');
-        return;
-    }
+
+
+
     const winner = Math.random() < 0.5 ? 1 : 2;
 
 
@@ -128,14 +132,14 @@ function fight() {
     if ((colorToBetOn === 'chicken1' && winner === 1) || (colorToBetOn === 'chicken2' && randomNumber === 1)) {
         ctx.fillStyle = 'green';
         ctx.fillText('You won! Your bet has been doubled.', canvas.width / 2, canvas.height / 3);
-        balance += betAmount; // Update balance
+        balance +=  Math.floor(balance*selectedValue); // Update balance
         chicken1X = (canvas.width - chickenWidth) / 2 - canvas.width / 5; // Centered horizontally
         chicken2X = (canvas.width - chickenWidth) / 2 + canvas.width / 5; // Adjusted to have space between the chickens
 
     } else {
         ctx.fillStyle = 'red';
         ctx.fillText('You lost! Your bet is gone.', canvas.width / 2, canvas.height / 3);
-        balance -= betAmount; // Update balance
+        balance -= Math.floor(balance*selectedValue);// Update balance
 
         chicken1X = (canvas.width - chickenWidth) / 2 - canvas.width / 5; // Centered horizontally
         chicken2X = (canvas.width - chickenWidth) / 2 + canvas.width / 5; // Adjusted to have space between the chickens
