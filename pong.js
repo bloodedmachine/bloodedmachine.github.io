@@ -156,8 +156,9 @@ if (ballY + ballSize >= canvas.height - paddleHeight - paddleHeight * 1 && ballX
         score = 0;
         ballSpeedX = 7;
         ballSpeedY = 7;
+        ballSize = paddleWidth * 0.25;
         //togglePause()
-        document.getElementById("score").style.display = "none"
+       // document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
     }
