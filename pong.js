@@ -134,9 +134,13 @@ function update() {
 if (ballY + ballSize >= canvas.height - paddleHeight - paddleHeight * 1 && ballX > topPaddleX && ballX < topPaddleX + paddleWidth) {
     ballSpeedY = -ballSpeedY;
     score++;
-    ballSize += 2; // Increase ball size
-    ballSpeedX += 2; // Increase ball speed
-    ballSpeedY += 2; // Increase ball speed
+
+    if (ballSize < 50){
+          ballSize += 2; // Increase ball size
+    }
+  
+    ballSpeedX += 1; // Increase ball speed
+    ballSpeedY += 1; // Increase ball speed
     document.getElementById("score").innerHTML = score;
      drawBall(); // Redraw the ball after hitting the paddle
 }
