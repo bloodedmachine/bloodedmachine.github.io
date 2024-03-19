@@ -135,7 +135,7 @@ if (ballY + ballSize >= canvas.height - paddleHeight - paddleHeight * 1 && ballX
     ballSpeedY = -ballSpeedY;
     score++;
 
-    if (ballSize < 50){
+    if (ballSize < 200){
           ballSize += 2; // Increase ball size
     }
   
@@ -158,7 +158,7 @@ if (ballY + ballSize >= canvas.height - paddleHeight - paddleHeight * 1 && ballX
         ballSpeedY = 7;
         ballSize = paddleWidth * 0.25;
         //togglePause()
-       // document.getElementById("score").style.display = "none"
+      // document.getElementById("score").style.display = "none"
        // document.getElementById("pauseBtn").innerHTML = "TRY AGAIN"
         document.getElementById("score").innerHTML = score;
     }
