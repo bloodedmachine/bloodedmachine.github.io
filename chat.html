@@ -2,15 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
- <title>Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LELE CHAT</title>
   <link rel="stylesheet" href="chat.css">
 </head>
 <body>
-  <div id="chat-container">
-    <div id="chat-output"></div>
-    <input type="text" id="message-input" placeholder="Enter your message...">
-    <button id="send-btn">Send</button>
+
+  <div class="main">
+    <div class="namehead">
+      <input class="name" id="player-name" maxlength="10" type="text" placeholder="Your Name">
+
+    </div>
+
+  <div class="header">
+    <div class="gif">
+    </div>
   </div>
-  <script src="chat.js"></script>
+
+
+<div class="chat-container">
+  <!-- Chat messages will be displayed here -->
+</div>
+<div class="footer">
+
+
+  <input class="input" id="message-input" type="text" placeholder="what's up...">
+  <button  class="button" id="send-message">Send</button>
+</div>
+
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script>
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDxRAPb_PpWhsAp0DfvcT9cP13NKKTWzXg",
+  authDomain: "lockin-study.firebaseapp.com",
+  databaseURL:
+    "https://lockin-study-default-rtdb.europe-west1.firebasedatabase.app",
+
+  projectId: "lockin-study",
+  storageBucket: "lockin-study.appspot.com",
+  messagingSenderId: "257083557952",
+  appId: "1:257083557952:web:604b3c2829e1f73b5f37a5",
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="app.js"></script>
 </body>
 </html>
